@@ -1,0 +1,326 @@
+[
+  {
+    "week": "Week of April 1st",
+    "date": "2024-04-01",
+    "days": [
+      {
+        "day": "Monday",
+        "lunch": {
+          "id": 1,
+          "title": "Grilled Chicken and Spinach Salad",
+          "description": "A nutritious salad with grilled chicken, spinach, apple, beets, pecan, and quinoa.",
+          "photos": ["https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"]
+        },
+        "dinner": {
+          "id": 2,
+          "title": "Salmon with Purple Potatoes",
+          "description": "Delicious salmon served with purple potatoes and steamed carrots and broccoli.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Tuesday",
+        "lunch": {
+          "id": 3,
+          "title": "Garbanzo Bean Salad",
+          "description": "A refreshing salad with garbanzo beans and optional meat.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 4,
+          "title": "Organic Grass Fed Ground Beef Zucchini Rice Bowl",
+          "description": "A flavorful bowl featuring organic grass-fed ground beef, zucchini, and rice.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Wednesday",
+        "lunch": {
+          "id": 5,
+          "title": "Grilled Chicken Taco Style Salad",
+          "description": "Taco-inspired salad featuring grilled chicken.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 6,
+          "title": "Turkey Kabobs with Turmeric Rice and Grilled Veggies",
+          "description": "Succulent turkey kabobs served with turmeric rice and grilled vegetables.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Thursday",
+        "lunch": {
+          "id": 7,
+          "title": "Chicken Satay Bowl",
+          "description": "A bowl featuring chicken satay.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 8,
+          "title": "Steak Fajita Bowl",
+          "description": "Sizzling steak fajitas served in a bowl.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Friday",
+        "lunch": {
+          "id": 9,
+          "title": "Lemon Pepper Chicken Wrap",
+          "description": "A tasty wrap filled with lemon pepper chicken.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 10,
+          "title": "Veggie Soup with Mini Chicken Meatballs",
+          "description": "A comforting vegetable soup with mini chicken meatballs.",
+          "photos": []
+        }
+      }
+    ]
+  },
+  {
+    "week": "Week of April 8th",
+    "date": "2024-04-08",
+    "days": [
+      {
+        "day": "Monday",
+        "lunch": {
+          "id": 11,
+          "title": "Roasted Glow Bowl",
+          "description": "A vibrant bowl featuring roasted ingredients.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 12,
+          "title": "Sweet Spicy Salmon Bowl",
+          "description": "A bowl featuring sweet and spicy salmon.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Tuesday",
+        "lunch": {
+          "id": 13,
+          "title": "Lentil Soup",
+          "description": "A comforting lentil soup.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 14,
+          "title": "Greek Chicken Bowl",
+          "description": "A bowl featuring Greek-inspired chicken.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Wednesday",
+        "lunch": {
+          "id": 15,
+          "title": "Asian Sesame Salad with Chicken",
+          "description": "A salad featuring Asian sesame flavors with chicken.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 16,
+          "title": "Beef Bulgogi Bowl with Broccoli",
+          "description": "A bowl featuring beef bulgogi with broccoli.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Thursday",
+        "lunch": {
+          "id": 17,
+          "title": "Peach Chana Masala",
+          "description": "A flavorful chana masala with peach.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 18,
+          "title": "Nourished Goddess Soup",
+          "description": "A nourishing soup fit for a goddess.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Friday",
+        "lunch": {
+          "id": 19,
+          "title": "Oahu Inspired High Protein Rice",
+          "description": "High-protein rice inspired by Oahu.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 20,
+          "title": "No Bun Turkey Burger with Toppings and Sides",
+          "description": "A turkey burger served without a bun with various toppings and sides.",
+          "photos": []
+        }
+      }
+    ]
+  },
+  {
+    "week": "Week of April 15th",
+    "date": "2024-04-15",
+    "days": [
+      {
+        "day": "Monday",
+        "lunch": {
+          "id": 21,
+          "title": "Strawberry Sexy Salad with Grilled Chicken",
+          "description": "A sexy salad featuring strawberries and grilled chicken.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 22,
+          "title": "Grilled Salmon Broccoli and Carrots",
+          "description": "Grilled salmon served with broccoli and carrots.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Tuesday",
+        "lunch": {
+          "id": 23,
+          "title": "Cobb Salad",
+          "description": "A classic Cobb salad.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 24,
+          "title": "Honey Glazed Chicken with Green Beans and Potatoes",
+          "description": "Chicken glazed with honey served with green beans and potatoes.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Wednesday",
+        "lunch": {
+          "id": 25,
+          "title": "Salami Garbanzo Lettuce Salad",
+          "description": "Salad featuring salami, garbanzo beans, and lettuce.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 26,
+          "title": "Black Pepper Chicken Stir-fry",
+          "description": "Stir-fried chicken with black pepper seasoning.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Thursday",
+        "lunch": {
+          "id": 27,
+          "title": "Collard Lettuce Wraps with Grilled Chicken",
+          "description": "Lettuce wraps featuring collard greens and grilled chicken.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 28,
+          "title": "Chicken Black Bean and Avocado Bowls",
+          "description": "Bowls featuring chicken, black beans, and avocado.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Friday",
+        "lunch": {
+          "id": 29,
+          "title": "Greek Orzo Salad",
+          "description": "A refreshing Greek salad with orzo.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 30,
+          "title": "High Protein Sausage and Veggie Stir-fry",
+          "description": "Stir-fry featuring high-protein sausage and vegetables.",
+          "photos": []
+        }
+      }
+    ]
+  },
+  {
+    "week": "Week of April 22nd",
+    "date": "2024-04-22",
+    "days": [
+      {
+        "day": "Monday",
+        "lunch": {
+          "id": 31,
+          "title": "Lemon Chicken Rice Bowl",
+          "description": "A rice bowl featuring lemon chicken.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 32,
+          "title": "Taco Stuffed Sweet Potatoes",
+          "description": "Sweet potatoes stuffed with taco ingredients.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Tuesday",
+        "lunch": {
+          "id": 33,
+          "title": "Zoodle with Turkey/Veggie Meatballs",
+          "description": "Zucchini noodles with turkey and veggie meatballs.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 34,
+          "title": "Kitchari",
+          "description": "A traditional Indian dish made with rice and lentils.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Wednesday",
+        "lunch": {
+          "id": 35,
+          "title": "Balsamic Chicken Avocado Caprese Salad",
+          "description": "Caprese salad with balsamic chicken and avocado.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 36,
+          "title": "Unstuffed Bell Pepper Turkey Bowls",
+          "description": "Bowls featuring unstuffed bell pepper ingredients with turkey.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Thursday",
+        "lunch": {
+          "id": 37,
+          "title": "Mediterranean Lunch Box",
+          "description": "A lunch box featuring Mediterranean flavors.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 38,
+          "title": "Crispy Sriracha Salmon Bowl",
+          "description": "A bowl featuring crispy sriracha salmon.",
+          "photos": []
+        }
+      },
+      {
+        "day": "Friday",
+        "lunch": {
+          "id": 39,
+          "title": "Sesame Noodle Salad Jar",
+          "description": "A jarred salad featuring sesame noodles.",
+          "photos": []
+        },
+        "dinner": {
+          "id": 40,
+          "title": "Cheeseburger Bowl",
+          "description": "A bowl featuring all the flavors of a cheeseburger.",
+          "photos": []
+        }
+      }
+    ]
+  }
+]
