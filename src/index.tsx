@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import {createTheme, responsiveFontSizes, ThemeProvider} from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
+import {CartProvider} from "./CartProvider";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -33,7 +34,9 @@ theme = responsiveFontSizes(theme);
 root.render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
-            <App/>
+            <CartProvider>
+                <App/>
+            </CartProvider>
         </ThemeProvider>
     </React.StrictMode>
 );

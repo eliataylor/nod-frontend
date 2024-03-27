@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import {useLocation} from 'react-router-dom';
-import {AppBar, Box, Grid, Typography} from "@mui/material";
+import React, {useContext} from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import {AppBar, Badge, Box, Button, Grid} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DrawerMenu from "./DrawerMenu";
 import {styled, useTheme} from "@mui/material/styles";
-import {CartProvider, QuantityContext} from "./CartProvider";
+import {QuantityContext} from "./CartProvider";
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -20,7 +20,7 @@ interface LayoutProps {
     children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({children}) => {
     const location = useLocation();
 
     const theme = useTheme();
@@ -34,27 +34,29 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         setOpen(false);
     };
 
-    const price = useContext(QuantityContext).totalQuantity
+    const price = useContext(QuantityContext).cartPrice
 
     return (
-        <CartProvider>
-            <AppBar position="fixed" color={'transparent'} elevation={0}>
-                <Grid container justifyContent={'space-between'} padding={1}>
+        <React.Fragment>
+            <AppBar position="fixed" color={'transparent'} >
+                <Grid container justifyContent={'space-between'} alignItems={'center'} padding={1} spacing={2}>
                     {location.pathname.length > 1 &&
                         <Grid item>
                             <img src={'/logo.png'} height={60}/>
                         </Grid>
                     }
-                    <Grid item style={{flexGrow:1}}>
-                        {price > 0 && <Typography variant={'body2'} >{price}</Typography>}
+                    <Grid item style={{flexGrow:1}}></Grid>
+                    {price > 0 && <Grid item>
+                        <Badge color={'secondary'} badgeContent={price}><Button size={'small'} component={Link}
+                                                                                to={'/checkout'} variant={'outlined'}>View
+                            Cart</Button></Badge>
                     </Grid>
+                    }
                     <Grid item>
                         <IconButton
-                            color="inherit"
+                            size={'large'}
                             aria-label="open drawer"
-                            edge="end"
                             onClick={handleDrawerOpen}
-                            sx={{...(open && {display: 'none'})}}
                         >
                             <MenuIcon/>
                         </IconButton>
@@ -62,7 +64,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </Grid>
             </AppBar>
             <Grid>
-                <Box style={{width: '100%', margin: '80px auto 0 auto', padding:'1%', maxWidth: 1024}}>
+                <Box style={{width: '100%', margin: '100px auto 0 auto', padding: '1%', maxWidth: 1024}}>
                     {children}
                 </Box>
             </Grid>
@@ -71,14 +73,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 open={open}
             >
                 <DrawerHeader>
-                    <img src={'/logo.png'} height={30} />
+                    <img src={'/logo.png'} height={30}/>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronRightIcon/>
                     </IconButton>
                 </DrawerHeader>
-                <DrawerMenu />
+                <DrawerMenu/>
             </Drawer>
-        </CartProvider>
+        </React.Fragment>
     );
 };
 

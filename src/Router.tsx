@@ -6,6 +6,7 @@ import About from './About';
 import Faqs from './Faqs';
 import Suppliers from './Suppliers';
 import Contact from './Contact';
+import Checkout from './Checkout';
 import Layout from "./Layout";
 
 
@@ -22,6 +23,7 @@ const App = () => {
                         <Route path="/suppliers" element={<Suppliers/>}/>
                         <Route path="/faq" element={<Faqs/>}/>
                         <Route path="/contact" element={<Contact/>}/>
+                        <Route path="/checkout" element={<Checkout/>}/>
                         <Route path="*" element={<div>Page not found</div>}/>
                     </Routes>
             </Layout>
