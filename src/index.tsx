@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {createTheme, ThemeProvider, responsiveFontSizes} from '@mui/material/styles';
+import {createTheme, responsiveFontSizes, ThemeProvider} from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
