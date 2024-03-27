@@ -6,14 +6,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DrawerMenu from "./DrawerMenu";
-import {styled, useTheme} from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import {QuantityContext} from "./CartProvider";
+import Logo from "./Logo";
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    justifyContent: 'flex-start',
+    padding: theme.spacing(0, .2, 0, 1),
+    justifyContent: 'space-between',
 }));
 
 interface LayoutProps {
@@ -41,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                 <Grid container justifyContent={'space-between'} alignItems={'center'} padding={1} spacing={2}>
                     {location.pathname.length > 1 &&
                         <Grid item>
-                            <img src={'/logo.png'} height={60}/>
+                            <Logo height={90} />
                         </Grid>
                     }
                     <Grid item style={{flexGrow: 1}}></Grid>
@@ -75,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                 open={open}
             >
                 <DrawerHeader>
-                    <img src={'/logo.png'} height={30}/>
+                    <Logo height={40} />
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronRightIcon/>
                     </IconButton>

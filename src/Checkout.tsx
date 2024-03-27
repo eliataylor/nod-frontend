@@ -50,12 +50,12 @@ const Checkout = () => {
         <Box style={{padding:"1%"}}>
             {cartPrice > 0 ?
                 <Box >
-                    <Typography variant={'body1'}>
+                    <Typography variant={'h6'}>
                         To complete your order please:
                     </Typography>
                     <ul>
                         <li>Pay {priceString} for your plan via any method below</li>
-                        <li>Copy and Email your order data <a href={buildMailTo()}
+                        <li>Copy and Email your meal plan data <a href={buildMailTo()}
                                                               style={{color:theme.palette.secondary.main}}
                                                               target={'_blank'}>orders@nourishmentondemand.com</a></li>
                     </ul>
@@ -65,9 +65,8 @@ const Checkout = () => {
                             type="text"
                             variant={'standard'}
                             aria-readonly={true}
-                            multiline={true}
-                            rows={5}
-                            value={JSON.stringify(mealPlan, null, 2)}
+                            style={{color:theme.palette.grey[600]}}
+                            value={JSON.stringify(mealPlan)}
                             label="My Meal Plan"
                             inputRef={inputRef}
                             InputProps={{
@@ -105,7 +104,7 @@ const Checkout = () => {
                 <Box margin={"20px auto"}>
                     <Divider />
 
-                    <Typography variant={'h4'}>Review my meal plan</Typography>
+                    <Typography variant={'h6'}>Review my meal plan</Typography>
                     {cartItems.map(meal => <OrderItem key={`meal-${meal.id}`} meal={meal}/>)}
                 </Box>
             }

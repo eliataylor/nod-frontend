@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 
 export interface Meal {
     id: number;
@@ -30,27 +30,52 @@ export type OrderItems = Meal[];
 interface QuantityContextProps {
     cartPrice: number;
     updateCart: (meal: Meal, quantity: number) => void;
-    updateFoodMenu: (menu:MenuData) => void;
+    updateFoodMenu: (menu: MenuData) => void;
     weeklyMenu: MenuData;
     cartItems: OrderItems;
 }
 
 const QuantityContext = createContext<QuantityContextProps>({
     cartPrice: 0,
-    updateCart: (meal, quantity) => {},
+    updateCart: (meal, quantity) => {
+    },
     weeklyMenu: null,
-    updateFoodMenu: (menu:MenuData) => [],
+    updateFoodMenu: (menu: MenuData) => [],
     cartItems: []
 });
 
 interface CartProviderProps {
     children: React.ReactNode;
+    initialState?: QuantityContextProps
 }
 
-const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+const CartProvider: React.FC<CartProviderProps> = ({children, initialState}) => {
     const [cartPrice, setPrice] = useState<number>(0);
     const [cartItems, setCartItems] = useState<Meal[]>([]);
     const [weeklyMenu, updateFoodMenu] = useState<MenuData>(null);
+
+    useEffect(() => {
+
+        if (cartPrice > 0) {
+            localStorage.setItem('myCartData', JSON.stringify({
+                cartPrice,
+                cartItems
+            }));
+        } else {
+            const myCart = localStorage.getItem('myCartData');
+            if (myCart) {
+                try {
+                    const cart = JSON.parse(myCart);
+                    if (cart.cartPrice > 0) {
+                        setPrice(cart.cartPrice);
+                        setCartItems(cart.cartItems);
+                    }
+                } catch (error) {
+                    console.error('Error parsing localStorage context:', error);
+                }
+            }
+        }
+    }, [cartPrice, cartItems]);
 
     function binaryInsert(meals: Meal[], newMeal: Meal): Meal[] {
         if (meals.length === 0) return [newMeal];
@@ -89,7 +114,7 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
                     newItems[index].servings = servings;
                 }
             } else {
-                newItems = binaryInsert(newItems, { ...meal, servings: servings })
+                newItems = binaryInsert(newItems, {...meal, servings: servings})
             }
             const newPrice = newItems.reduce((accumulator: number, currentValue: Meal) => {
                 const servings = (currentValue.servings ? currentValue.servings : 1)
@@ -108,10 +133,10 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     };
 
     return (
-        <QuantityContext.Provider value={{ cartPrice, cartItems, updateCart, weeklyMenu, updateFoodMenu }}>
+        <QuantityContext.Provider value={{cartPrice, cartItems, updateCart, weeklyMenu, updateFoodMenu}}>
             {children}
         </QuantityContext.Provider>
     );
 };
 
-export { QuantityContext, CartProvider };
+export {CartProvider, QuantityContext};

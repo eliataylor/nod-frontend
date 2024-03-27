@@ -23,7 +23,7 @@ const OrderItemsCheckboxList: React.FC<Props> = ({orderItems, label}) => {
             } else if (o.servings && o.servings > 1) {
                 servings = o.servings;
             }
-            console.log('update ' + servings, o);
+            // console.log('update ' + servings, o);
             updateCart(o, servings)
         });
     }

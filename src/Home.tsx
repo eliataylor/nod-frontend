@@ -1,12 +1,13 @@
 import React from 'react';
 import {Box, Button, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
+import Logo from "./Logo";
 
 const Home = () => {
     return (
         <Box style={{textAlign: 'center'}}>
             <Box>
-                <img src={'/logo.svg'} />
+                <Logo height={250} />
             </Box>
             <Button variant={'contained'} component={Link} to={'/next-week'} style={{margin:'50px 0', background:'#202020'}}>Create Your Meal Plan</Button>
             <Typography variant={'body1'} style={{maxWidth:400, margin:'auto'}} >
