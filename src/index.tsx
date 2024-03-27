@@ -15,6 +15,9 @@ let theme = createTheme({
         primary: {
             main: '#3B5700',
         },
+        secondary:{
+            main: '#bf741f'
+        }
     },
     typography: {
         fontSize: 14,

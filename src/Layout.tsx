@@ -47,7 +47,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                     }
                     <Grid item style={{flexGrow:1}}></Grid>
                     {price > 0 && <Grid item>
-                        <Badge color={'secondary'} badgeContent={price}><Button size={'small'} component={Link}
+                        <Badge color={'secondary'} max={999} badgeContent={`$${price}`}><Button size={'small'} component={Link}
                                                                                 to={'/checkout'} variant={'outlined'}>View
                             Cart</Button></Badge>
                     </Grid>
