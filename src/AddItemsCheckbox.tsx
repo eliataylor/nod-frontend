@@ -17,7 +17,14 @@ const OrderItemsCheckboxList: React.FC<Props> = ({orderItems, label}) => {
     function handleToggle(event: React.ChangeEvent<HTMLInputElement>) {
         event.stopPropagation();
         orderItems.forEach(o => {
-            const servings = o.servings ? o.servings : 1
+            let servings = 1;
+            if (!event.target.checked) {
+                servings = 0;
+            } else if  (o.servings) {
+                servings = o.servings;
+            }
+
+            o.servings = servings;
             updateCart(o, servings)
         });
     }

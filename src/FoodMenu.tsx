@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MealQuantity from "./MealQuantity";
 import {Day, Meal, OrderItems, QuantityContext} from "./CartProvider";
 import AddItemsCheckbox from "./AddItemsCheckbox";
+import OrderItem from "./OrderItem";
 
 const FoodMenu: React.FC = () => {
     const {updateFoodMenu, weeklyMenu} = useContext(QuantityContext)
@@ -31,34 +32,6 @@ const FoodMenu: React.FC = () => {
     }, []);
 
     if (!weeklyMenu || weeklyMenu.length === 0) return <div>loading menu...</div>
-
-    const renderMeal = (meal: Meal, day: Day) => {
-        return (
-            <Card variant="outlined" key={`${meal.id}-${meal.bld}`}>
-                {meal.photos && meal.photos.length > 0 &&
-                    <CardMedia image={meal.photos[0]} sx={{height: 140}}/>
-                }
-                <CardContent>
-                    <Grid container justifyContent={'space-between'}>
-                        <Grid item>
-                            <Typography variant="overline" gutterBottom>{meal.bld}</Typography>
-                            <Typography variant="subtitle1">
-                                {meal.title}
-                            </Typography>
-                            <Typography variant="body2" component="div">
-                                {meal.description}
-                            </Typography>
-                            {/* <Typography variant="body2" color="primary" component={Link} to={`/receipt/${meal.id}`}>View Details</Typography> */}
-                        </Grid>
-                        <Grid item>
-                            <MealQuantity meal={meal} delivered={day.delivered} date={day.date}/>
-                        </Grid>
-                    </Grid>
-                </CardContent>
-            </Card>
-        );
-    };
-
 
     function flattenMeals(obj: any, flatList: OrderItems): OrderItems {
         if (Array.isArray(obj)) {
@@ -107,7 +80,7 @@ const FoodMenu: React.FC = () => {
                                     </Grid>
                                 </Grid>
                                 <div>
-                                    {day.meals.map(meal => renderMeal(meal, day))}
+                                    {day.meals.map(meal => <OrderItem meal={meal} day={day} />)}
                                 </div>
                             </Box>
                         ))}

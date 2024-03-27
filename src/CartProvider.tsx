@@ -31,13 +31,15 @@ interface QuantityContextProps {
     updateCart: (meal: Meal, quantity: number) => void;
     updateFoodMenu: (menu:MenuData) => void;
     weeklyMenu: MenuData;
+    cartItems: OrderItems;
 }
 
 const QuantityContext = createContext<QuantityContextProps>({
     cartPrice: 0,
     updateCart: (meal, quantity) => {},
     weeklyMenu: null,
-    updateFoodMenu: (menu:MenuData) => []
+    updateFoodMenu: (menu:MenuData) => [],
+    cartItems: []
 });
 
 interface CartProviderProps {
@@ -70,7 +72,7 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     };
 
     return (
-        <QuantityContext.Provider value={{ cartPrice, updateCart, weeklyMenu, updateFoodMenu }}>
+        <QuantityContext.Provider value={{ cartPrice, cartItems, updateCart, weeklyMenu, updateFoodMenu }}>
             {children}
         </QuantityContext.Provider>
     );
