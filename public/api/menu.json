@@ -10,7 +10,7 @@
         "meals": [
           {
             "id": 1,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Grilled Chicken and Spinach Salad",
             "description": "A nutritious salad with grilled chicken, spinach, apple, beets, pecan, and quinoa.",
             "photos": [],
@@ -18,7 +18,7 @@
           },
           {
             "id": 2,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Salmon with Purple Potatoes",
             "description": "Delicious salmon served with purple potatoes and steamed carrots and broccoli.",
             "photos": [],
@@ -33,7 +33,7 @@
         "meals": [
           {
             "id": 3,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Garbanzo Bean Salad",
             "description": "A refreshing salad with garbanzo beans and optional meat.",
             "photos": [],
@@ -41,7 +41,7 @@
           },
           {
             "id": 4,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Organic Grass Fed Ground Beef Zucchini Rice Bowl",
             "description": "A flavorful bowl featuring organic grass-fed ground beef, zucchini, and rice.",
             "photos": [],
@@ -56,7 +56,7 @@
         "meals": [
           {
             "id": 5,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Grilled Chicken Taco Style Salad",
             "description": "Taco-inspired salad featuring grilled chicken.",
             "photos": [],
@@ -64,7 +64,7 @@
           },
           {
             "id": 6,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Turkey Kabobs with Turmeric Rice and Grilled Veggies",
             "description": "Succulent turkey kabobs served with turmeric rice and grilled vegetables.",
             "photos": [],
@@ -79,7 +79,7 @@
         "meals": [
           {
             "id": 7,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Chicken Satay Bowl",
             "description": "A bowl featuring chicken satay.",
             "photos": [],
@@ -87,7 +87,7 @@
           },
           {
             "id": 8,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Steak Fajita Bowl",
             "description": "Sizzling steak fajitas served in a bowl.",
             "photos": [],
@@ -102,7 +102,7 @@
         "meals": [
           {
             "id": 9,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Lemon Pepper Chicken Wrap",
             "description": "A tasty wrap filled with lemon pepper chicken.",
             "photos": [],
@@ -110,7 +110,7 @@
           },
           {
             "id": 10,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Veggie Soup with Mini Chicken Meatballs",
             "description": "A comforting vegetable soup with mini chicken meatballs.",
             "photos": [],
@@ -131,7 +131,7 @@
         "meals": [
           {
             "id": 11,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Roasted Glow Bowl",
             "description": "A vibrant bowl featuring roasted ingredients.",
             "photos": [],
@@ -139,7 +139,7 @@
           },
           {
             "id": 12,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Sweet Spicy Salmon Bowl",
             "description": "A bowl featuring sweet and spicy salmon.",
             "photos": [],
@@ -154,7 +154,7 @@
         "meals": [
           {
             "id": 13,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Lentil Soup",
             "description": "A comforting lentil soup.",
             "photos": [],
@@ -162,7 +162,7 @@
           },
           {
             "id": 14,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Greek Chicken Bowl",
             "description": "A bowl featuring Greek-inspired chicken.",
             "photos": [],
@@ -177,7 +177,7 @@
         "meals": [
           {
             "id": 15,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Asian Sesame Salad with Chicken",
             "description": "A salad featuring Asian sesame flavors with chicken.",
             "photos": [],
@@ -185,7 +185,7 @@
           },
           {
             "id": 16,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Beef Bulgogi Bowl with Broccoli",
             "description": "A bowl featuring beef bulgogi with broccoli.",
             "photos": [],
@@ -200,7 +200,7 @@
         "meals": [
           {
             "id": 17,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Peach Chana Masala",
             "description": "A flavorful chana masala with peach.",
             "photos": [],
@@ -208,7 +208,7 @@
           },
           {
             "id": 18,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Nourished Goddess Soup",
             "description": "A nourishing soup fit for a goddess.",
             "photos": [],
@@ -223,7 +223,7 @@
         "meals": [
           {
             "id": 19,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Oahu Inspired High Protein Rice",
             "description": "High-protein rice inspired by Oahu.",
             "photos": [],
@@ -231,7 +231,7 @@
           },
           {
             "id": 20,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "No Bun Turkey Burger with Toppings and Sides",
             "description": "A turkey burger served without a bun with various toppings and sides.",
             "photos": [],
@@ -252,7 +252,7 @@
         "meals": [
           {
             "id": 21,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Strawberry Sexy Salad with Grilled Chicken",
             "description": "A sexy salad featuring strawberries and grilled chicken.",
             "photos": [],
@@ -260,7 +260,7 @@
           },
           {
             "id": 22,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Grilled Salmon Broccoli and Carrots",
             "description": "Grilled salmon served with broccoli and carrots.",
             "photos": [],
@@ -275,7 +275,7 @@
         "meals": [
           {
             "id": 23,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Cobb Salad",
             "description": "A classic Cobb salad.",
             "photos": [],
@@ -283,7 +283,7 @@
           },
           {
             "id": 24,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Honey Glazed Chicken with Green Beans and Potatoes",
             "description": "Chicken glazed with honey served with green beans and potatoes.",
             "photos": [],
@@ -298,7 +298,7 @@
         "meals": [
           {
             "id": 25,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Salami Garbanzo Lettuce Salad",
             "description": "Salad featuring salami, garbanzo beans, and lettuce.",
             "photos": [],
@@ -306,7 +306,7 @@
           },
           {
             "id": 26,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Black Pepper Chicken Stir-fry",
             "description": "Stir-fried chicken with black pepper seasoning.",
             "photos": [],
@@ -321,7 +321,7 @@
         "meals": [
           {
             "id": 27,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Collard Lettuce Wraps with Grilled Chicken",
             "description": "Lettuce wraps featuring collard greens and grilled chicken.",
             "photos": [],
@@ -329,7 +329,7 @@
           },
           {
             "id": 28,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Chicken Black Bean and Avocado Bowls",
             "description": "Bowls featuring chicken, black beans, and avocado.",
             "photos": [],
@@ -344,7 +344,7 @@
         "meals": [
           {
             "id": 29,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Greek Orzo Salad",
             "description": "A refreshing Greek salad with orzo.",
             "photos": [],
@@ -352,7 +352,7 @@
           },
           {
             "id": 30,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "High Protein Sausage and Veggie Stir-fry",
             "description": "Stir-fry featuring high-protein sausage and vegetables.",
             "photos": [],
@@ -373,7 +373,7 @@
         "meals": [
           {
             "id": 31,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Lemon Chicken Rice Bowl",
             "description": "A rice bowl featuring lemon chicken.",
             "photos": [],
@@ -381,7 +381,7 @@
           },
           {
             "id": 32,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Taco Stuffed Sweet Potatoes",
             "description": "Sweet potatoes stuffed with taco ingredients.",
             "photos": [],
@@ -396,7 +396,7 @@
         "meals": [
           {
             "id": 33,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Zoodle with Turkey/Veggie Meatballs",
             "description": "Zucchini noodles with turkey and veggie meatballs.",
             "photos": [],
@@ -404,7 +404,7 @@
           },
           {
             "id": 34,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Kitchari",
             "description": "A traditional Indian dish made with rice and lentils.",
             "photos": [],
@@ -419,7 +419,7 @@
         "meals": [
           {
             "id": 35,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Balsamic Chicken Avocado Caprese Salad",
             "description": "Caprese salad with balsamic chicken and avocado.",
             "photos": [],
@@ -427,7 +427,7 @@
           },
           {
             "id": 36,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Unstuffed Bell Pepper Turkey Bowls",
             "description": "Bowls featuring unstuffed bell pepper ingredients with turkey.",
             "photos": [],
@@ -442,7 +442,7 @@
         "meals": [
           {
             "id": 37,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Mediterranean Lunch Box",
             "description": "A lunch box featuring Mediterranean flavors.",
             "photos": [],
@@ -450,7 +450,7 @@
           },
           {
             "id": 38,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Crispy Sriracha Salmon Bowl",
             "description": "A bowl featuring crispy sriracha salmon.",
             "photos": [],
@@ -465,7 +465,7 @@
         "meals": [
           {
             "id": 39,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Sesame Noodle Salad Jar",
             "description": "A jarred salad featuring sesame noodles.",
             "photos": [],
@@ -473,7 +473,7 @@
           },
           {
             "id": 40,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Cheeseburger Bowl",
             "description": "A bowl featuring all the flavors of a cheeseburger.",
             "photos": [],

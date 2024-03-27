@@ -2,7 +2,8 @@ import React, {useContext} from 'react';
 import {Card, CardContent, CardMedia, Grid, Typography} from '@mui/material';
 import MealQuantity from "./MealQuantity";
 import {Day, Meal, QuantityContext} from "./CartProvider";
-
+import {useTheme} from "@mui/styles";
+import { Theme} from '@mui/material/styles';
 
 interface Props {
     meal: Meal;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const OrderItem: React.FC<Props> = ({meal, day}) => {
+    const theme = useTheme() as Theme;
 
     const {cartItems} = useContext(QuantityContext)
 
@@ -17,24 +19,24 @@ const OrderItem: React.FC<Props> = ({meal, day}) => {
     const topass = inCart || meal;
 
     return (
-        <Card variant="outlined" key={`${meal.id}-${meal.bld}`}>
+        <Card key={`${meal.id}-${meal.bld}`} style={{marginBottom:10, borderRadius:"4px 0 0 0"}}>
             {meal.photos && meal.photos.length > 0 &&
                 <CardMedia image={meal.photos[0]} sx={{height: 140}}/>
             }
             <CardContent>
                 <Grid container justifyContent={'space-between'}>
                     <Grid item>
-                        <Typography variant="overline" gutterBottom>{meal.bld}</Typography>
-                        <Typography variant="subtitle1">
+                        <Typography variant="subtitle1" color={'primary'}>
                             {meal.title}
                         </Typography>
-                        <Typography variant="body2" component="div">
+                        <Typography variant="body1" component="div">
                             {meal.description}
                         </Typography>
                         {/* <Typography variant="body2" color="primary" component={Link} to={`/receipt/${meal.id}`}>View Details</Typography> */}
                     </Grid>
                     <Grid item>
-                        <MealQuantity meal={topass} day={day} />
+                        <Typography variant="caption" color={theme.palette.grey[600]} >{meal.bld.toUpperCase()}</Typography>
+                        <div><MealQuantity meal={topass} day={day} /></div>
                     </Grid>
                 </Grid>
             </CardContent>

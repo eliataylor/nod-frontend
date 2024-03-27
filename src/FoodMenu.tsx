@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import {QuantityContext} from "./CartProvider";
 import WeekMenu from "./WeekMenu";
+import {Typography, Box, Divider} from "@mui/material";
 
 const FoodMenu: React.FC = () => {
     const {updateFoodMenu, weeklyMenu} = useContext(QuantityContext)
@@ -16,7 +17,7 @@ const FoodMenu: React.FC = () => {
                 updateFoodMenu(data);
             } catch (error) {
                 console.error('Error fetching menu data:', error);
-                // Handle error gracefully, e.g., display an error message
+                window.alert('Error loading Menu')
             }
         };
 
@@ -27,6 +28,13 @@ const FoodMenu: React.FC = () => {
 
     return (
         <div>
+            <Box mb={1}>
+            <Typography variant={'h6'}>CREATE YOUR MEAL PROGRAM</Typography>
+            <Typography variant={'body2'}>5% off for 3 or more servings on any meal</Typography>
+            <Typography variant={'body2'}>10% for whole week subscriptions</Typography>
+            <Typography variant={'body2'}>Free addon with three or more days (select at checkout)</Typography>
+            </Box>
+            <Divider />
             {weeklyMenu.map((week, index) => (
                 <WeekMenu key={`week-${week.week_name}`} week={week} index={index} />
             ))}

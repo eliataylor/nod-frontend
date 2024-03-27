@@ -8,7 +8,14 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {OrderItems, QuantityContext, Week, Meal} from "./CartProvider";
 import AddItemsCheckbox from "./AddItemsCheckbox";
 import OrderItem from "./OrderItem";
+import { makeStyles, useTheme } from '@mui/styles';
+import { Theme, lighten} from '@mui/material/styles';
 
+const useStyles = makeStyles((theme: Theme) => ({
+    summary: {
+        backgroundColor: `linear-gradient(-45deg, ${lighten(theme.palette.primary.main, .9)} 10%, ${lighten(theme.palette.primary.main, 1)} 40%, ${lighten(theme.palette.primary.main, 1)} 60%, ${lighten(theme.palette.primary.main, .9)} 90%)`
+    },
+}));
 
 interface Props {
     week: Week;
@@ -16,6 +23,9 @@ interface Props {
 }
 
 const WeekMenu: React.FC<Props> = ({week, index}) => {
+    const theme = useTheme();
+    // @ts-ignore
+    const classes = useStyles(theme);
 
     const [isOpen, setIsOpen] = useState(true);
     const {cartItems} = useContext(QuantityContext)
@@ -52,10 +62,11 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={`week-${index}-content`}
                 id={`week-${index}-header`}
+                className={classes.summary}
             >
                 <AddItemsCheckbox
                     key={`checkallweek-${week.week_name}`}
-                    label={<Typography>{week.week_name}</Typography>}
+                    label={<Typography variant="h6" color={'secondary'}>{week.week_name}</Typography>}
                     orderItems={flattenMeals(week, [])}/>
 
             </AccordionSummary>
@@ -67,7 +78,7 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
                                 <AddItemsCheckbox
                                     key={`checkallday-${day.date}`}
                                     orderItems={flattenMeals(day, [])}
-                                    label={<Typography variant="h6">{day.day}</Typography>}
+                                    label={<Typography variant="h6" >{day.day}</Typography>}
                                 />
 
                             </Grid>

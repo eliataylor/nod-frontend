@@ -65,10 +65,16 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
                 newItems.push({ ...meal, servings: servings });
             }
             const newPrice = newItems.reduce((accumulator: number, currentValue: Meal) => {
-                accumulator += currentValue.price * (currentValue.servings ? currentValue.servings : 1);
+                const servings = (currentValue.servings ? currentValue.servings : 1)
+                if (servings > 2) {
+                    accumulator += (currentValue.price * servings) * .95
+                } else {
+                    accumulator += currentValue.price * servings;
+                }
+
                 return accumulator;
             }, 0);
-            setPrice(newPrice);
+            setPrice(parseFloat(newPrice.toFixed(2)));
             return newItems;
         });
     };

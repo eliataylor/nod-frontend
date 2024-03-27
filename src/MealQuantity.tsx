@@ -20,6 +20,7 @@ const MealQuantity: React.FC<MealProps> = ({meal}) => {
             style={{maxWidth: 60}}
             id={`quantity-${meal.id}`}
             type="number"
+            defaultValue={meal.servings}
             value={meal.servings}
             onChange={handleChange}
             label="Servings"
