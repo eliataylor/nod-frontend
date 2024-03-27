@@ -40,7 +40,7 @@ const Checkout = () => {
     })
 
     const buildMailTo = (): string => {
-        let href = 'mailto:orders@nourishmentondemand.com'
+        let href = 'mailto:nourishmentondemand@gmail.com'
         href += '?subject=' + encodeURIComponent('My Meal Plan');
         href += '&body=' + encodeURIComponent(JSON.stringify(mealPlan));
         return href;
@@ -57,7 +57,7 @@ const Checkout = () => {
                         <li>Pay {priceString} for your plan via any method below</li>
                         <li>Copy and Email your meal plan data <a href={buildMailTo()}
                                                               style={{color:theme.palette.secondary.main}}
-                                                              target={'_blank'}>orders@nourishmentondemand.com</a></li>
+                                                              target={'_blank'}>NourishmentOnDemand@gmail.com</a></li>
                     </ul>
                     <div style={{margin: '10px auto'}}>
                         <TextField

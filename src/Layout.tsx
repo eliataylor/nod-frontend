@@ -6,7 +6,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DrawerMenu from "./DrawerMenu";
-import {styled} from "@mui/material/styles";
+import {styled, useTheme} from "@mui/material/styles";
 import {QuantityContext} from "./CartProvider";
 import Logo from "./Logo";
 

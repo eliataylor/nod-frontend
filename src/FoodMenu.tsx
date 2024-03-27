@@ -40,6 +40,7 @@ const FoodMenu: React.FC = () => {
             <Typography variant={'body2'}>5% off for 3 or more servings on any meal</Typography>
             <Typography variant={'body2'}>10% for whole week subscriptions</Typography>
             <Typography variant={'body2'}>Free addon with three or more days (select at checkout)</Typography>
+            <Typography variant={'body2'}>Enable substitutions and recipes requests with Monthly subscriptions</Typography>
             </Box>
             <Divider />
             {weeklyMenu.map((week, index) => (
