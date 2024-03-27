@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
-import {Day, Meal, QuantityContext} from './CartProvider';
+import {Meal, QuantityContext} from './CartProvider';
 import TextField from '@mui/material/TextField';
 
 interface MealProps {
     meal: Meal;
-    day: Day
 }
 
 const MealQuantity: React.FC<MealProps> = ({meal}) => {

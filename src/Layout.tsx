@@ -23,7 +23,6 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({children}) => {
     const location = useLocation();
 
-    const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {

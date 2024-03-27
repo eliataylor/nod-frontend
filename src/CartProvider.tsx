@@ -7,7 +7,8 @@ export interface Meal {
     description: string;
     price: number;
     photos: string[]; // Assuming photo URLs will be stored as strings
-    servings: number | undefined; // only a CLIENT SIDE quantity of this meal in my cart
+    servings?: number; // only a CLIENT SIDE quantity of this meal in my cart
+    date?: string;
 }
 
 export interface Day {
@@ -51,10 +52,36 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     const [cartItems, setCartItems] = useState<Meal[]>([]);
     const [weeklyMenu, updateFoodMenu] = useState<MenuData>(null);
 
+    function binaryInsert(meals: Meal[], newMeal: Meal): Meal[] {
+        if (meals.length === 0) return [newMeal];
+
+        let low = 0;
+        let high = meals.length - 1;
+        while (low <= high) {
+            const mid = Math.floor((low + high) / 2);
+            const midMeal = meals[mid];
+
+            // Check for exact date match first for consistency
+            if (newMeal.date && midMeal.date && newMeal.date === midMeal.date) {
+                // Insert before existing meal with the same date
+                return [...meals.slice(0, mid), newMeal, ...meals.slice(mid)];
+            } else if (!newMeal.date || (newMeal.date && midMeal.date && newMeal.date < midMeal.date)) {
+                // New meal comes before the middle element
+                high = mid - 1;
+            } else {
+                // New meal comes after the middle element
+                low = mid + 1;
+            }
+        }
+
+        // If loop exits without finding an exact match, insert at the calculated index
+        return [...meals.slice(0, low), newMeal, ...meals.slice(low)];
+    }
+
     const updateCart = async (meal: Meal, servings: number) => {
         setCartItems((prevCartItems) => {
             const index = prevCartItems.findIndex((c: Meal) => c.id === meal.id);
-            const newItems: Meal[] = [...prevCartItems];
+            let newItems: Meal[] = [...prevCartItems];
             if (index > -1) {
                 if (servings === 0) {
                     newItems.splice(index, 1);
@@ -62,7 +89,7 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
                     newItems[index].servings = servings;
                 }
             } else {
-                newItems.push({ ...meal, servings: servings });
+                newItems = binaryInsert(newItems, { ...meal, servings: servings })
             }
             const newPrice = newItems.reduce((accumulator: number, currentValue: Meal) => {
                 const servings = (currentValue.servings ? currentValue.servings : 1)
@@ -75,6 +102,7 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
                 return accumulator;
             }, 0);
             setPrice(parseFloat(newPrice.toFixed(2)));
+
             return newItems;
         });
     };

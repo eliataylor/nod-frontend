@@ -1,16 +1,15 @@
 import React, {useContext} from 'react';
 import {Card, CardContent, CardMedia, Grid, Typography} from '@mui/material';
 import MealQuantity from "./MealQuantity";
-import {Day, Meal, QuantityContext} from "./CartProvider";
+import {Meal, QuantityContext} from "./CartProvider";
 import {useTheme} from "@mui/styles";
 import {Theme} from '@mui/material/styles';
 
 interface Props {
     meal: Meal;
-    day: Day;
 }
 
-const OrderItem: React.FC<Props> = ({meal, day}) => {
+const OrderItem: React.FC<Props> = ({meal}) => {
     const theme = useTheme() as Theme;
 
     const {cartItems} = useContext(QuantityContext)
@@ -36,7 +35,7 @@ const OrderItem: React.FC<Props> = ({meal, day}) => {
                     </Grid>
                     <Grid item>
                         <Typography variant="caption" color={theme.palette.grey[600]} >{meal.bld.toUpperCase()}</Typography>
-                        <div><MealQuantity meal={topass} day={day} /></div>
+                        <div><MealQuantity meal={topass} /></div>
                     </Grid>
                 </Grid>
             </CardContent>

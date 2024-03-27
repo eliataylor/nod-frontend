@@ -1,18 +1,16 @@
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /your_app_name/  # Replace with your React app's name
+    RewriteEngine On
+    DirectoryIndex index.html
+    RewriteBase /
 
-  # Handle all requests that don't match a static file or existing directory
-  RewriteRule ^!(well-known|favicon.ico|robots.txt) /your_app_name/index.html [L]
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+
 </IfModule>
 
-# Serve gzip compressed static files if mod_deflate is enabled
-<IfModule mod_deflate.c>
-  SetOutputFilter DEFLATE
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/x-javascript application/javascript
-
-  # Browser caching headers (optional)
-  <FilesMatch "\.(ico|jpg|jpeg|png|gif|svg|js|css|woff|woff2|eot|ttf|otf)$">
-    Header set Cache-Control "public, max-age=86400"  # Cache for 1 day
-  </FilesMatch>
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 index.html
 </IfModule>

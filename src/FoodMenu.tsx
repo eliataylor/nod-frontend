@@ -14,6 +14,13 @@ const FoodMenu: React.FC = () => {
                     throw new Error('Failed to fetch menu data');
                 }
                 const data = await response.json();
+                data.forEach((week:any) => {
+                   week.days.forEach((day:any) => {
+                        day.meals.forEach((meal:any) => {
+                            meal.date = day.date
+                        })
+                   })
+                });
                 updateFoodMenu(data);
             } catch (error) {
                 console.error('Error fetching menu data:', error);
