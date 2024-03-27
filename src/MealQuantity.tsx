@@ -1,5 +1,5 @@
-import React, {useContext, useState} from 'react';
-import {Meal, Day, QuantityContext} from './CartProvider';
+import React, {useContext} from 'react';
+import {Day, Meal, QuantityContext} from './CartProvider';
 import TextField from '@mui/material/TextField';
 
 interface MealProps {

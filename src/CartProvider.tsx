@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, {createContext, useState} from 'react';
 
 export interface Meal {
     id: number;
@@ -51,24 +51,26 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     const [cartItems, setCartItems] = useState<Meal[]>([]);
     const [weeklyMenu, updateFoodMenu] = useState<MenuData>(null);
 
-    const updateCart = (meal: Meal, servings: number) => {
-        const index = cartItems.findIndex((c:Meal) => c.id === meal.id)
-        const newItems: Meal[] = [...cartItems];
-        if (index > -1) {
-            if (servings === 0) {
-                newItems.splice(index, 1);
+    const updateCart = async (meal: Meal, servings: number) => {
+        setCartItems((prevCartItems) => {
+            const index = prevCartItems.findIndex((c: Meal) => c.id === meal.id);
+            const newItems: Meal[] = [...prevCartItems];
+            if (index > -1) {
+                if (servings === 0) {
+                    newItems.splice(index, 1);
+                } else {
+                    newItems[index].servings = servings;
+                }
             } else {
-                newItems[index].servings = servings;
+                newItems.push({ ...meal, servings: servings });
             }
-        } else {
-            newItems.push({...meal,servings:servings})
-        }
-        setCartItems(newItems);
-        const newprice = cartItems.reduce((accumulator:number, currentValue:Meal) => {
-            accumulator += currentValue.price * (currentValue.servings ? currentValue.servings : 1);
-            return accumulator;
-        }, 0)
-        setPrice(newprice);
+            const newPrice = newItems.reduce((accumulator: number, currentValue: Meal) => {
+                accumulator += currentValue.price * (currentValue.servings ? currentValue.servings : 1);
+                return accumulator;
+            }, 0);
+            setPrice(newPrice);
+            return newItems;
+        });
     };
 
     return (

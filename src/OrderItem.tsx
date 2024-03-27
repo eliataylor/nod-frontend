@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Card, CardContent, CardMedia, Grid, Typography} from '@mui/material';
 import MealQuantity from "./MealQuantity";
-import {Meal, Day} from "./CartProvider";
+import {Day, Meal, QuantityContext} from "./CartProvider";
 
 
 interface Props {
@@ -10,6 +10,11 @@ interface Props {
 }
 
 const OrderItem: React.FC<Props> = ({meal, day}) => {
+
+    const {cartItems} = useContext(QuantityContext)
+
+    const inCart = cartItems.find(c => c.id === meal.id)
+    const topass = inCart || meal;
 
     return (
         <Card variant="outlined" key={`${meal.id}-${meal.bld}`}>
@@ -29,7 +34,7 @@ const OrderItem: React.FC<Props> = ({meal, day}) => {
                         {/* <Typography variant="body2" color="primary" component={Link} to={`/receipt/${meal.id}`}>View Details</Typography> */}
                     </Grid>
                     <Grid item>
-                        <MealQuantity meal={meal} day={day} />
+                        <MealQuantity meal={topass} day={day} />
                     </Grid>
                 </Grid>
             </CardContent>

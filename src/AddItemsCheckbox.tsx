@@ -5,26 +5,25 @@ import {OrderItems, QuantityContext} from "./CartProvider";
 
 interface Props {
     orderItems: OrderItems;
-    label: React.ReactElement | string;
+    label: React.ReactElement | string
 }
 
 const OrderItemsCheckboxList: React.FC<Props> = ({orderItems, label}) => {
 
-    const {updateCart} = useContext(QuantityContext)
+    const {updateCart} = useContext(QuantityContext);
 
     const missingItem = orderItems.findIndex(o => !o.servings || o.servings === 0);
 
     function handleToggle(event: React.ChangeEvent<HTMLInputElement>) {
         event.stopPropagation();
-        orderItems.forEach(o => {
+        orderItems.forEach((o) => {
             let servings = 1;
             if (!event.target.checked) {
                 servings = 0;
-            } else if  (o.servings) {
+            } else if (o.servings && o.servings > 1) {
                 servings = o.servings;
             }
-
-            o.servings = servings;
+            console.log('update ' + servings, o);
             updateCart(o, servings)
         });
     }
@@ -34,6 +33,7 @@ const OrderItemsCheckboxList: React.FC<Props> = ({orderItems, label}) => {
             control={
                 <Checkbox
                     checked={missingItem === -1}
+                    value={missingItem}
                     onChange={(e) => handleToggle(e)}
                 />
             }
