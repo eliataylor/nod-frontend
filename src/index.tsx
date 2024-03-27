@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {createTheme, responsiveFontSizes, ThemeProvider} from '@mui/material/styles';
+// import { typography } from '@mui/styles';
 import reportWebVitals from './reportWebVitals';
 import {CartProvider} from "./CartProvider";
 
@@ -27,7 +28,7 @@ let theme = createTheme({
             'Roboto',
             'Arial',
             'sans-serif'
-        ].join(','),
+        ].join(',')
     },
 });
 

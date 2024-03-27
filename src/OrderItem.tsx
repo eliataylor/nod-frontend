@@ -3,7 +3,7 @@ import {Card, CardContent, CardMedia, Grid, Typography} from '@mui/material';
 import MealQuantity from "./MealQuantity";
 import {Day, Meal, QuantityContext} from "./CartProvider";
 import {useTheme} from "@mui/styles";
-import { Theme} from '@mui/material/styles';
+import {Theme} from '@mui/material/styles';
 
 interface Props {
     meal: Meal;

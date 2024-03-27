@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import {QuantityContext} from "./CartProvider";
 import WeekMenu from "./WeekMenu";
-import {Typography, Box, Divider} from "@mui/material";
+import {Box, Divider, Typography} from "@mui/material";
 
 const FoodMenu: React.FC = () => {
     const {updateFoodMenu, weeklyMenu} = useContext(QuantityContext)

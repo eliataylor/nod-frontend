@@ -1,6 +1,6 @@
 [
   {
-    "week": "Week of April 1st",
+    "week_name": "Week of April 1st",
     "date": "2024-04-01",
     "days": [
       {
@@ -10,17 +10,19 @@
         "meals": [
           {
             "id": 1,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Grilled Chicken and Spinach Salad",
             "description": "A nutritious salad with grilled chicken, spinach, apple, beets, pecan, and quinoa.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 2,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Salmon with Purple Potatoes",
             "description": "Delicious salmon served with purple potatoes and steamed carrots and broccoli.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -31,17 +33,19 @@
         "meals": [
           {
             "id": 3,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Garbanzo Bean Salad",
             "description": "A refreshing salad with garbanzo beans and optional meat.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 4,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Organic Grass Fed Ground Beef Zucchini Rice Bowl",
             "description": "A flavorful bowl featuring organic grass-fed ground beef, zucchini, and rice.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -52,17 +56,19 @@
         "meals": [
           {
             "id": 5,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Grilled Chicken Taco Style Salad",
             "description": "Taco-inspired salad featuring grilled chicken.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 6,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Turkey Kabobs with Turmeric Rice and Grilled Veggies",
             "description": "Succulent turkey kabobs served with turmeric rice and grilled vegetables.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -73,17 +79,19 @@
         "meals": [
           {
             "id": 7,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Chicken Satay Bowl",
             "description": "A bowl featuring chicken satay.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 8,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Steak Fajita Bowl",
             "description": "Sizzling steak fajitas served in a bowl.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -94,24 +102,26 @@
         "meals": [
           {
             "id": 9,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Lemon Pepper Chicken Wrap",
             "description": "A tasty wrap filled with lemon pepper chicken.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 10,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Veggie Soup with Mini Chicken Meatballs",
             "description": "A comforting vegetable soup with mini chicken meatballs.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       }
     ]
   },
   {
-    "week": "Week of April 8th",
+    "week_name": "Week of April 8th",
     "date": "2024-04-08",
     "days": [
       {
@@ -121,17 +131,19 @@
         "meals": [
           {
             "id": 11,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Roasted Glow Bowl",
             "description": "A vibrant bowl featuring roasted ingredients.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 12,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Sweet Spicy Salmon Bowl",
             "description": "A bowl featuring sweet and spicy salmon.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -142,87 +154,95 @@
         "meals": [
           {
             "id": 13,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Lentil Soup",
             "description": "A comforting lentil soup.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 14,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Greek Chicken Bowl",
             "description": "A bowl featuring Greek-inspired chicken.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
       {
         "day": "Wednesday",
-        "date": "2024-04-09",
+        "date": "2024-04-10",
         "delivered": "Sunday PM April 7th",
         "meals": [
           {
             "id": 15,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Asian Sesame Salad with Chicken",
             "description": "A salad featuring Asian sesame flavors with chicken.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 16,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Beef Bulgogi Bowl with Broccoli",
             "description": "A bowl featuring beef bulgogi with broccoli.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
       {
         "day": "Thursday",
-        "date": "2024-04-10",
+        "date": "2024-04-11",
         "delivered": "Wednesday PM April 9th",
         "meals": [
           {
             "id": 17,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Peach Chana Masala",
             "description": "A flavorful chana masala with peach.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 18,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Nourished Goddess Soup",
             "description": "A nourishing soup fit for a goddess.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
       {
         "day": "Friday",
-        "date": "2024-04-11",
+        "date": "2024-04-12",
         "delivered": "Wednesday PM April 9th",
         "meals": [
           {
             "id": 19,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Oahu Inspired High Protein Rice",
             "description": "High-protein rice inspired by Oahu.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 20,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "No Bun Turkey Burger with Toppings and Sides",
             "description": "A turkey burger served without a bun with various toppings and sides.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       }
     ]
   },
   {
-    "week": "Week of April 15th",
+    "week_name": "Week of April 15th",
     "date": "2024-04-15",
     "days": [
       {
@@ -232,17 +252,19 @@
         "meals": [
           {
             "id": 21,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Strawberry Sexy Salad with Grilled Chicken",
             "description": "A sexy salad featuring strawberries and grilled chicken.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 22,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Grilled Salmon Broccoli and Carrots",
             "description": "Grilled salmon served with broccoli and carrots.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -253,17 +275,19 @@
         "meals": [
           {
             "id": 23,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Cobb Salad",
             "description": "A classic Cobb salad.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 24,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Honey Glazed Chicken with Green Beans and Potatoes",
             "description": "Chicken glazed with honey served with green beans and potatoes.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -274,17 +298,19 @@
         "meals": [
           {
             "id": 25,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Salami Garbanzo Lettuce Salad",
             "description": "Salad featuring salami, garbanzo beans, and lettuce.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 26,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Black Pepper Chicken Stir-fry",
             "description": "Stir-fried chicken with black pepper seasoning.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -295,17 +321,19 @@
         "meals": [
           {
             "id": 27,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Collard Lettuce Wraps with Grilled Chicken",
             "description": "Lettuce wraps featuring collard greens and grilled chicken.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 28,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Chicken Black Bean and Avocado Bowls",
             "description": "Bowls featuring chicken, black beans, and avocado.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -316,24 +344,26 @@
         "meals": [
           {
             "id": 29,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Greek Orzo Salad",
             "description": "A refreshing Greek salad with orzo.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 30,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "High Protein Sausage and Veggie Stir-fry",
             "description": "Stir-fry featuring high-protein sausage and vegetables.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       }
     ]
   },
   {
-    "week": "Week of April 22nd",
+    "week_name": "Week of April 22nd",
     "date": "2024-04-22",
     "days": [
       {
@@ -343,17 +373,19 @@
         "meals": [
           {
             "id": 31,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Lemon Chicken Rice Bowl",
             "description": "A rice bowl featuring lemon chicken.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 32,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Taco Stuffed Sweet Potatoes",
             "description": "Sweet potatoes stuffed with taco ingredients.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -364,17 +396,19 @@
         "meals": [
           {
             "id": 33,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Zoodle with Turkey/Veggie Meatballs",
             "description": "Zucchini noodles with turkey and veggie meatballs.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 34,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Kitchari",
             "description": "A traditional Indian dish made with rice and lentils.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -385,17 +419,19 @@
         "meals": [
           {
             "id": 35,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Balsamic Chicken Avocado Caprese Salad",
             "description": "Caprese salad with balsamic chicken and avocado.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 36,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Unstuffed Bell Pepper Turkey Bowls",
             "description": "Bowls featuring unstuffed bell pepper ingredients with turkey.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -406,17 +442,19 @@
         "meals": [
           {
             "id": 37,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Mediterranean Lunch Box",
             "description": "A lunch box featuring Mediterranean flavors.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 38,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Crispy Sriracha Salmon Bowl",
             "description": "A bowl featuring crispy sriracha salmon.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       },
@@ -427,17 +465,19 @@
         "meals": [
           {
             "id": 39,
-            "bdl": "lunch",
+            "bld": "lunch",
             "title": "Sesame Noodle Salad Jar",
             "description": "A jarred salad featuring sesame noodles.",
-            "photos": []
+            "photos": [],
+            "price": 16
           },
           {
             "id": 40,
-            "bdl": "dinner",
+            "bld": "dinner",
             "title": "Cheeseburger Bowl",
             "description": "A bowl featuring all the flavors of a cheeseburger.",
-            "photos": []
+            "photos": [],
+            "price": 16
           }
         ]
       }

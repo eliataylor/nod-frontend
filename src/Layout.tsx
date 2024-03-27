@@ -38,21 +38,21 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
 
     return (
         <React.Fragment>
-            <AppBar position="fixed" color={'transparent'} >
+            <AppBar position="fixed" color={'transparent'}>
                 <Grid container justifyContent={'space-between'} alignItems={'center'} padding={1} spacing={2}>
                     {location.pathname.length > 1 &&
                         <Grid item>
                             <img src={'/logo.png'} height={60}/>
                         </Grid>
                     }
-                    <Grid item style={{flexGrow:1}}></Grid>
-                    {price > 0 && <Grid item>
+                    <Grid item style={{flexGrow: 1}}></Grid>
+                    {price > 0 && <Grid item><Link
+                        to={'/checkout'}>
                         <Badge color={'secondary'} max={999} badgeContent={price.toLocaleString('en-US', {
                             style: 'currency',
                             currency: 'USD'
-                        })}><Button size={'small'} component={Link}
-                                                                                to={'/checkout'} variant={'outlined'}>View
-                            Cart</Button></Badge>
+                        })}><Button size={'small'} variant={'outlined'}>View
+                            Cart</Button></Badge></Link>
                     </Grid>
                     }
                     <Grid item>

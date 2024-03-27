@@ -5,7 +5,7 @@ import {OrderItems, QuantityContext} from "./CartProvider";
 
 interface Props {
     orderItems: OrderItems;
-    label: React.ReactElement | string
+    label?: React.ReactElement | string
 }
 
 const OrderItemsCheckboxList: React.FC<Props> = ({orderItems, label}) => {
@@ -37,7 +37,7 @@ const OrderItemsCheckboxList: React.FC<Props> = ({orderItems, label}) => {
                     onChange={(e) => handleToggle(e)}
                 />
             }
-            label={label || 'Select All'}
+            label={label || undefined}
         />
     );
 };
