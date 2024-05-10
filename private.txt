@@ -1,1 +1,0 @@
-rsync -avH build/* -e ssh u43384095@home188812746.1and1-data.host:/kunden/homepages/22/d188812746/htdocs/nod/nod-frontend/build

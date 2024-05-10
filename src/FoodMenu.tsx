@@ -2,8 +2,12 @@ import React, {useContext, useEffect} from 'react';
 import {QuantityContext} from "./CartProvider";
 import WeekMenu from "./WeekMenu";
 import {Box, Divider, Typography} from "@mui/material";
+import {CheckCircle} from "@mui/icons-material";
+import {useTheme} from "@mui/styles";
+import {Theme} from "@mui/material/styles";
 
 const FoodMenu: React.FC = () => {
+    const theme = useTheme() as Theme;
     const {updateFoodMenu, weeklyMenu} = useContext(QuantityContext)
 
     useEffect(() => {
@@ -37,10 +41,10 @@ const FoodMenu: React.FC = () => {
         <div>
             <Box mb={1}>
             <Typography variant={'h6'}>CREATE YOUR MEAL PROGRAM</Typography>
-            <Typography variant={'body2'}>5% off for 3 or more servings on any meal</Typography>
-            <Typography variant={'body2'}>10% for whole week subscriptions</Typography>
-            <Typography variant={'body2'}>Free addon with three or more days (select at checkout)</Typography>
-            <Typography variant={'body2'}>Enable substitutions and recipes requests with Monthly subscriptions</Typography>
+            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>5% off for 3 or more servings on any meal</span></Typography>
+            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>10% for whole week subscriptions</span></Typography>
+            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>Free addon with three or more days (select at checkout)</span></Typography>
+            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>Enable substitutions and recipes requests with Monthly subscriptions</span></Typography>
             </Box>
             <Divider />
             {weeklyMenu.map((week, index) => (
