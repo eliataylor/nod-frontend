@@ -15,6 +15,12 @@ const ThemeProvider = ({children}) => {
             createTheme({
                 palette: {
                     mode: darkMode ? 'dark' : 'light',
+                    primary: {
+                        main: '#3B5700',
+                    },
+                    secondary:{
+                        main: '#bf741f'
+                    },
                     warning: {
                         main: orange[500],
                     },

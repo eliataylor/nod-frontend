@@ -103,7 +103,7 @@ const Checkout = () => {
                     <Divider />
 
                     <Typography variant={'h6'}>Review my meal plan</Typography>
-                    {cartItems.map(meal => <OrderItem key={`meal-${meal.id}`} meal={meal}/>)}
+                    {cartItems.map(meal => <OrderItem showServings={true} key={`meal-${meal.id}`} meal={meal}/>)}
                 </Box>
             }
 

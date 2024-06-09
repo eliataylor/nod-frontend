@@ -7,9 +7,10 @@ import {Theme} from '@mui/material/styles';
 
 interface Props {
     meal: Meal;
+    showServings: boolean;
 }
 
-const OrderItem: React.FC<Props> = ({meal}) => {
+const OrderItem: React.FC<Props> = ({meal, showServings}) => {
     const theme = useTheme() as Theme;
 
     const {cartItems} = useContext(QuantityContext)
@@ -20,7 +21,7 @@ const OrderItem: React.FC<Props> = ({meal}) => {
     return (
         <Card key={`${meal.id}-${meal.bld}`} style={{marginBottom:10, borderRadius:"4px 0 0 0"}}>
             {meal.photos && meal.photos.length > 0 &&
-                <CardMedia image={meal.photos[0]} sx={{height: 250, maxWidth:300}}/>
+                <CardMedia image={meal.photos[0]} sx={{height: 150, maxWidth:300}}/>
             }
             <CardContent>
                 <Grid container justifyContent={'space-between'}>
@@ -32,11 +33,18 @@ const OrderItem: React.FC<Props> = ({meal}) => {
                             {meal.description}
                         </Typography>
                         {/* <Typography variant="body2" color="primary" component={Link} to={`/receipt/${meal.id}`}>View Details</Typography> */}
+                        {!showServings &&
+                            <Typography variant="caption"
+                                        color={theme.palette.grey[600]}>{meal.bld.toUpperCase()}</Typography>
+                        }
                     </Grid>
-                    <Grid item>
-                        <Typography variant="caption" color={theme.palette.grey[600]} >{meal.bld.toUpperCase()}</Typography>
-                        <div><MealQuantity meal={topass} /></div>
-                    </Grid>
+                    {showServings &&
+                        <Grid item>
+                            <Typography variant="caption"
+                                        color={theme.palette.grey[600]}>{meal.bld.toUpperCase()}</Typography>
+                            <div><MealQuantity meal={topass}/></div>
+                        </Grid>
+                    }
                 </Grid>
             </CardContent>
         </Card>

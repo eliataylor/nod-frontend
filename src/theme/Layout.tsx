@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {AppBar, Badge, Box, Button, Grid} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
@@ -9,7 +9,7 @@ import DrawerMenu from "../components/DrawerMenu";
 import {styled} from "@mui/material/styles";
 import {QuantityContext} from "../CartProvider";
 import Logo from "../Logo";
-import { useNavDrawer } from "../NavDrawerProvider";
+import {useNavDrawer} from "../NavDrawerProvider";
 import NavMenu from "../components/NavMenu";
 
 const DrawerHeader = styled('div')(({theme}) => ({

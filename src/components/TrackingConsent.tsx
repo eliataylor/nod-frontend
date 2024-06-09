@@ -1,53 +1,39 @@
 import React, {useState} from 'react';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import Switch from '@mui/material/Switch';
-import Button from '@mui/material/Button';
+import TrackingPermissions, {PermissionKeys} from "./TrackingPermissions";
+import {AppBar, Toolbar, Fab} from "@mui/material";
+import {Check} from "@mui/icons-material";
+
+import { styled } from '@mui/material/styles';
+
+const permissions:PermissionKeys = {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted'
+};
+
+const StyledFab = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: -35,
+    left: 0,
+    right: 0,
+    margin: '0 auto',
+});
 
 const TrackingConsent: React.FC = () => {
-    const [storageConsent, setStorageConsent] = useState<boolean>(false);
-    const [trackingConsent, setTrackingConsent] = useState<boolean>(false);
+    const [accepted, setAccepted] = useState(false);
 
-    const handleStorageConsentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setStorageConsent(event.target.checked);
-    };
+    if (accepted === true) return null;
 
-    const handleTrackingConsentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTrackingConsent(event.target.checked);
-    };
-
-    const handleAccept = () => {
-        // Handle gtag calls for accepting storage and tracking permissions
-        console.log('Storage consent:', storageConsent);
-        console.log('Tracking consent:', trackingConsent);
-    };
-
-    const handleDeny = () => {
-        // Handle gtag calls for denying storage and tracking permissions
-        console.log('Storage consent denied');
-        console.log('Tracking consent denied');
-    };
-
-    return (
-        <div>
-            <FormGroup>
-                <FormControlLabel
-                    control={<Switch checked={storageConsent} onChange={handleStorageConsentChange} />}
-                    label="Storage consent"
-                />
-                <FormControlLabel
-                    control={<Switch checked={trackingConsent} onChange={handleTrackingConsentChange} />}
-                    label="Tracking consent"
-                />
-            </FormGroup>
-            <Button variant="contained" color="primary" onClick={handleAccept}>
-                Accept
-            </Button>
-            <Button variant="contained" color="secondary" onClick={handleDeny}>
-                Deny
-            </Button>
-        </div>
-    );
+    return <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0, padding:3 }}>
+        <Toolbar>
+            <StyledFab color="secondary" aria-label="add" onClick={() => setAccepted(true)}>
+                <Check />
+            </StyledFab>
+            <TrackingPermissions permissions={permissions}  />
+        </Toolbar>
+    </AppBar>;
 };
 
 export default TrackingConsent;
