@@ -11,6 +11,7 @@ import OrderItem from "../components/OrderItem";
 import {makeStyles, useTheme} from '@mui/styles';
 import {lighten, Theme} from '@mui/material/styles';
 import {nearestDay} from "../Utils";
+import {useNavDrawer} from "../NavDrawerProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
     summary: {
@@ -30,6 +31,7 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const {cartItems} = useContext(QuantityContext)
+    const { keyword } = useNavDrawer();
 
     const handleAccordionChange = (e:any) => {
         if (e.target.nodeName && e.target.nodeName.toLowerCase() === 'input') {
@@ -91,7 +93,7 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
                             label={<Typography variant="h6" >{day.day}</Typography>}
                         />
                         <div>
-                            {day.meals.map(meal => <OrderItem showServings={false} key={`meal-${meal.id}`} meal={meal} />)}
+                            {day.meals.map(meal => <OrderItem hideIfMissing={keyword} showServings={false} key={`meal-${meal.id}`} meal={meal} />)}
                         </div>
                     </Box>
                 ))}

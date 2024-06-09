@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import TrackingPermissions, {PermissionKeys} from "./TrackingPermissions";
-import {AppBar, Toolbar, Fab} from "@mui/material";
+import {AppBar, Fab, Toolbar} from "@mui/material";
 import {Check} from "@mui/icons-material";
 
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 
 const permissions:PermissionKeys = {
     ad_storage: 'denied',
@@ -26,7 +26,7 @@ const TrackingConsent: React.FC = () => {
 
     if (accepted === true) return null;
 
-    return <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0, padding:3 }}>
+    return <AppBar position="fixed" color="default" sx={{ top: 'auto', bottom: 0, padding:3 }}>
         <Toolbar>
             <StyledFab color="secondary" aria-label="add" onClick={() => setAccepted(true)}>
                 <Check />

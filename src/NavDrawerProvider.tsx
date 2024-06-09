@@ -1,4 +1,5 @@
 import React, {createContext, ReactNode, useContext, useEffect, useState} from 'react';
+import {useLocation} from "react-router-dom";
 
 // Define the shape of the context value
 interface NavDrawerContextType {
@@ -6,6 +7,9 @@ interface NavDrawerContextType {
     setNavDrawerWidth: (width: number) => void;
     isMounted: boolean;
     setMounting: (isOpen: boolean) => void;
+
+    keyword: string;
+    setKeyword: (keyword: string) => void;
 }
 
 // Create the context with a default value
@@ -29,6 +33,7 @@ interface NavDrawerProviderProps {
 export const NavDrawerProvider: React.FC<NavDrawerProviderProps> = ({ children }) => {
     const [navDrawerWidth, setNavDrawerWidth] = useState<number>(240); // default width
     const [isMounted, setMounting] = useState<boolean>(window.innerWidth > 600);
+    const [keyword, setKeyword] = useState<string>('');
 
     useEffect(() => {
         const handleResize = () => {
@@ -43,7 +48,7 @@ export const NavDrawerProvider: React.FC<NavDrawerProviderProps> = ({ children }
     }, []);
 
     return (
-        <NavDrawerContext.Provider value={{ navDrawerWidth, setNavDrawerWidth, isMounted, setMounting }}>
+        <NavDrawerContext.Provider value={{ navDrawerWidth, setNavDrawerWidth, isMounted, setMounting, keyword, setKeyword }}>
             {children}
         </NavDrawerContext.Provider>
     );

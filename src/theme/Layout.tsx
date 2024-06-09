@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {AppBar, Badge, Box, Button, Grid} from "@mui/material";
+import {useLocation} from 'react-router-dom';
+import {AppBar, Box, Grid} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
@@ -11,6 +11,7 @@ import {QuantityContext} from "../CartProvider";
 import Logo from "../Logo";
 import {useNavDrawer} from "../NavDrawerProvider";
 import NavMenu from "../components/NavMenu";
+import ViewCartButton from "../components/ViewCartButton";
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -39,7 +40,13 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
 
     const price = useContext(QuantityContext).cartPrice;
 
-    const appBar = <AppBar position="fixed" color={'transparent'}>
+    if (location.pathname.length === 0 || location.pathname === '/'){
+        return <Box style={{width: '100%', margin:`${isMounted ? 0 : '100px'} auto 0 auto`, padding: '1%', maxWidth: 1024}}>
+            {children}
+        </Box>
+    }
+
+    const appBar = <AppBar position="fixed" color={'default'}>
         <Grid container justifyContent={'space-between'} alignItems={'center'} padding={1}
               spacing={2}>
             {location.pathname.length > 1 &&
@@ -48,14 +55,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                 </Grid>
             }
             <Grid item style={{flexGrow: 1}}></Grid>
-            {price > 0 && <Grid item><Link
-                to={'/checkout'}>
-                <Badge color={'secondary'} max={999} badgeContent={price.toLocaleString('en-US', {
-                    style: 'currency',
-                    currency: 'USD'
-                })}><Button size={'small'} variant={'outlined'}>View
-                    Cart</Button></Badge></Link>
-            </Grid>
+            {price > 0 && <Grid item><ViewCartButton /></Grid>
             }
             <Grid item>
                 <IconButton
@@ -87,6 +87,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                     </Box>
                 </Grid>
             </Grid>
+
 
             <Drawer
                 anchor="right"

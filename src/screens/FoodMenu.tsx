@@ -1,14 +1,17 @@
 import React, {useContext, useEffect} from 'react';
 import {QuantityContext} from "../CartProvider";
 import WeekMenu from "./WeekMenu";
-import {Box, Divider, Typography} from "@mui/material";
-import {CheckCircle} from "@mui/icons-material";
-import {useTheme} from "@mui/styles";
-import {Theme} from "@mui/material/styles";
+import {Divider, Grid} from "@mui/material";
+import {useNavDrawer} from "../NavDrawerProvider";
+import SearchField from "../components/SearchField";
+import ActivePromotions from "../components/ActivePromotions";
+import ViewCartButton from "../components/ViewCartButton";
 
 const FoodMenu: React.FC = () => {
-    const theme = useTheme() as Theme;
     const {updateFoodMenu, weeklyMenu} = useContext(QuantityContext)
+    const {isMounted} = useNavDrawer();
+
+    const price = useContext(QuantityContext).cartPrice;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,12 +21,12 @@ const FoodMenu: React.FC = () => {
                     throw new Error('Failed to fetch menu data');
                 }
                 const data = await response.json();
-                data.forEach((week:any) => {
-                   week.days.forEach((day:any) => {
-                        day.meals.forEach((meal:any) => {
+                data.forEach((week: any) => {
+                    week.days.forEach((day: any) => {
+                        day.meals.forEach((meal: any) => {
                             meal.date = day.date
                         })
-                   })
+                    })
                 });
                 updateFoodMenu(data);
             } catch (error) {
@@ -37,19 +40,22 @@ const FoodMenu: React.FC = () => {
 
     if (!weeklyMenu || weeklyMenu.length === 0) return <div>loading menu...</div>
 
+
     return (
         <div>
-            <Box mb={1}>
-            <Typography variant={'h6'}>CREATE YOUR MEAL PROGRAM</Typography>
-            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>5% off for 3 or more servings on any meal</span></Typography>
-            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>10% for whole week subscriptions</span></Typography>
-            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>Free addon with three or more days (select at checkout)</span></Typography>
-            <Typography variant={'body2'} style={{display:'flex', alignItems:'center'}}><CheckCircle sx={{fontSize:14, marginRight:1, color:theme.palette.grey[300]}} /> <span>Enable substitutions and recipes requests with Monthly subscriptions</span></Typography>
-            </Box>
-            <Divider />
-            {weeklyMenu.map((week, index) => (
-                <WeekMenu key={`week-${week.week_name}`} week={week} index={index} />
-            ))}
+            <ActivePromotions/>
+            <Divider sx={{marginBottom: 2}}/>
+            <Grid container>
+                {isMounted === true && price > 0 && <Grid item xs={12} sx={{m: 2, textAlign:'right'}}><ViewCartButton /></Grid>}
+                <Grid item xs={12} sx={{mb:2}}>
+                    <SearchField/>
+                </Grid>
+                <Grid item xs={12}>
+                    {weeklyMenu.map((week, index) => (
+                        <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
+                    ))}
+                </Grid>
+            </Grid>
         </div>
     );
 };

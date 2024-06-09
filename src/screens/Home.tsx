@@ -9,7 +9,7 @@ const Home = () => {
             <Box>
                 <Logo height={250} />
             </Box>
-            <Button variant={'contained'} component={Link} to={'/next-week'} style={{margin:'50px 0', background:'#202020'}}>Create Your Meal Plan</Button>
+            <Button variant={'contained'} component={Link} to={'/next-week'} style={{margin:'50px 0', background:'#202020', color:'#fff'}}>Create Your Meal Plan</Button>
             <Typography variant={'body1'} style={{maxWidth:400, margin:'auto'}} >
                 NOD stands for Nourishment On-Demand, reflecting our commitment to nourishing you when your body needs
                 it most.

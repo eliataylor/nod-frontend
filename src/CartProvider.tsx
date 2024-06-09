@@ -1,4 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
+import {countConsecutiveDays} from "./Utils";
 
 export interface Meal {
     id: number;
@@ -125,7 +126,7 @@ const CartProvider: React.FC<CartProviderProps> = ({children, initialState}) => 
             } else {
                 newItems = binaryInsert(newItems, {...meal, servings: servings})
             }
-            const newPrice = newItems.reduce((accumulator: number, currentValue: Meal) => {
+            let newPrice = newItems.reduce((accumulator: number, currentValue: Meal) => {
                 const servings = (currentValue.servings ? currentValue.servings : 1)
                 if (servings > 2) {
                     accumulator += (currentValue.price * servings) * .95
@@ -135,6 +136,12 @@ const CartProvider: React.FC<CartProviderProps> = ({children, initialState}) => 
 
                 return accumulator;
             }, 0);
+
+            const hasFullWeek = countConsecutiveDays(newItems) > 6 ? true : false;
+            if (hasFullWeek) {
+                newPrice = newPrice * .9;
+            }
+
             setPrice(parseFloat(newPrice.toFixed(2)));
 
             if (newItems.length === 0) {

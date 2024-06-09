@@ -8,7 +8,7 @@ import GlobalStyles from './GlobalStyles'; // Import the global styles
 const ThemeContext = createContext();
 
 const ThemeProvider = ({children}) => {
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
 
     const theme = useMemo(
         () =>

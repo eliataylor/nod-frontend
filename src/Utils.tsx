@@ -1,3 +1,5 @@
+import {OrderItems} from "./CartProvider";
+
 export function nearestDay(date: Date, targetDay: number): String {
     // Get the day of the week for the reference date (0-6)
     const currentDay = date.getDay();
@@ -37,4 +39,38 @@ function formatDeliveryDate(date: Date): string {
 
     const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
     return formattedDate.replace(/,/, ` ${suffix} `);
+}
+
+
+export function has3PlusServings(cartItems: OrderItems) : boolean {
+    const has = cartItems.find(item => typeof item.servings === 'number' && item.servings > 2)
+    if (has) return true;
+    return false;
+}
+
+export function countConsecutiveDays(cartItems: OrderItems): number {
+    if (cartItems.length === 0) return 0;
+
+    // Make a shallow copy of cartItems and filter out items without a date
+    let items = [...cartItems].filter(item => item.date !== undefined);
+    if (items.length === 0) return 0;
+
+    // Sort the copy by date
+    items.sort((a, b) => new Date(a.date!).getTime() - new Date(b.date!).getTime());
+
+    // Iterate over the sorted list
+    for (let i = 0; i < items.length - 1; i++) {
+        const currentDate = new Date(items[i].date!).getTime();
+        const nextDate = new Date(items[i + 1].date!).getTime();
+        const diffDays = (nextDate - currentDate) / (1000 * 60 * 60 * 24);
+
+        // If the difference between consecutive dates is more than 7 days, remove the current item
+        if (diffDays > 7) {
+            items.splice(i, 1);
+            i--; // Adjust index after removal
+        }
+    }
+
+    // Return the number of items remaining
+    return items.length;
 }

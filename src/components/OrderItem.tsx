@@ -8,9 +8,10 @@ import {Theme} from '@mui/material/styles';
 interface Props {
     meal: Meal;
     showServings: boolean;
+    hideIfMissing?: string;
 }
 
-const OrderItem: React.FC<Props> = ({meal, showServings}) => {
+const OrderItem: React.FC<Props> = ({meal, showServings, hideIfMissing=""}) => {
     const theme = useTheme() as Theme;
 
     const {cartItems} = useContext(QuantityContext)
@@ -18,11 +19,19 @@ const OrderItem: React.FC<Props> = ({meal, showServings}) => {
     const inCart = cartItems.find(c => c.id === meal.id)
     const topass = inCart || meal;
 
+    if (hideIfMissing && hideIfMissing.length > 0) {
+        let has = false;
+        if (meal.title.includes(hideIfMissing)) {
+            has = true;
+        }
+        if (meal.description.includes(hideIfMissing)) {
+            has = true;
+        }
+        if (has === false) return null;
+    }
+
     return (
         <Card key={`${meal.id}-${meal.bld}`} style={{marginBottom:10, borderRadius:"4px 0 0 0"}}>
-            {meal.photos && meal.photos.length > 0 &&
-                <CardMedia image={meal.photos[0]} sx={{height: 150, maxWidth:300}}/>
-            }
             <CardContent>
                 <Grid container justifyContent={'space-between'}>
                     <Grid item>
@@ -44,6 +53,9 @@ const OrderItem: React.FC<Props> = ({meal, showServings}) => {
                                         color={theme.palette.grey[600]}>{meal.bld.toUpperCase()}</Typography>
                             <div><MealQuantity meal={topass}/></div>
                         </Grid>
+                    }
+                    {meal.photos && meal.photos.length > 0 &&
+                        <Grid item xs={12} md={4}><CardMedia image={meal.photos[0]} sx={{height: 150, maxWidth:300}}/></Grid>
                     }
                 </Grid>
             </CardContent>

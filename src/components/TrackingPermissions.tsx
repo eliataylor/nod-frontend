@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FormHelperText, MenuItem} from '@mui/material';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select, {SelectChangeEvent} from '@mui/material/Select';
 
 
 export interface PermissionKeys {
@@ -63,7 +63,7 @@ const TrackingPermissions: React.FC<PermissionProps> = ({permissions}) => {
         }
     };
 
-    return (<FormControl >
+    return (<FormControl fullWidth={true} >
             <InputLabel id="demo-multiple-checkbox-label">Allow</InputLabel>
             <Select
                 labelId="demo-multiple-checkbox-label"
