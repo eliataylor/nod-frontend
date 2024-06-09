@@ -24,6 +24,15 @@ export interface Week {
     days: Day[]
 }
 
+export interface Supplier {
+    id: string;
+    name: string;
+    photo: string;
+    address: string;
+    website: string;
+}
+
+export type Suppliers = Supplier[] | null;
 export type MenuData = Week[] | null;
 export type OrderItems = Meal[];
 
@@ -128,6 +137,9 @@ const CartProvider: React.FC<CartProviderProps> = ({children, initialState}) => 
             }, 0);
             setPrice(parseFloat(newPrice.toFixed(2)));
 
+            if (newItems.length === 0) {
+                localStorage.removeItem('myCartData');
+            }
             return newItems;
         });
     };

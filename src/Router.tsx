@@ -4,7 +4,7 @@ import FoodMenu from './FoodMenu';
 import Home from './Home';
 import About from './About';
 import Faqs from './Faqs';
-import Suppliers from './Suppliers';
+import SupplierList from './SupplierList';
 import Contact from './Contact';
 import Checkout from './Checkout';
 import Layout from "./Layout";
@@ -20,7 +20,7 @@ const App = () => {
                         <Route path="/" element={<Home/>}/>
                         <Route path="/about" element={<About/>}/>
                         <Route path="/next-week" element={<FoodMenu/>}/>
-                        <Route path="/suppliers" element={<Suppliers/>}/>
+                        <Route path="/suppliers" element={<SupplierList/>}/>
                         <Route path="/faq" element={<Faqs/>}/>
                         <Route path="/contact" element={<Contact/>}/>
                         <Route path="/checkout" element={<Checkout/>}/>

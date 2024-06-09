@@ -15,7 +15,7 @@ const OrderItemsCheckboxList: React.FC<Props> = ({orderItems, label}) => {
     const missingItem = orderItems.findIndex(o => !o.servings || o.servings === 0);
 
     function handleToggle(event: React.ChangeEvent<HTMLInputElement>) {
-        event.stopPropagation();
+        // event.stopPropagation();
         orderItems.forEach((o) => {
             let servings = 1;
             if (!event.target.checked) {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { SvgIcon } from '@mui/material';
-import { ReactComponent as LOGO } from './logo.svg';
+import {SvgIcon} from '@mui/material';
+import {ReactComponent as LOGO} from './logo.svg';
 import {makeStyles} from '@mui/styles';
 import {Theme} from '@mui/material/styles';
 

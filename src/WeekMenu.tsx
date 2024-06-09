@@ -31,7 +31,11 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
     const [isOpen, setIsOpen] = useState(true);
     const {cartItems} = useContext(QuantityContext)
 
-    const handleAccordionChange = () => {
+    const handleAccordionChange = (e:any) => {
+        if (e.target.nodeName && e.target.nodeName.toLowerCase() === 'input') {
+            return false;
+        }
+
         setIsOpen((prev) => !prev);
     };
 

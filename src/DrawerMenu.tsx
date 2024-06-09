@@ -16,12 +16,12 @@ const DrawerMenu = () => {
             <ListItem button component={Link} to="/next-week" selected={location.pathname === '/next-week'}>
                 <ListItemText primary="Next Week" />
             </ListItem>
-            <ListItem button component={Link} to="/suppliers" selected={location.pathname === '/suppliers'}>
+            {/* <ListItem button component={Link} to="/suppliers" selected={location.pathname === '/suppliers'}>
                 <ListItemText primary="Suppliers" />
             </ListItem>
             <ListItem button component={Link} to="/faq" selected={location.pathname === '/faq'}>
                 <ListItemText primary="FAQ" />
-            </ListItem>
+            </ListItem> */}
             <ListItem button component={Link} to="/contact" selected={location.pathname === '/contact'}>
                 <ListItemText primary="Contact" />
             </ListItem>

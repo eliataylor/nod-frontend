@@ -6,7 +6,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DrawerMenu from "./DrawerMenu";
-import {styled, useTheme} from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import {QuantityContext} from "./CartProvider";
 import Logo from "./Logo";
 
@@ -74,6 +74,8 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
             <Drawer
                 anchor="right"
                 open={open}
+                variant={'temporary'}
+                onClose={handleDrawerClose}
             >
                 <DrawerHeader>
                     <Logo height={40} />
@@ -81,7 +83,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                         <ChevronRightIcon/>
                     </IconButton>
                 </DrawerHeader>
-                <DrawerMenu/>
+                <DrawerMenu />
             </Drawer>
         </React.Fragment>
     );

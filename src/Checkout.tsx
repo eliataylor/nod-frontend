@@ -51,14 +51,10 @@ const Checkout = () => {
             {cartPrice > 0 ?
                 <Box >
                     <Typography variant={'h6'}>
-                        To complete your order please:
+                         Please copy and email your meal plan data below to  <a href={buildMailTo()}
+                                                                                             style={{color:theme.palette.secondary.main}}
+                                                                                             target={'_blank'}>NourishmentOnDemand@gmail.com</a>. We'll respond with confirmation and payment options.
                     </Typography>
-                    <ul>
-                        <li>Pay {priceString} for your plan via any method below</li>
-                        <li>Copy and Email your meal plan data <a href={buildMailTo()}
-                                                              style={{color:theme.palette.secondary.main}}
-                                                              target={'_blank'}>NourishmentOnDemand@gmail.com</a></li>
-                    </ul>
                     <div style={{margin: '10px auto'}}>
                         <TextField
                             fullWidth={true}
@@ -82,6 +78,7 @@ const Checkout = () => {
                 <Typography variant={'h6'} style={{textAlign: 'center'}} gutterBottom={true}>Accepting payments
                     through </Typography>
             }
+            {/*
             <Grid container justifyContent={'space-between'} style={{textAlign: 'center'}}>
                 <Grid item xs={4} >
                     <Typography variant={'overline'}>Venmo</Typography>
@@ -99,6 +96,7 @@ const Checkout = () => {
                     <img src={'/paypal.png'} width={100} />
                 </Grid>
             </Grid>
+*/}
 
             {cartPrice > 0 &&
                 <Box margin={"20px auto"}>

@@ -13,7 +13,7 @@
             "bld": "lunch",
             "title": "Grilled Chicken and Spinach Salad",
             "description": "A nutritious salad with grilled chicken, spinach, apple, beets, pecan, and quinoa.",
-            "photos": [],
+            "photos": ["/photos/Grilled-Chicken-and-Spinach-Salad.jpeg"],
             "price": 16
           },
           {
@@ -21,7 +21,7 @@
             "bld": "dinner",
             "title": "Salmon with Purple Potatoes",
             "description": "Delicious salmon served with purple potatoes and steamed carrots and broccoli.",
-            "photos": [],
+            "photos": ["/photos/Salmon-with-Purple-Potatoes.jpeg"],
             "price": 16
           }
         ]
@@ -44,7 +44,7 @@
             "bld": "dinner",
             "title": "Organic Grass Fed Ground Beef Zucchini Rice Bowl",
             "description": "A flavorful bowl featuring organic grass-fed ground beef, zucchini, and rice.",
-            "photos": [],
+            "photos": ["/photos/Organic-grass-fed-ground-beef-zucchini-rice-bowl.jpeg"],
             "price": 16
           }
         ]
@@ -59,7 +59,7 @@
             "bld": "lunch",
             "title": "Grilled Chicken Taco Style Salad",
             "description": "Taco-inspired salad featuring grilled chicken.",
-            "photos": [],
+            "photos": ["/photos/Grilled-Chicken-Taco-Style-Salad.jpeg"],
             "price": 16
           },
           {
@@ -67,7 +67,7 @@
             "bld": "dinner",
             "title": "Turkey Kabobs with Turmeric Rice and Grilled Veggies",
             "description": "Succulent turkey kabobs served with turmeric rice and grilled vegetables.",
-            "photos": [],
+            "photos": ["/photos/Turkey-kabobs-turmeric-rice-and-grilled-veggies.jpeg"],
             "price": 16
           }
         ]
@@ -286,7 +286,7 @@
             "bld": "dinner",
             "title": "Honey Glazed Chicken with Green Beans and Potatoes",
             "description": "Chicken glazed with honey served with green beans and potatoes.",
-            "photos": [],
+            "photos": ["/photos/Honey-Glazed-Chicken-with-green-beans-sweet-potatoes.jpeg"],
             "price": 16
           }
         ]
@@ -309,7 +309,7 @@
             "bld": "dinner",
             "title": "Black Pepper Chicken Stir-fry",
             "description": "Stir-fried chicken with black pepper seasoning.",
-            "photos": [],
+            "photos": ["/photos/Healthy-Black-Pepper-Chicken-Stirfry.jpeg"],
             "price": 16
           }
         ]
@@ -376,7 +376,7 @@
             "bld": "lunch",
             "title": "Lemon Chicken Rice Bowl",
             "description": "A rice bowl featuring lemon chicken.",
-            "photos": [],
+            "photos": ["/photos/Lemon-Chicken-Rice-Bowl.jpeg"],
             "price": 16
           },
           {
@@ -384,7 +384,7 @@
             "bld": "dinner",
             "title": "Taco Stuffed Sweet Potatoes",
             "description": "Sweet potatoes stuffed with taco ingredients.",
-            "photos": [],
+            "photos": ["/photos/Taco-Stuffed-Sweet-Potatoes.jpeg"],
             "price": 16
           }
         ]
@@ -453,7 +453,7 @@
             "bld": "dinner",
             "title": "Crispy Sriracha Salmon Bowl",
             "description": "A bowl featuring crispy sriracha salmon.",
-            "photos": [],
+            "photos": ["/photos/Crispy-Sriracha-Salmon-Bowl.jpeg"],
             "price": 16
           }
         ]

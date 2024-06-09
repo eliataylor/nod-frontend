@@ -20,7 +20,7 @@ const OrderItem: React.FC<Props> = ({meal}) => {
     return (
         <Card key={`${meal.id}-${meal.bld}`} style={{marginBottom:10, borderRadius:"4px 0 0 0"}}>
             {meal.photos && meal.photos.length > 0 &&
-                <CardMedia image={meal.photos[0]} sx={{height: 140}}/>
+                <CardMedia image={meal.photos[0]} sx={{height: 250, maxWidth:300}}/>
             }
             <CardContent>
                 <Grid container justifyContent={'space-between'}>
