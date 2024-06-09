@@ -1,14 +1,14 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import FoodMenu from './FoodMenu';
-import Home from './Home';
-import About from './About';
-import Faqs from './Faqs';
-import SupplierList from './SupplierList';
-import Contact from './Contact';
-import Checkout from './Checkout';
-import Layout from "./Layout";
-import Testimonials from "./Testimonials";
+import FoodMenu from './screens/FoodMenu';
+import Home from './screens/Home';
+import About from './screens/About';
+import Faqs from './screens/Faqs';
+import SupplierList from './screens/SupplierList';
+import Contact from './screens/Contact';
+import Checkout from './screens/Checkout';
+import Layout from "./theme/Layout";
+import Testimonials from "./screens/Testimonials";
 
 
 const App = () => {
@@ -16,7 +16,6 @@ const App = () => {
     return (
         <BrowserRouter>
             <Layout>
-
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/about" element={<About/>}/>

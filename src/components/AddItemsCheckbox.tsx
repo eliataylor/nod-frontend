@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import {OrderItems, QuantityContext} from "./CartProvider";
+import {OrderItems, QuantityContext} from "../CartProvider";
 
 interface Props {
     orderItems: OrderItems;

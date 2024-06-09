@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Card, CardContent, CardMedia, Grid, Typography} from '@mui/material';
 import MealQuantity from "./MealQuantity";
-import {Meal, QuantityContext} from "./CartProvider";
+import {Meal, QuantityContext} from "../CartProvider";
 import {useTheme} from "@mui/styles";
 import {Theme} from '@mui/material/styles';
 

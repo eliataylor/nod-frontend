@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Typography, CircularProgress } from '@mui/material';
+import React, {useEffect, useState} from 'react';
+import {CircularProgress, Container, Typography} from '@mui/material';
 import Reviews from './Reviews';
 
 interface Review {

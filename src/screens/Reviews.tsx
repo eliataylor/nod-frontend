@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Grid} from '@mui/material';
-import Review from './Review';
+import Review from '../components/Review';
 
 interface ReviewsProps {
     reviews: Review[];

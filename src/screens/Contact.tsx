@@ -6,7 +6,7 @@ const Contact = () => {
         <Box>
             <h2>Contact Us</h2>
             <p>
-                415-966-8442
+                info@NourishmentOnDemand.com
             </p>
         </Box>
     );

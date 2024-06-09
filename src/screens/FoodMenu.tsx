@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {QuantityContext} from "./CartProvider";
+import {QuantityContext} from "../CartProvider";
 import WeekMenu from "./WeekMenu";
 import {Box, Divider, Typography} from "@mui/material";
 import {CheckCircle} from "@mui/icons-material";

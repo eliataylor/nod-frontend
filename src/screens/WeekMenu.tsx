@@ -5,12 +5,12 @@ import Box from '@mui/material/Box';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {Meal, OrderItems, QuantityContext, Week} from "./CartProvider";
-import AddItemsCheckbox from "./AddItemsCheckbox";
-import OrderItem from "./OrderItem";
+import {Meal, OrderItems, QuantityContext, Week} from "../CartProvider";
+import AddItemsCheckbox from "../components/AddItemsCheckbox";
+import OrderItem from "../components/OrderItem";
 import {makeStyles, useTheme} from '@mui/styles';
 import {lighten, Theme} from '@mui/material/styles';
-import {nearestDay} from "./Utils";
+import {nearestDay} from "../Utils";
 
 const useStyles = makeStyles((theme: Theme) => ({
     summary: {

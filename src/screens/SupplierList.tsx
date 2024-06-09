@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Suppliers} from "./CartProvider";
+import {Suppliers} from "../CartProvider";
 import {Box, Card, CardHeader, Divider, Typography} from "@mui/material";
 import {useTheme} from "@mui/styles";
 import {Theme} from "@mui/material/styles";

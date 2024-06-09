@@ -1,8 +1,8 @@
 import React, {useContext, useRef, useState} from 'react';
-import {Box, Divider, Grid, Typography} from "@mui/material";
-import {QuantityContext} from "./CartProvider";
+import {Box, Divider, Typography} from "@mui/material";
+import {QuantityContext} from "../CartProvider";
 import TextField from "@mui/material/TextField";
-import OrderItem from "./OrderItem";
+import OrderItem from "../components/OrderItem";
 import {useTheme} from "@mui/styles";
 import {Theme} from "@mui/material/styles";
 
@@ -40,7 +40,7 @@ const Checkout = () => {
     })
 
     const buildMailTo = (): string => {
-        let href = 'mailto:nourishmentondemand@gmail.com'
+        let href = 'mailto:info@nourishmentondemand.com'
         href += '?subject=' + encodeURIComponent('My Meal Plan');
         href += '&body=' + encodeURIComponent(JSON.stringify(mealPlan));
         return href;
@@ -53,7 +53,7 @@ const Checkout = () => {
                     <Typography variant={'h6'}>
                          Please copy and email your meal plan data below to  <a href={buildMailTo()}
                                                                                              style={{color:theme.palette.secondary.main}}
-                                                                                             target={'_blank'}>NourishmentOnDemand@gmail.com</a>. We'll respond with confirmation and payment options.
+                                                                                             target={'_blank'}>info@NourishmentOnDemand.com</a>. We'll respond with confirmation and payment options.
                     </Typography>
                     <div style={{margin: '10px auto'}}>
                         <TextField
