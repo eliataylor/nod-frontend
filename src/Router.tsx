@@ -8,6 +8,7 @@ import SupplierList from './SupplierList';
 import Contact from './Contact';
 import Checkout from './Checkout';
 import Layout from "./Layout";
+import Testimonials from "./Testimonials";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                         <Route path="/suppliers" element={<SupplierList/>}/>
                         <Route path="/faq" element={<Faqs/>}/>
                         <Route path="/contact" element={<Contact/>}/>
+                        <Route path="/testimonials" element={<Testimonials/>}/>
                         <Route path="/checkout" element={<Checkout/>}/>
                         <Route path="*" element={<div>Page not found</div>}/>
                     </Routes>

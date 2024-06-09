@@ -25,6 +25,9 @@ const DrawerMenu = () => {
             <ListItem button component={Link} to="/contact" selected={location.pathname === '/contact'}>
                 <ListItemText primary="Contact" />
             </ListItem>
+            <ListItem button component={Link} to="/testimonials" selected={location.pathname === '/testimonials'}>
+                <ListItemText primary="Testimonials" />
+            </ListItem>
         </List>
     );
 };
