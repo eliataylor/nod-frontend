@@ -12,11 +12,11 @@ const PriceOption: React.FC<PriceOptionProps> = ({ price, period, title, extraLi
     return (
         <CardHeader
             avatar={
-                <Box sx={{ textAlign: 'center', height:35 }}>
+                <Box sx={{ textAlign: 'center', height:60, width:50 }}>
                     <Typography variant={'h6'} sx={{ margin: 0 }} color={'primary'}>
                         ${price}
                     </Typography>
-                    <Typography variant={'caption'}>
+                    <Typography variant={'caption'} style={{margin:0, lineHeight:'2px!important'}}>
                         {period}
                     </Typography>
                 </Box>

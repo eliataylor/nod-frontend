@@ -2,28 +2,15 @@ import React, {useState} from 'react';
 import {Divider, FormControl, FormLabel, Grid, Radio, RadioGroup, Typography} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import {nearestDay} from "../Utils";
 import {DatePicker} from '@mui/x-date-pickers/DatePicker';
 import PriceOption from "./PriceOption";
-
-interface Program {
-    program_name: string;
-    meals: string[];
-    meal_count: number;
-    start_date: string;
-    use_glass: boolean;
-}
-
-const defaultProgram: Program = {
-    program_name: 'Meal Prep',
-    meals: [],
-    meal_count: 0,
-    start_date: nearestDay(new Date(), 7),
-    use_glass: false
-}
+import {ThemedButton} from "../theme/GlobalStyles";
+import { Program, defaultProgram} from "../CartProvider";
+import { useNavigate } from 'react-router-dom';
 
 const ProgramForm: React.FC<Partial<Program>> = (props) => {
     const [program, setProgram] = useState<Program>({...defaultProgram, ...props});
+    const navigate = useNavigate();
 
     const setOptsMeals = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
@@ -36,6 +23,25 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
         }
         setProgram(newState);
     };
+
+    const setOptsGlass = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const val = (event.target as HTMLInputElement).checked;
+        const newState = {...program};
+        newState.use_glass = val;
+        setProgram(newState);
+    };
+
+    const handleChangeSubscription = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const val = (event.target as HTMLInputElement).value;
+        const newState = {...program};
+        newState.meal_count = parseInt(val);
+        setProgram(newState);
+    };
+
+    const handleSubmit = () => {
+        setProgram(program);
+        navigate('/next-week');
+    }
 
     return <Grid container direction={'column'} gap={4}
                  sx={{maxWidth: 600, margin: '20px auto'}}>
@@ -70,7 +76,7 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
                             onChange={(e) => setOptsMeals(e)}
                         />
                     }
-                    label={'dinner'}
+                    label={'Dinner'}
                 />
             </Grid>
         </Grid>
@@ -88,6 +94,7 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
                     aria-labelledby="subscription-group-label"
                     defaultValue="female"
                     name="subscription-group"
+                    onChange={handleChangeSubscription}
                 >
                     <FormControlLabel value={4} control={<Radio size={'small'}/>}
                                       label={
@@ -157,7 +164,26 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
             <Typography variant={'body2'}>In hopes to reduce our carbon footprint, we offer the option for glass
                 containers for $50. The containers can be left where your deliveries are received and they will be
                 picked up each delivery day. </Typography>
+
+            <Grid item>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={program.use_glass}
+                            value={false}
+                            onChange={(e) => setOptsGlass(e)}
+                        />
+                    }
+                    label={'$50 for Reusable Glass Containers '}
+                />
+            </Grid>
         </Grid>
+
+        <ThemedButton onClick={handleSubmit}>
+            Next
+        </ThemedButton>
+
+
 
     </Grid>
         ;
