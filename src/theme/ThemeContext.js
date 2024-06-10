@@ -11,27 +11,50 @@ const ThemeProvider = ({children}) => {
     const [darkMode, setDarkMode] = useState(false);
 
     const theme = useMemo(
-        () =>
-            createTheme({
-                palette: {
-                    mode: darkMode ? 'dark' : 'light',
-                    primary: {
-                        main: '#3B5700',
-                    },
-                    secondary:{
-                        main: '#bf741f'
-                    },
-                    warning: {
-                        main: orange[500],
-                    },
-                    success: {
-                        main: green[500],
-                    },
-                    link: {
-                        main: '#47a21e'
-                    },
+        () => {
+
+            const plt = {
+//                mode: darkMode ? 'dark' : 'light',
+//                mode : 'light',
+                background: {
+                    default: darkMode ? '#3B5700' : '#ffffff',
+                    paper: darkMode ? '#3B5700' : '#F5F5F5',
                 },
-            }),
+                contrastText: darkMode ? '#e1e1e1' : '#202020',
+                text: {
+                    primary: darkMode ? '#FFFFFF' : '#202020',
+//                    secondary: '#bf741f',
+                },
+                /*
+                // for meals: F5F5F5
+
+                color: theme.palette.getContrastText(theme.palette.primary.main),
+                 */
+                primary: {
+                    main: darkMode ? '#202020' : '#3B5700',
+                },
+                secondary: {
+                    main: '#bf741f'
+                },
+                warning: {
+                    main: orange[500],
+                },
+                success: {
+                    main: green[500],
+                },
+                link: {
+                    main: darkMode ? '#b6b6b6' : '#3B5700',
+                }
+            }
+            console.log("THEME UPDATE", plt);
+
+            return createTheme({
+                typography: {
+                    fontFamily: 'Jost, Arial, sans-serif',
+                },
+                palette: plt
+            })
+        },
         [darkMode]
     );
 
@@ -39,7 +62,7 @@ const ThemeProvider = ({children}) => {
         <ThemeContext.Provider value={{darkMode, setDarkMode}}>
             <MuiThemeProvider theme={theme}>
                 <CssBaseline/>
-                <GlobalStyles />
+                <GlobalStyles/>
                 {children}
             </MuiThemeProvider>
         </ThemeContext.Provider>

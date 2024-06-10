@@ -1,27 +1,24 @@
 import React from 'react';
-import {Box, Button, Typography} from "@mui/material";
+import {Box, Grid, Button, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
-import Logo from "../Logo";
+import Logo from "../theme/Logo";
+import {ThemedButton} from "../theme/GlobalStyles";
 
 const Home = () => {
     return (
-        <Box style={{textAlign: 'center'}}>
+        <Grid container direction={'column'} gap={4} sx={{textAlign: 'center', maxWidth:400, margin:'70px auto'}}>
             <Box>
-                <Logo height={250} />
+                <Logo height={325} />
             </Box>
-            <Button variant={'contained'} component={Link} to={'/next-week'} style={{margin:'50px 0', background:'#202020', color:'#fff'}}>Create Your Meal Plan</Button>
-            <Typography variant={'body1'} style={{maxWidth:400, margin:'auto'}} >
-                NOD stands for Nourishment On-Demand, reflecting our commitment to nourishing you when your body needs
-                it most.
-
-                Balancing meals amidst a busy schedule can be challenging, skewed meal timings can lead to mood swings
-                and energy crashes—cue the term "hangry." That's where our meal prep service steps in. Beyond just
-                providing nutritious options, we understand the importance of convenience. By offering balanced,
-                wholesome meals, we aim to stabilize blood sugar levels, supporting not only physical health but also
-                mental clarity and emotional balance. We believe that nourishing the body with the right foods can
-                foster a happier, healthier mind, even on the busiest of days.
+            <Typography variant={'body1'} style={{maxWidth:325, margin:'auto'}} >
+                NOD stands for Nourishment On-Demand, reflecting our commitment to nourishing you when your body needs it most.
             </Typography>
-        </Box>
+            <Link to="/menus">
+                <ThemedButton sx={{mt:2, fontWeight:800}} variant={'contained'}>
+                    Place Your Order
+                </ThemedButton>
+            </Link>
+        </Grid>
     );
 };
 

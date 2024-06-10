@@ -22,14 +22,19 @@ const StyledFab = styled(Fab)({
 });
 
 const TrackingConsent: React.FC = () => {
-    const [accepted, setAccepted] = useState(false);
+    const [accepted, setAccepted] = useState(localStorage.getItem('gtag-nod') ? true : false);
 
     if (accepted === true) return null;
 
-    return <AppBar position="fixed" color="default" sx={{ top: 'auto', bottom: 0, padding:3 }}>
+    function handleAccepted() {
+        localStorage.setItem('gtag-nod', 'true');
+        setAccepted(true)
+    }
+
+    return <AppBar position="fixed" sx={{ top: 'auto', bottom: 0, padding:3, backgroundColor:'#cccccc'}}>
         <Toolbar>
-            <StyledFab color="secondary" aria-label="add" onClick={() => setAccepted(true)}>
-                <Check />
+            <StyledFab color="secondary" aria-label="add" onClick={() => handleAccepted()}>
+                <Check fontSize={'large'} />
             </StyledFab>
             <TrackingPermissions permissions={permissions}  />
         </Toolbar>

@@ -64,11 +64,13 @@ const TrackingPermissions: React.FC<PermissionProps> = ({permissions}) => {
     };
 
     return (<FormControl fullWidth={true} >
-            <InputLabel id="demo-multiple-checkbox-label">Allow</InputLabel>
+            <InputLabel id="gtag-permissions-label" >Allowed</InputLabel>
             <Select
-                labelId="demo-multiple-checkbox-label"
-                id="demo-multiple-checkbox"
+                labelId="gtag-permissions-label"
+                id="gtag-permissions"
                 multiple
+                sx={{ color:'#202020'}}
+                color={'secondary'}
                 fullWidth={true}
                 value={personName}
                 onChange={handleChange}
@@ -88,7 +90,7 @@ const TrackingPermissions: React.FC<PermissionProps> = ({permissions}) => {
                     </MenuItem>
                 })}
             </Select>
-            <FormHelperText>We only use minimal cookies for functionality and general traffic analysis.</FormHelperText>
+            <FormHelperText>We only use minimal cookies for functionality and general traffic analysis. No Ads.</FormHelperText>
         </FormControl>
     );
 };

@@ -8,7 +8,10 @@ import SupplierList from './screens/SupplierList';
 import Contact from './screens/Contact';
 import Checkout from './screens/Checkout';
 import Layout from "./theme/Layout";
-import Testimonials from "./screens/Testimonials";
+import Partners from "./screens/Partners";
+import StartOrder from "./screens/StartOrder";
+import NotReady from "./screens/NotReady";
+import ProgramForm from "./components/ProgramForm";
 
 
 const App = () => {
@@ -19,13 +22,25 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/about" element={<About/>}/>
-                        <Route path="/next-week" element={<FoodMenu/>}/>
+
+                        <Route path="/menus" element={<StartOrder/>}/>
+                        <Route path="/menus/next-week" element={<FoodMenu />}/>
+
+                        <Route path="/menus/postpartum-plan" element={<FoodMenu/>}/>
+                        <Route path="/menus/postpartum-gift" element={<FoodMenu/>}/>
+
+                        <Route path="/menus/next-week/pricing" element={<ProgramForm program_name={'CREATE YOUR MEAL PROGRAM'} />}/>
+                        <Route path="/menus/postpartum-plan/pricing" element={<ProgramForm program_name={'BUILD YOUR POSTPARTUM MEAL PROGRAM'} />}/>
+
+                        <Route path="/menus/postpartum-gift" element={<FoodMenu/>}/>
+
+                        <Route path="/checkout" element={<Checkout/>}/>
+
                         <Route path="/suppliers" element={<SupplierList/>}/>
                         <Route path="/faq" element={<Faqs/>}/>
+                        <Route path="/partners" element={<Partners/>}/>
                         <Route path="/contact" element={<Contact/>}/>
-                        <Route path="/testimonials" element={<Testimonials/>}/>
-                        <Route path="/checkout" element={<Checkout/>}/>
-                        <Route path="*" element={<div>Page not found</div>}/>
+                        <Route path="*" element={<NotReady title={'Missing this page'} />}/>
                     </Routes>
             </Layout>
         </BrowserRouter>

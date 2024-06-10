@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useMemo} from 'react';
 import {useLocation} from 'react-router-dom';
 import {AppBar, Box, Grid} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
@@ -8,10 +8,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DrawerMenu from "../components/DrawerMenu";
 import {styled} from "@mui/material/styles";
 import {QuantityContext} from "../CartProvider";
-import Logo from "../Logo";
+import Logo from "./Logo";
 import {useNavDrawer} from "../NavDrawerProvider";
 import NavMenu from "../components/NavMenu";
 import ViewCartButton from "../components/ViewCartButton";
+import {ThemeContext} from "./ThemeContext";
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -27,24 +28,25 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({children}) => {
     const location = useLocation();
     const { navDrawerWidth, setNavDrawerWidth,  isMounted } = useNavDrawer();
+    const { setDarkMode } = useContext(ThemeContext);
+    const price = useContext(QuantityContext).cartPrice;
 
+    const theme = useMemo(() => {
+        if (location.pathname.indexOf('/about') === 0 || location.pathname.indexOf('/pricing') > -1) {
+            setDarkMode(false);
+        } else {
+            setDarkMode(true);
+        }
+    }, [location.pathname]);
 
     const handleDrawerOpen = () => {
-        setNavDrawerWidth(240);
+        setNavDrawerWidth(300);
     };
 
     const handleDrawerClose = () => {
         setNavDrawerWidth(0);
     };
 
-
-    const price = useContext(QuantityContext).cartPrice;
-
-    if (location.pathname.length === 0 || location.pathname === '/'){
-        return <Box style={{width: '100%', margin:`${isMounted ? 0 : '100px'} auto 0 auto`, padding: '1%', maxWidth: 1024}}>
-            {children}
-        </Box>
-    }
 
     const appBar = <AppBar position="fixed" color={'default'}>
         <Grid container justifyContent={'space-between'} alignItems={'center'} padding={1}
@@ -73,10 +75,12 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         <React.Fragment>
             <Grid container justifyContent={'space-around'} flexWrap={'nowrap'}>
                 {isMounted === true &&
-                    <Grid item >
-                        <Box sx={{padding:1}}>
-                        <Logo height={80} />
-                        </Box>
+                    <Grid item sx={{ml:2, mt:3}}>
+                        {(location.pathname.length > 1) &&
+                            <Box sx={{pl:2}}>
+                                <Logo height={100} />
+                            </Box>
+                        }
                         <NavMenu />
                     </Grid>
                 }
@@ -104,7 +108,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                 <DrawerHeader>
                     <Logo height={80} />
                     <IconButton onClick={handleDrawerClose}>
-                        <ChevronRightIcon/>
+                        <ChevronRightIcon />
                     </IconButton>
                 </DrawerHeader>
                 <DrawerMenu />

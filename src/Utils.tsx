@@ -1,6 +1,6 @@
 import {OrderItems} from "./CartProvider";
 
-export function nearestDay(date: Date, targetDay: number): String {
+export function nearestDay(date: Date, targetDay: number): string {
     // Get the day of the week for the reference date (0-6)
     const currentDay = date.getDay();
 

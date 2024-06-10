@@ -1,14 +1,9 @@
 import React from 'react';
-import Box from "@mui/material/Box";
+import NotReady from "./NotReady";
 
 const Faqs = () => {
     return (
-        <Box>
-            <h2>FAQs</h2>
-            <p>
-                Frequently Asked Questions
-            </p>
-        </Box>
+        <NotReady title={'FREQUENTLY ASKED QUESTIONS'} />
     );
 };
 
