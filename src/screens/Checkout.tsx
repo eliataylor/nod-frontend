@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import OrderItem from "../components/OrderItem";
 import {useTheme} from "@mui/styles";
 import {Theme} from "@mui/material/styles";
+import {Link} from "react-router-dom";
 
 const Checkout = () => {
     const theme = useTheme() as Theme;
@@ -100,6 +101,12 @@ const Checkout = () => {
 
             {cartPrice > 0 &&
                 <Box margin={"20px auto"}>
+
+                    <Link to={'/menus'}>
+                        Restart Order
+                    </Link>
+
+
                     <Divider />
 
                     <Typography variant={'h6'}>Review my meal plan</Typography>

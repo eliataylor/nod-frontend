@@ -1,10 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import {QuantityContext} from "../CartProvider";
 import WeekMenu from "./WeekMenu";
-import {Divider, Grid, Box} from "@mui/material";
 import {useNavDrawer} from "../NavDrawerProvider";
-import ActivePromotions from "../components/ActivePromotions";
-import ViewCartButton from "../components/ViewCartButton";
 import MenuByMeal from "./MenuByMeal";
 
 import {useLocation} from "react-router-dom";
@@ -44,26 +41,15 @@ const FoodMenu: React.FC = () => {
 
     if (!weeklyMenu || weeklyMenu.length === 0) return <div>Loading menu...</div>
 
-    return (
-        <Box>
-            {location.pathname.indexOf('/servings') > -1 &&
-                <Grid container>
-                    <Grid item>
-                        <ActivePromotions/>
-                    </Grid>
-                    {price > 0 && <Grid item sx={{textAlign: 'right'}}><ViewCartButton/></Grid>}
-                    <Divider sx={{marginBottom: 2}}/>
-                </Grid>
-            }
-            {location.pathname.indexOf('/servings') > -1 ?
-                <MenuByMeal/>
-                :
-                weeklyMenu.map((week, index) => (
-                    <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
-                ))
-            }
-        </Box>
-    );
-};
+    if (location.pathname.indexOf('/servings') > -1) return <MenuByMeal/>
+
+    return <React.Fragment>
+        {weeklyMenu.map((week, index) => (
+                <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
+            ))}
+    </React.Fragment>
+
+}
+
 
 export default FoodMenu;

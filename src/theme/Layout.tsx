@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     const price = useContext(QuantityContext).cartPrice;
 
     const theme = useMemo(() => {
-        if (location.pathname.indexOf('/about') === 0 || location.pathname.indexOf('/pricing') > -1 || location.pathname.indexOf('/servings') > -1) {
+        if (location.pathname.indexOf('/about') === 0 || location.pathname.indexOf('/checkout') > -1 || location.pathname.indexOf('/pricing') > -1 || location.pathname.indexOf('/servings') > -1) {
             setDarkMode(false);
         } else {
             setDarkMode(true);
@@ -75,7 +75,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         <React.Fragment>
             <Grid container justifyContent={'space-around'} flexWrap={'nowrap'}>
                 {isMounted === true &&
-                    <Grid item sx={{ml:2, mt:3}}>
+                    <Grid item sx={{ml:2, mt:3}} style={{maxWidth:240}}>
                         {(location.pathname.length > 1) &&
                             <Box sx={{pl:2}}>
                                 <Logo height={100} />
