@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
-import {Typography} from '@mui/material';
+import {Grid, Typography} from '@mui/material';
 import Box from '@mui/material/Box';
 import {Meal, OrderItems, QuantityContext} from "../CartProvider";
 import OrderItem from "../components/OrderItem";
 import {useNavDrawer} from "../NavDrawerProvider";
+import SearchField from "../components/SearchField";
 
 const MenuByMeal: React.FC = () => {
 
@@ -36,10 +37,14 @@ const MenuByMeal: React.FC = () => {
 
     return (
         <Box>
-            <div>
+            <Box sx={{textAlign: 'center'}}>
                 <Typography variant="h6" color={'secondary'} >CHOOSE YOUR MEALS</Typography>
                 <Typography variant="caption" >Now it’s time to select the meals for your {program.program_name} </Typography>
-            </div>
+            </Box>
+
+            <Box sx={{mt: 2}}>
+                <SearchField/>
+            </Box>
 
             <Box>
                 {mealTypes.map((mealType, mealIndex) => {

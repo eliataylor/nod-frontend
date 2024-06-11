@@ -1,9 +1,8 @@
 import React, {useContext, useEffect} from 'react';
 import {QuantityContext} from "../CartProvider";
 import WeekMenu from "./WeekMenu";
-import {Divider, Grid} from "@mui/material";
+import {Divider, Grid, Box} from "@mui/material";
 import {useNavDrawer} from "../NavDrawerProvider";
-import SearchField from "../components/SearchField";
 import ActivePromotions from "../components/ActivePromotions";
 import ViewCartButton from "../components/ViewCartButton";
 import MenuByMeal from "./MenuByMeal";
@@ -46,30 +45,24 @@ const FoodMenu: React.FC = () => {
     if (!weeklyMenu || weeklyMenu.length === 0) return <div>Loading menu...</div>
 
     return (
-        <div>
+        <Box>
             {location.pathname.indexOf('/servings') > -1 &&
-                <React.Fragment>
-                    <ActivePromotions/>
+                <Grid container>
+                    <Grid item>
+                        <ActivePromotions/>
+                    </Grid>
+                    {price > 0 && <Grid item sx={{textAlign: 'right'}}><ViewCartButton/></Grid>}
                     <Divider sx={{marginBottom: 2}}/>
-                </React.Fragment>
+                </Grid>
             }
-            <Grid container>
-                {isMounted === true && price > 0 &&
-                    <Grid item xs={12} sx={{m: 2, textAlign: 'right'}}><ViewCartButton/></Grid>}
-                <Grid item xs={12} sx={{mb: 2}}>
-                    <SearchField/>
-                </Grid>
-                <Grid item xs={12}>
-                    {location.pathname.indexOf('/servings') > -1 ?
-                        <MenuByMeal/>
-                        :
-                        weeklyMenu.map((week, index) => (
-                            <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
-                        ))
-                    }
-                </Grid>
-            </Grid>
-        </div>
+            {location.pathname.indexOf('/servings') > -1 ?
+                <MenuByMeal/>
+                :
+                weeklyMenu.map((week, index) => (
+                    <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
+                ))
+            }
+        </Box>
     );
 };
 

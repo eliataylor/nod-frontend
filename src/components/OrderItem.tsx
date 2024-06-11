@@ -38,7 +38,7 @@ const MyOrderItemComponent: React.FC<MyComponentDefaultProps> = ({meal, show_ser
     }
 
     return (
-        <Box key={`${meal.id}-${meal.bld}`} sx={{position:'relative', textAlign:'center'}}>
+        <Box key={`${meal.id}-${meal.bld}`} sx={{position:'relative'}}>
             <Card sx={{marginBottom:5, borderRadius:"4px 0 0 0"}}>
                 <CardContent>
                     <Grid container justifyContent={'space-between'}>

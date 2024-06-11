@@ -14,7 +14,7 @@ const SearchField: React.FC = () => {
 
     return (
         <TextField
-            label="Search title or description"
+            label="Search ingredients"
             id="search"
             value={keyword}
             onChange={handleChange}
