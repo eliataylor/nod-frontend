@@ -25,6 +25,9 @@ const ThemeProvider = ({children}) => {
                     primary: darkMode ? '#FFFFFF' : '#202020',
 //                    secondary: '#bf741f',
                 },
+                grey : {
+                    500: '#9e9e9e'
+                },
                 /*
                 // for meals: F5F5F5
 
@@ -46,7 +49,6 @@ const ThemeProvider = ({children}) => {
                     main: darkMode ? '#b6b6b6' : '#3B5700',
                 }
             }
-            console.log("THEME UPDATE", plt);
 
             return createTheme({
                 typography: {
@@ -57,6 +59,8 @@ const ThemeProvider = ({children}) => {
         },
         [darkMode]
     );
+
+    console.log("THEME UPDATE", theme);
 
     return (
         <ThemeContext.Provider value={{darkMode, setDarkMode}}>

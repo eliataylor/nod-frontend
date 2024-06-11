@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     const price = useContext(QuantityContext).cartPrice;
 
     const theme = useMemo(() => {
-        if (location.pathname.indexOf('/about') === 0 || location.pathname.indexOf('/pricing') > -1) {
+        if (location.pathname.indexOf('/about') === 0 || location.pathname.indexOf('/pricing') > -1 || location.pathname.indexOf('/servings') > -1) {
             setDarkMode(false);
         } else {
             setDarkMode(true);

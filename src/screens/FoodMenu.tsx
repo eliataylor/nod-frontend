@@ -6,6 +6,8 @@ import {useNavDrawer} from "../NavDrawerProvider";
 import SearchField from "../components/SearchField";
 import ActivePromotions from "../components/ActivePromotions";
 import ViewCartButton from "../components/ViewCartButton";
+import MenuByMeal from "./MenuByMeal";
+
 import {useLocation} from "react-router-dom";
 
 const FoodMenu: React.FC = () => {
@@ -45,17 +47,26 @@ const FoodMenu: React.FC = () => {
 
     return (
         <div>
-            <ActivePromotions/>
-            <Divider sx={{marginBottom: 2}}/>
+            {location.pathname.indexOf('/servings') > -1 &&
+                <React.Fragment>
+                    <ActivePromotions/>
+                    <Divider sx={{marginBottom: 2}}/>
+                </React.Fragment>
+            }
             <Grid container>
-                {isMounted === true && price > 0 && <Grid item xs={12} sx={{m: 2, textAlign:'right'}}><ViewCartButton /></Grid>}
-                <Grid item xs={12} sx={{mb:2}}>
+                {isMounted === true && price > 0 &&
+                    <Grid item xs={12} sx={{m: 2, textAlign: 'right'}}><ViewCartButton/></Grid>}
+                <Grid item xs={12} sx={{mb: 2}}>
                     <SearchField/>
                 </Grid>
                 <Grid item xs={12}>
-                    {weeklyMenu.map((week, index) => (
-                        <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
-                    ))}
+                    {location.pathname.indexOf('/servings') > -1 ?
+                        <MenuByMeal/>
+                        :
+                        weeklyMenu.map((week, index) => (
+                            <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
+                        ))
+                    }
                 </Grid>
             </Grid>
         </div>

@@ -13,7 +13,6 @@ import StartOrder from "./screens/StartOrder";
 import NotReady from "./screens/NotReady";
 import ProgramForm from "./components/ProgramForm";
 
-
 const App = () => {
 
     return (
@@ -24,13 +23,16 @@ const App = () => {
                         <Route path="/about" element={<About/>}/>
 
                         <Route path="/menus" element={<StartOrder/>}/>
-                        <Route path="/menus/next-week" element={<FoodMenu />}/>
+                        <Route path="/menus/calendar" element={<FoodMenu />}/>
 
-                        <Route path="/menus/postpartum-plan" element={<FoodMenu/>}/>
-                        <Route path="/menus/postpartum-gift" element={<FoodMenu/>}/>
+                        <Route path="/menus/postpartum-plan" element={<FoodMenu />}/>
+                        <Route path="/menus/postpartum-gift" element={<FoodMenu />}/>
 
                         <Route path="/menus/next-week/pricing" element={<ProgramForm program_name={'CREATE YOUR MEAL PROGRAM'} />}/>
                         <Route path="/menus/postpartum-plan/pricing" element={<ProgramForm program_name={'BUILD YOUR POSTPARTUM MEAL PROGRAM'} />}/>
+
+                        <Route path="/menus/next-week/servings" element={<FoodMenu />}/>
+                        <Route path="/menus/postpartum-plan/servings" element={<FoodMenu />}/>
 
                         <Route path="/menus/postpartum-gift" element={<FoodMenu/>}/>
 

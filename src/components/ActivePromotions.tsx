@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {OrderItems, QuantityContext} from "../CartProvider";
+import {QuantityContext} from "../CartProvider";
 import {Box, Typography} from "@mui/material";
 import {CheckCircle} from "@mui/icons-material";
 import {useTheme} from "@mui/styles";
@@ -15,7 +15,6 @@ const ActivePromotions: React.FC = () => {
 
     return (
         <Box mb={1}>
-            <Typography variant={'h6'}>CREATE YOUR MEAL PROGRAM</Typography>
             <Typography variant={'body2'} style={{display: 'flex', alignItems: 'center'}}>
                 {servingsPromo ?
                     <CheckCircle sx={{fontSize: 20, marginRight: 1}} color={'secondary'}/>

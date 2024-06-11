@@ -40,6 +40,7 @@ export type OrderItems = Meal[];
 export interface Program {
     program_name: string;
     meals: string[];
+    servings: number;
     meal_count: number;
     start_date: string;
     use_glass: boolean;
@@ -47,7 +48,8 @@ export interface Program {
 
 export const defaultProgram: Program = {
     program_name: 'Meal Prep',
-    meals: [],
+    meals: ['lunch', 'dinner'],
+    servings: 1,
     meal_count: 0,
     start_date: nearestDay(new Date(), 7),
     use_glass: false

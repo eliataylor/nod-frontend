@@ -5,8 +5,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import {DatePicker} from '@mui/x-date-pickers/DatePicker';
 import PriceOption from "./PriceOption";
 import {ThemedButton} from "../theme/GlobalStyles";
-import { Program, defaultProgram} from "../CartProvider";
-import { useNavigate } from 'react-router-dom';
+import {defaultProgram, Program} from "../CartProvider";
+import {useNavigate} from 'react-router-dom';
 
 const ProgramForm: React.FC<Partial<Program>> = (props) => {
     const [program, setProgram] = useState<Program>({...defaultProgram, ...props});
@@ -38,9 +38,20 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
         setProgram(newState);
     };
 
+    const handleChangeServings = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const val = (event.target as HTMLInputElement).value;
+        const newState = {...program};
+        newState.servings = parseInt(val);
+        setProgram(newState);
+    };
+
     const handleSubmit = () => {
         setProgram(program);
-        navigate('/next-week');
+        if (program.program_name.toLowerCase().indexOf('postpartum') > -1) {
+            navigate('/menus/postpartum-plan/servings');
+        } else {
+            navigate('/menus/next-week/servings');
+        }
     }
 
     return <Grid container direction={'column'} gap={4}
@@ -51,35 +62,65 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
                                color={'primary.main'}>{program.program_name}</Typography></Grid>
 
 
-        <Grid container justifyContent={'space-between'} alignItems={'center'}>
-            <Grid item><Typography variant={'h6'}
-                                   sx={{fontSize: 14, fontWeight: 800}}
-                                   color={'primary.main'}>YOUR MEALS</Typography></Grid>
-            <Grid item>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={program.meals.includes('lunch')}
-                            value={'lunch'}
-                            onChange={(e) => setOptsMeals(e)}
+        {program.program_name.toLowerCase().indexOf('postpartum') > -1 ?
+
+            <Grid container justifyContent={'space-between'} alignItems={'center'}>
+                <Grid item><Typography variant={'h6'}
+                                       sx={{fontSize: 14, fontWeight: 800}}
+                                       color={'primary.main'}>SERVINGS PER MEALS</Typography>
+                    <Typography variant={'body1'}
+                                sx={{fontSize: 14}}>Family portion sizes serve about 4-6 people, they’re ideal for
+                        feeding a small family. Please specify what kind of serving size you’d like to place an order
+                        for.</Typography>
+                </Grid>
+                <Grid item>
+                    <RadioGroup
+                        aria-labelledby="subscription-group-label"
+                        defaultValue="female"
+                        name="subscription-group"
+                        onChange={handleChangeServings}
+                    >
+                        <FormControlLabel
+                            control={<Radio size={'small'} value={1}/>}
+                            label={'Individual Serving'}
                         />
-                    }
-                    label={'Lunch'}
-                />
-            </Grid>
-            <Grid item>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={program.meals.includes('dinner')}
-                            value={'dinner'}
-                            onChange={(e) => setOptsMeals(e)}
+                        <FormControlLabel
+                            control={<Radio size={'small'} value={5}/>}
+                            label={'Family Size (4-6)'}
                         />
-                    }
-                    label={'Dinner'}
-                />
+                    </RadioGroup>
+                </Grid>
             </Grid>
-        </Grid>
+            : <Grid container justifyContent={'space-between'} alignItems={'center'}>
+                <Grid item><Typography variant={'h6'}
+                                       sx={{fontSize: 14, fontWeight: 800}}
+                                       color={'primary.main'}>YOUR MEALS</Typography></Grid>
+                <Grid item>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={program.meals.includes('lunch')}
+                                value={'lunch'}
+                                onChange={(e) => setOptsMeals(e)}
+                            />
+                        }
+                        label={'Lunch'}
+                    />
+                </Grid>
+                <Grid item>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={program.meals.includes('dinner')}
+                                value={'dinner'}
+                                onChange={(e) => setOptsMeals(e)}
+                            />
+                        }
+                        label={'Dinner'}
+                    />
+                </Grid>
+            </Grid>
+        }
 
         <Divider/>
 
@@ -182,7 +223,6 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
         <ThemedButton onClick={handleSubmit}>
             Next
         </ThemedButton>
-
 
 
     </Grid>

@@ -93,7 +93,7 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
                             label={<Typography variant="h6" >{day.day}</Typography>}
                         />
                         <div>
-                            {day.meals.map(meal => <OrderItem hideIfMissing={keyword} showServings={false} key={`meal-${meal.id}`} meal={meal} />)}
+                            {day.meals.map(meal => <OrderItem hideIfMissing={keyword}  key={`meal-${meal.id}`} meal={meal}  show_bld={true} show_date={false}  show_servings={true} show_price={false} />)}
                         </div>
                     </Box>
                 ))}
