@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List of required environment variables
-required_vars=("DOMAIN_NAME", "GCP_PROJECT_ID" "GCP_BUCKET_NAME" "GCP_ZONE_NAME")
+required_vars=("DOMAIN_NAME" "GCP_PROJECT_ID" "GCP_BUCKET_NAME" "GCP_ZONE_NAME")
 
 # Validate parameters or exit
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -37,6 +37,8 @@ if [ -z "$LB_IP_ADDRESS" ]; then
 fi
 
 echo "Load Balancer IP Address: $LB_IP_ADDRESS"
+
+
 
 # Start DNS transaction
 gcloud dns record-sets transaction start --zone=$GCP_ZONE_NAME

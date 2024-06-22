@@ -24,7 +24,21 @@ done
 if [ ${#missing_vars[@]} -ne 0 ]; then
   echo "The following required environment variables are missing:"
   for var in "${missing_vars[@]}"; do
-    echo "- $var"
+    echo " $var"
   done
   exit 1
 fi
+
+# Function to sanitize bucket name
+sanitize_bucket_name() {
+  local name="$1"
+  # Convert to lowercase
+  name=$(echo "$name" | tr '[:upper:]' '[:lower:]')
+  # Replace underscores with dashes
+  name=$(echo "$name" | tr '_' '-')
+  # Remove characters not allowed
+  name=$(echo "$name" | sed -e 's/[^a-z0-9-]//g')
+  # Trim to 63 characters max (to comply with bucket name length limit)
+  name=$(echo "$name" | cut -c 1-63)
+  echo "$name"
+}
