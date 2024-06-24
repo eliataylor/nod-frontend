@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Find root .env
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Set Path
 PARENT_DIR="$(dirname "$SCRIPT_DIR")"
+
+# Find root .env
 ENV_FILE="$PARENT_DIR/.env"
 
 # Load variables from root .env
