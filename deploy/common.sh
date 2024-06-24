@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Find root .env
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PARENT_DIR="$(dirname "$SCRIPT_DIR")"
-ENV_FILE="$PARENT_DIR/.env"
-
 # Load variables from root .env
 if [ -f "$ENV_FILE" ]; then
   export $(grep -v '^#' "$ENV_FILE" | xargs)
