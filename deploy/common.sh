@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Set Path
+PARENT_DIR="$(dirname "$SCRIPT_DIR")"
+
+# Find root .env
+ENV_FILE="$PARENT_DIR/.env"
+
 # Load variables from root .env
 if [ -f "$ENV_FILE" ]; then
   export $(grep -v '^#' "$ENV_FILE" | xargs)

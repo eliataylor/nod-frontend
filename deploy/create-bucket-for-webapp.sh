@@ -27,12 +27,8 @@ required_vars=("GCP_PROJECT_ID" "GCP_BUCKET_NAME" "GCP_BUCKET_LOCATION" "STATIC_
 
 # Set Path
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PARENT_DIR="$(dirname "$SCRIPT_DIR")"
 
-# Find root .env
-ENV_FILE="$PARENT_DIR/.env"
-
-# Export environment variables
+# Validate environment variables or exit
 source "$SCRIPT_DIR/common.sh"
 
 # Set sanitized name for all Loadbalancer resources
@@ -109,14 +105,14 @@ if ! gcloud storage buckets describe gs://$GCP_BUCKET_NAME --format="json(name)"
     --location=$GCP_BUCKET_LOCATION \
     --uniform-bucket-level-access
 
-  # Copy front-end build source to GCS
-  # gsutil cp gs://gcp-external-http-lb-with-bucket/three-cats.jpg gs://$GCP_BUCKET_NAME
-
   # Make GCS Bucket publicly readable
   gcloud storage buckets add-iam-policy-binding \
     gs://$GCP_BUCKET_NAME \
     --member=allUsers \
     --role=roles/storage.objectViewer
+
+  # Assign specialty pages
+  gcloud storage buckets update gs://$GCP_BUCKET_NAME --web-main-page-suffix=index.html --web-error-page=404.html
 else
   echo -e "\e[31mGCS Bucket $GCP_BUCKET_NAME already exists. Skipping creation.\e[0m"
 fi
