@@ -12,6 +12,7 @@ import Partners from "./screens/Partners";
 import StartOrder from "./screens/StartOrder";
 import NotReady from "./screens/NotReady";
 import ProgramForm from "./components/ProgramForm";
+import TermsOfService from "./screens/TermsOfService";
 
 const App = () => {
 
@@ -40,6 +41,7 @@ const App = () => {
 
                         <Route path="/suppliers" element={<SupplierList/>}/>
                         <Route path="/faq" element={<Faqs/>}/>
+                        <Route path="/terms" element={<TermsOfService />}/>
                         <Route path="/partners" element={<Partners/>}/>
                         <Route path="/contact" element={<Contact/>}/>
                         <Route path="*" element={<NotReady title={'Missing this page'} />}/>
