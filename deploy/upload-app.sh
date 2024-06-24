@@ -15,7 +15,13 @@ source "$SCRIPT_DIR/common.sh"
 # Set Default GCP Project
 gcloud config set project $GCP_PROJECT_ID
 
+
+gsutil web set -m index.html -e index.html gs://$GCP_BUCKET_APP_NAME
+gsutil cors set "$SCRIPT_DIR/storage-cors.json" gs://$GCP_BUCKET_APP_NAME
+
+
 # npm run build
 
 # Sync build folder files to GCS bucket
-gcloud storage rsync build gs://$GCP_BUCKET_NAME --recursive
+# gcloud storage rsync build gs://$GCP_BUCKET_APP_NAME --recursive
+gsutil -m rsync -r build gs://$GCP_BUCKET_APP_NAME
