@@ -1,5 +1,5 @@
-import React, {useContext, useMemo} from 'react';
-import {useLocation} from 'react-router-dom';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {AppBar, Box, Grid} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -13,6 +13,8 @@ import {useNavDrawer} from "../NavDrawerProvider";
 import NavMenu from "../components/NavMenu";
 import ViewCartButton from "../components/ViewCartButton";
 import {ThemeContext} from "./ThemeContext";
+import {useAppSelector} from "../app/hooks";
+import {selectAuth} from "../features/auth/authSlice";
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -27,6 +29,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
     const location = useLocation();
+    const navigate = useNavigate();
     const { navDrawerWidth, setNavDrawerWidth,  isMounted } = useNavDrawer();
     const { setDarkMode } = useContext(ThemeContext);
     const price = useContext(QuantityContext).cartPrice;
@@ -39,6 +42,10 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         }
     }, [location.pathname]);
 
+    const isAuthPath = useMemo(() => {
+        return location.pathname.includes("/auth")
+    }, [location.pathname]);
+
     const handleDrawerOpen = () => {
         setNavDrawerWidth(300);
     };
@@ -47,6 +54,9 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         setNavDrawerWidth(0);
     };
 
+    const redirectToLogin = () => {
+        navigate('/auth/login');
+    }
 
     const appBar = <AppBar position="fixed" color={'default'}>
         <Grid container justifyContent={'space-between'} alignItems={'center'} padding={1}
@@ -71,49 +81,61 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         </Grid>
     </AppBar>
 
+    const { user } = useAppSelector(selectAuth)
+
+    useEffect(() => {
+        if (!isAuthPath && !user) {
+            redirectToLogin();
+        }
+    }, [user, isAuthPath]);
+
     return (
-        <React.Fragment>
-            <Grid container justifyContent={'space-around'} flexWrap={'nowrap'}>
-                {isMounted === true &&
-                    <Grid item sx={{ml:2, mt:3}} style={{maxWidth:240}}>
-                        {(location.pathname.length > 1) &&
-                            <Box sx={{pl:2}}>
-                                <Logo height={100} />
-                            </Box>
-                        }
-                        <NavMenu />
+        isAuthPath ? (
+            <>{children}</>
+            ) : (
+            <React.Fragment>
+                <Grid container justifyContent={'space-around'} flexWrap={'nowrap'}>
+                    {isMounted === true &&
+                        <Grid item sx={{ml:2, mt:3}} style={{maxWidth:240}}>
+                            {(location.pathname.length > 1) &&
+                                <Box sx={{pl:2}}>
+                                    <Logo height={100} />
+                                </Box>
+                            }
+                            <NavMenu />
+                        </Grid>
+                    }
+                    <Grid item flexGrow={1}>
+                        {isMounted === false && appBar}
+                        <Box style={{width: '100%', margin:`${isMounted ? 0 : '100px'} auto 0 auto`, padding: '1%', maxWidth: 1024}}>
+                            {children}
+                        </Box>
                     </Grid>
-                }
-                <Grid item flexGrow={1}>
-                    {isMounted === false && appBar}
-                    <Box style={{width: '100%', margin:`${isMounted ? 0 : '100px'} auto 0 auto`, padding: '1%', maxWidth: 1024}}>
-                        {children}
-                    </Box>
                 </Grid>
-            </Grid>
 
 
-            <Drawer
-                anchor="right"
-                variant="temporary"
-                open={!isMounted && navDrawerWidth > 0}
-                ModalProps={{
-                    keepMounted: isMounted
-                }}
-                onClose={handleDrawerClose}
-                sx={{
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navDrawerWidth },
-                }}
-            >
-                <DrawerHeader>
-                    <Logo height={80} />
-                    <IconButton onClick={handleDrawerClose}>
-                        <ChevronRightIcon />
-                    </IconButton>
-                </DrawerHeader>
-                <DrawerMenu />
-            </Drawer>
-        </React.Fragment>
+                <Drawer
+                    anchor="right"
+                    variant="temporary"
+                    open={!isMounted && navDrawerWidth > 0}
+                    ModalProps={{
+                        keepMounted: isMounted
+                    }}
+                    onClose={handleDrawerClose}
+                    sx={{
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: navDrawerWidth },
+                    }}
+                >
+                    <DrawerHeader>
+                        <Logo height={80} />
+                        <IconButton onClick={handleDrawerClose}>
+                            <ChevronRightIcon />
+                        </IconButton>
+                    </DrawerHeader>
+                    <DrawerMenu />
+                </Drawer>
+            </React.Fragment>
+        )
     );
 };
 
