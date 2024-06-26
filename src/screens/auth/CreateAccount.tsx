@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import LoginImage from '../../assets/img/login-image.jpeg'
 import CreateAccountForm from '../../components/Forms/CreateAccountForm'
+import GoogleAuthForm from "../../components/Forms/GoogleAuthForm";
 
 function CreateAccount() {
     return (
@@ -39,6 +40,8 @@ function CreateAccount() {
                                 <CreateAccountForm />
 
                                 <hr className="my-8" />
+
+                                <GoogleAuthForm />
 
                                 <p className="mt-4">
                                     <Link

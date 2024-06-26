@@ -4,7 +4,7 @@ export const config = {
         url: "http://localhost:8000",
     },
     google: {
-        clientId: "830863118275-ji65u17pldk96lvghj1m7t2i1l0p9q9b.apps.googleusercontent.com",
+        clientId: "691321146524-378e5ivjg24g15c9dd4ismi1g8ibkhgf.apps.googleusercontent.com",
     },
     users: {
         resultsPerPage: 10,

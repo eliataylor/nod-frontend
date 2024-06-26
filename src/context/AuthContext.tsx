@@ -74,6 +74,7 @@ export const AuthProvider = ({ children }: { children: any }) => {
         }
 
         const googleAuth = (code: string) => {
+            console.log('=======googleAuth======', code)
             return axiosPublic
                 .post(`${apiUrl}/auth/social-login/google/`, {
                     access_token: code,

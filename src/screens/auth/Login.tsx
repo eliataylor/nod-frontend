@@ -4,6 +4,7 @@ import { useSnackbar } from 'notistack'
 
 import LoginImage from '../../assets/img/login-image.jpeg'
 import LoginForm from '../../components/Forms/LoginForm'
+import GoogleAuthForm from '../../components/Forms/GoogleAuthForm'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { selectAuth, resetAuthData } from '../../features/auth/authSlice'
 
@@ -58,6 +59,8 @@ function Login() {
                                 <LoginForm />
 
                                 <hr className="my-8" />
+
+                                <GoogleAuthForm />
 
                                 <p className="mt-4">
                                     <Link

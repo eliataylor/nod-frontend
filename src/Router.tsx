@@ -20,6 +20,8 @@ import NotReady from "./screens/NotReady";
 import ProgramForm from "./components/ProgramForm";
 import dayjs from "dayjs";
 import CreateAccount from "./screens/auth/CreateAccount";
+import {config} from "./config/config";
+import {GoogleOAuthProvider} from "@react-oauth/google";
 
 const App = () => {
 
@@ -37,50 +39,52 @@ const App = () => {
     }
 
     return (
-        <BrowserRouter>
-            <Layout>
-                <Routes>
-                    <Route
-                        path="/auth/*"
-                        element={
-                            user ? (
-                                <Navigate to={redirectAfterLogin()} />
-                            ) : (
-                                <Outlet />
-                            )
-                        }
-                    >
-                        <Route path="login" element={<Login />} />
-                        <Route path="create-account" element={<CreateAccount />} />
-                    </Route>
+        <GoogleOAuthProvider clientId={config.google.clientId}>
+            <BrowserRouter>
+                <Layout>
+                    <Routes>
+                        <Route
+                            path="/auth/*"
+                            element={
+                                user ? (
+                                    <Navigate to={redirectAfterLogin()} />
+                                ) : (
+                                    <Outlet />
+                                )
+                            }
+                        >
+                            <Route path="login" element={<Login />} />
+                            <Route path="create-account" element={<CreateAccount />} />
+                        </Route>
 
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/about" element={<About/>}/>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/about" element={<About/>}/>
 
-                    <Route path="/menus" element={<StartOrder/>}/>
-                    <Route path="/menus/calendar" element={<FoodMenu />}/>
+                        <Route path="/menus" element={<StartOrder/>}/>
+                        <Route path="/menus/calendar" element={<FoodMenu />}/>
 
-                    <Route path="/menus/postpartum-plan" element={<FoodMenu />}/>
-                    <Route path="/menus/postpartum-gift" element={<FoodMenu />}/>
+                        <Route path="/menus/postpartum-plan" element={<FoodMenu />}/>
+                        <Route path="/menus/postpartum-gift" element={<FoodMenu />}/>
 
-                    <Route path="/menus/next-week/pricing" element={<ProgramForm program_name={'CREATE YOUR MEAL PROGRAM'} />}/>
-                    <Route path="/menus/postpartum-plan/pricing" element={<ProgramForm program_name={'BUILD YOUR POSTPARTUM MEAL PROGRAM'} />}/>
+                        <Route path="/menus/next-week/pricing" element={<ProgramForm program_name={'CREATE YOUR MEAL PROGRAM'} />}/>
+                        <Route path="/menus/postpartum-plan/pricing" element={<ProgramForm program_name={'BUILD YOUR POSTPARTUM MEAL PROGRAM'} />}/>
 
-                    <Route path="/menus/next-week/servings" element={<FoodMenu />}/>
-                    <Route path="/menus/postpartum-plan/servings" element={<FoodMenu />}/>
+                        <Route path="/menus/next-week/servings" element={<FoodMenu />}/>
+                        <Route path="/menus/postpartum-plan/servings" element={<FoodMenu />}/>
 
-                    <Route path="/menus/postpartum-gift" element={<FoodMenu/>}/>
+                        <Route path="/menus/postpartum-gift" element={<FoodMenu/>}/>
 
-                    <Route path="/checkout" element={<Checkout/>}/>
+                        <Route path="/checkout" element={<Checkout/>}/>
 
-                    <Route path="/suppliers" element={<SupplierList/>}/>
-                    <Route path="/faq" element={<Faqs/>}/>
-                    <Route path="/partners" element={<Partners/>}/>
-                    <Route path="/contact" element={<Contact/>}/>
-                    <Route path="*" element={<NotReady title={'Missing this page'} />}/>
-                </Routes>
-            </Layout>
-        </BrowserRouter>
+                        <Route path="/suppliers" element={<SupplierList/>}/>
+                        <Route path="/faq" element={<Faqs/>}/>
+                        <Route path="/partners" element={<Partners/>}/>
+                        <Route path="/contact" element={<Contact/>}/>
+                        <Route path="*" element={<NotReady title={'Missing this page'} />}/>
+                    </Routes>
+                </Layout>
+            </BrowserRouter>
+        </GoogleOAuthProvider>
     );
 };
 
