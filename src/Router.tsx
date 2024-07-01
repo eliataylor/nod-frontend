@@ -22,6 +22,7 @@ import dayjs from "dayjs";
 import CreateAccount from "./screens/auth/CreateAccount";
 import {config} from "./config/config";
 import {GoogleOAuthProvider} from "@react-oauth/google";
+import EmailVerification from "./screens/auth/EmailVerification";
 
 const App = () => {
 
@@ -55,6 +56,7 @@ const App = () => {
                         >
                             <Route path="login" element={<Login />} />
                             <Route path="create-account" element={<CreateAccount />} />
+                            <Route path="verify-email" element={<EmailVerification />} />
                         </Route>
 
                         <Route path="/" element={<Home/>}/>
