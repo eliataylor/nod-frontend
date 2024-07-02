@@ -14,6 +14,7 @@ function CreateAccountForm() {
                 first_name: '',
                 last_name: '',
                 email: '',
+                phone_number: '',
                 password1: '',
                 password2: '',
                 privacyOptIn: false,
@@ -21,6 +22,7 @@ function CreateAccountForm() {
             }}
             validationSchema={Yup.object().shape({
                 email: Yup.string().email().required('Email is required'),
+                phone_number: Yup.string().required('Phone number is required'),
                 first_name: Yup.string().required('First name is required'),
                 last_name: Yup.string().required('Last name is required'),
                 password1: Yup.string().required('Password is required'),
@@ -37,12 +39,12 @@ function CreateAccountForm() {
                 ),
             })}
             onSubmit={(
-                { first_name, last_name, email, password1, password2, privacyOptIn },
+                { first_name, last_name, email, phone_number, password1, password2, privacyOptIn },
                 { setStatus, setSubmitting, setErrors }
             ) => {
                 setSubmitting(true)
                 setStatus()
-                register(first_name, last_name, email, password1, password2, privacyOptIn)
+                register(first_name, last_name, email, phone_number, password1, password2, privacyOptIn)
                     .then((statusReason: string) => {
                         setStatusReason(statusReason)
                         setSubmitting(false)
@@ -52,6 +54,9 @@ function CreateAccountForm() {
                         if (error.response) {
                             if (error.response.data.email) {
                                 errors.email = error.response.data.email
+                            }
+                            if (error.response.data.phone_number) {
+                                errors.phone_number = error.response.data.phone_number
                             }
                             if (error.response.data.password1) {
                                 errors.password = error.response.data.password1
@@ -116,6 +121,22 @@ function CreateAccountForm() {
                             placeholder="john@doe.com"
                         />
                         <ErrorMessage name="email">
+                            {(msg) => (
+                                <HelperText valid={false}>{msg}</HelperText>
+                            )}
+                        </ErrorMessage>
+                    </Label>
+
+                    <Label className="mt-4">
+                        <span>Phone Number</span>
+                        <Field
+                            className="mt-1"
+                            as={Input}
+                            name="phone_number"
+                            type="text"
+                            placeholder="Phone Number"
+                        />
+                        <ErrorMessage name="phone_number">
                             {(msg) => (
                                 <HelperText valid={false}>{msg}</HelperText>
                             )}

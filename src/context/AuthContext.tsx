@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }: { children: any }) => {
             first_name: string,
             last_name: string,
             email: string,
+            phone_number: string,
             password1: string,
             password2: string,
             privacyOptIn: boolean
@@ -43,6 +44,7 @@ export const AuthProvider = ({ children }: { children: any }) => {
                     last_name: last_name,
                     username: email, // We set the username to the user's email, no usernames needed for now.
                     email: email,
+                    phone_number: phone_number,
                     password1: password1,
                     password2: password2,
                 })
