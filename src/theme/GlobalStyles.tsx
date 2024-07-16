@@ -21,13 +21,13 @@ const GlobalLinkStyles: React.FC = () => (
     <GlobalStyles
         styles={(theme: Theme) => ({
             'a, a:visited': {
-                color: 'inherit',
+                // color: 'inherit',
                 // @ts-ignore
                 // color: theme.palette.link.main,
                 textDecoration: 'underline',
             },
             'a:hover, a:focus': {
-                color: 'inherit',
+                // color: 'inherit',
                 // color: theme.palette.link.dark,
                 textDecoration: 'underline',
             },
