@@ -9,6 +9,8 @@ lerna-debug.log*
 
 private.txt
 
+keys
+
 build
 .DS_Store
 .idea
