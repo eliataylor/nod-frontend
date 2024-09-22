@@ -13,8 +13,8 @@ const StartOrder: React.FC = () => {
                 We're thrilled to embark on this journey with you! Let's kickstart the process of simplifying your daily
                 nutrition goals. Your body (and mind) will soon be feeling the difference.
             </Typography>
-            <Grid item container direction={'column'} gap={4} >
-                <Grid item xs={12} component={Link} to="/menus/next-week/pricing" >
+            <Grid item container direction={'column'} gap={4}>
+                <Grid item xs={12} component={Link} to="/menus/next-week/pricing">
                     <ThemedButton sx={{width: 300, margin: 'auto'}}>
                         HEALTHY MEAL PREP
                     </ThemedButton>
@@ -27,6 +27,11 @@ const StartOrder: React.FC = () => {
                 <Grid item xs={12} component={Link} to="/menus/postpartum-gift">
                     <ThemedButton sx={{width: 300, margin: 'auto'}}>
                         POSTPARTUM MEAL GIFT
+                    </ThemedButton>
+                </Grid>
+                <Grid item xs={12} component={Link} to="/menus/pre-colonic">
+                    <ThemedButton sx={{width: 300, margin: 'auto'}}>
+                        ALL-ORGANIC MENU for Colonic Clients
                     </ThemedButton>
                 </Grid>
             </Grid>

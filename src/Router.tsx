@@ -13,6 +13,7 @@ import StartOrder from "./screens/StartOrder";
 import NotReady from "./screens/NotReady";
 import ProgramForm from "./components/ProgramForm";
 import TermsOfService from "./screens/TermsOfService";
+import PreColonic from "./mealplans/PreColonic";
 
 const App = () => {
 
@@ -36,11 +37,12 @@ const App = () => {
                         <Route path="/menus/postpartum-plan/servings" element={<FoodMenu />}/>
 
                         <Route path="/menus/postpartum-gift" element={<FoodMenu/>}/>
+                        <Route path="/menus/pre-colonic" element={<PreColonic/>}/>
 
                         <Route path="/checkout" element={<Checkout/>}/>
 
                         <Route path="/suppliers" element={<SupplierList/>}/>
-                        <Route path="/faq" element={<Faqs/>}/>
+                        <Route path="/faqs" element={<Faqs/>}/>
                         <Route path="/terms" element={<TermsOfService />}/>
                         <Route path="/partners" element={<Partners/>}/>
                         <Route path="/contact" element={<Contact/>}/>

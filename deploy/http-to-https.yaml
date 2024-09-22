@@ -1,5 +1,5 @@
 kind: compute#urlMap
-name: http-to-https
+name: http-to-https-redirect
 defaultUrlRedirect:
   redirectResponseCode: MOVED_PERMANENTLY_DEFAULT
   httpsRedirect: True

@@ -1,486 +1,255 @@
 [
-  {
-    "week_name": "Week of April 1st",
-    "date": "2024-04-01",
-    "days": [
-      {
-        "day": "Monday",
-        "date": "2024-04-01",
-        "delivered": "Sunday PM March 31st",
-        "meals": [
-          {
-            "id": 1,
-            "bld": "lunch",
-            "title": "",
-            "description": "Seasonal Nourish Bowl w/ Quinoa, Carrots, Brussel Sprouts and honey dijon dressing",
-            "photos": ["/photos/Grilled-Chicken-and-Spinach-Salad.jpeg"],
-            "price": 16
-          },
-          {
-            "id": 2,
-            "bld": "dinner",
-            "title": "Salmon with Purple Potatoes",
-            "description": "Delicious salmon served with purple potatoes and steamed carrots and broccoli.",
-            "photos": ["/photos/Salmon-with-Purple-Potatoes.jpeg"],
-            "price": 16
-          }
+    {
+        "description": "Breakfast (Serves 4-6)",
+        "bld": "breakfast",
+        "title": "Ayurvedic Turmeric Slow-cooked Oats, chia seeds, with stewed apples",
+        "price": 50,
+        "ingredients": [
+            "Ayurvedic Turmeric",
+            "Slow-cooked Oats",
+            "chia seeds",
+            "stewed apples"
         ]
-      },
-      {
-        "day": "Tuesday",
-        "date": "2024-04-02",
-        "delivered": "Sunday PM March 31st",
-        "meals": [
-          {
-            "id": 3,
-            "bld": "lunch",
-            "title": "Garbanzo Bean Salad",
-            "description": "A refreshing salad with garbanzo beans and optional meat.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 4,
-            "bld": "dinner",
-            "title": "Organic Grass Fed Ground Beef Zucchini Rice Bowl",
-            "description": "A flavorful bowl featuring organic grass-fed ground beef, zucchini, and rice.",
-            "photos": ["/photos/Organic-grass-fed-ground-beef-zucchini-rice-bowl.jpeg"],
-            "price": 16
-          }
+    },
+    {
+        "description": "Breakfast (Serves 4-6)",
+        "bld": "breakfast",
+        "title": "Savory sourdough french toast cooked in Green Eggs (Eggs blended with spinach, kale, garlic, and organic raw cheese) and topped with tomatoes and avocado",
+        "price": 60,
+        "ingredients": [
+            "Savory sourdough french toast",
+            "Green Eggs",
+            "Eggs",
+            "spinach",
+            "kale",
+            "garlic",
+            "organic raw cheese",
+            "tomatoes",
+            "avocado"
         ]
-      },
-      {
-        "day": "Wednesday",
-        "date": "2024-04-03",
-        "delivered": "Sunday PM March 31st",
-        "meals": [
-          {
-            "id": 5,
-            "bld": "lunch",
-            "title": "Grilled Chicken Taco Style Salad",
-            "description": "Taco-inspired salad featuring grilled chicken.",
-            "photos": ["/photos/Grilled-Chicken-Taco-Style-Salad.jpeg"],
-            "price": 16
-          },
-          {
-            "id": 6,
-            "bld": "dinner",
-            "title": "Turkey Kabobs with Turmeric Rice and Grilled Veggies",
-            "description": "Succulent turkey kabobs served with turmeric rice and grilled vegetables.",
-            "photos": ["/photos/Turkey-kabobs-turmeric-rice-and-grilled-veggies.jpeg"],
-            "price": 16
-          }
+    },
+    {
+        "description": "Breakfast (Serves 4-6)",
+        "bld": "breakfast",
+        "title": "Bone Broth breakfast bowl. Rice Stir fried with scrambled eggs with cheese and chicken bone broth, zucchini, chicken sausage, topped with broccoli sprouts, sour cream",
+        "price": 60,
+        "ingredients": [
+            "Bone Broth",
+            "Rice",
+            "scrambled eggs",
+            "cheese",
+            "chicken bone broth",
+            "zucchini",
+            "chicken sausage",
+            "broccoli sprouts",
+            "sour cream"
         ]
-      },
-      {
-        "day": "Thursday",
-        "date": "2024-04-04",
-        "delivered": "Wednesday PM April 3rd",
-        "meals": [
-          {
-            "id": 7,
-            "bld": "lunch",
-            "title": "Chicken Satay Bowl",
-            "description": "A bowl featuring chicken satay.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 8,
-            "bld": "dinner",
-            "title": "Steak Fajita Bowl",
-            "description": "Sizzling steak fajitas served in a bowl.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lunch (Serves 4-6)",
+        "bld": "lunch",
+        "title": "Ginger Chicken soup with Turmeric",
+        "price": 70,
+        "ingredients": [
+            "Ginger",
+            "Chicken",
+            "soup",
+            "Turmeric"
         ]
-      },
-      {
-        "day": "Friday",
-        "date": "2024-04-05",
-        "delivered": "Wednesday PM April 3rd",
-        "meals": [
-          {
-            "id": 9,
-            "bld": "lunch",
-            "title": "Lemon Pepper Chicken Wrap",
-            "description": "A tasty wrap filled with lemon pepper chicken.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 10,
-            "bld": "dinner",
-            "title": "Veggie Soup with Mini Chicken Meatballs",
-            "description": "A comforting vegetable soup with mini chicken meatballs.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lunch (Serves 4-6)",
+        "bld": "lunch",
+        "title": "Borscht (Nourishing Beet Soup)",
+        "price": 60,
+        "ingredients": [
+            "Borscht",
+            "Beet",
+            "Soup"
         ]
-      }
-    ]
-  },
-  {
-    "week_name": "Week of April 8th",
-    "date": "2024-04-08",
-    "days": [
-      {
-        "day": "Monday",
-        "date": "2024-04-08",
-        "delivered": "Sunday PM April 7th",
-        "meals": [
-          {
-            "id": 11,
-            "bld": "lunch",
-            "title": "Roasted Glow Bowl",
-            "description": "A vibrant bowl featuring roasted ingredients.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 12,
-            "bld": "dinner",
-            "title": "Sweet Spicy Salmon Bowl",
-            "description": "A bowl featuring sweet and spicy salmon.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lunch (Serves 4-6)",
+        "bld": "lunch",
+        "title": "Squash and Red Lentil Soup",
+        "price": 60,
+        "ingredients": [
+            "Squash",
+            "Red Lentil",
+            "Soup"
         ]
-      },
-      {
-        "day": "Tuesday",
-        "date": "2024-04-09",
-        "delivered": "Sunday PM April 7th",
-        "meals": [
-          {
-            "id": 13,
-            "bld": "lunch",
-            "title": "Lentil Soup",
-            "description": "A comforting lentil soup.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 14,
-            "bld": "dinner",
-            "title": "Greek Chicken Bowl",
-            "description": "A bowl featuring Greek-inspired chicken.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lunch (Serves 4-6)",
+        "bld": "lunch",
+        "title": "Quinoa, Lentils, and Greens Soup",
+        "price": 60,
+        "ingredients": [
+            "Quinoa",
+            "Lentils",
+            "Greens",
+            "Soup"
         ]
-      },
-      {
-        "day": "Wednesday",
-        "date": "2024-04-10",
-        "delivered": "Sunday PM April 7th",
-        "meals": [
-          {
-            "id": 15,
-            "bld": "lunch",
-            "title": "Asian Sesame Salad with Chicken",
-            "description": "A salad featuring Asian sesame flavors with chicken.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 16,
-            "bld": "dinner",
-            "title": "Beef Bulgogi Bowl with Broccoli",
-            "description": "A bowl featuring beef bulgogi with broccoli.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lunch (Serves 4-6)",
+        "bld": "lunch",
+        "title": "Lemongrass Ginger Chicken and Lime Soup",
+        "price": 70,
+        "ingredients": [
+            "Lemongrass",
+            "Ginger",
+            "Chicken",
+            "Lime",
+            "Soup"
         ]
-      },
-      {
-        "day": "Thursday",
-        "date": "2024-04-11",
-        "delivered": "Wednesday PM April 9th",
-        "meals": [
-          {
-            "id": 17,
-            "bld": "lunch",
-            "title": "Peach Chana Masala",
-            "description": "A flavorful chana masala with peach.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 18,
-            "bld": "dinner",
-            "title": "Nourished Goddess Soup",
-            "description": "A nourishing soup fit for a goddess.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Dinner (Serves 4-6)",
+        "bld": "dinner",
+        "title": "Chicken Wild Rice Soup",
+        "price": 70,
+        "ingredients": [
+            "Chicken",
+            "Wild Rice",
+            "Soup"
         ]
-      },
-      {
-        "day": "Friday",
-        "date": "2024-04-12",
-        "delivered": "Wednesday PM April 9th",
-        "meals": [
-          {
-            "id": 19,
-            "bld": "lunch",
-            "title": "Oahu Inspired High Protein Rice",
-            "description": "High-protein rice inspired by Oahu.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 20,
-            "bld": "dinner",
-            "title": "No Bun Turkey Burger with Toppings and Sides",
-            "description": "A turkey burger served without a bun with various toppings and sides.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Dinner (Serves 4-6)",
+        "bld": "dinner",
+        "title": "Slow-Cooked Wagyu Beef Stew",
+        "price": 90,
+        "ingredients": [
+            "Slow-Cooked Wagyu Beef",
+            "Stew"
         ]
-      }
-    ]
-  },
-  {
-    "week_name": "Week of April 15th",
-    "date": "2024-04-15",
-    "days": [
-      {
-        "day": "Monday",
-        "date": "2024-04-15",
-        "delivered": "Sunday PM April 14th",
-        "meals": [
-          {
-            "id": 21,
-            "bld": "lunch",
-            "title": "Strawberry Sexy Salad with Grilled Chicken",
-            "description": "A sexy salad featuring strawberries and grilled chicken.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 22,
-            "bld": "dinner",
-            "title": "Grilled Salmon Broccoli and Carrots",
-            "description": "Grilled salmon served with broccoli and carrots.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Dinner (Serves 4-6)",
+        "bld": "dinner",
+        "title": "Ginger Fried Rice",
+        "price": 50,
+        "ingredients": [
+            "Ginger",
+            "Fried Rice"
         ]
-      },
-      {
-        "day": "Tuesday",
-        "date": "2024-04-16",
-        "delivered": "Sunday PM April 14th",
-        "meals": [
-          {
-            "id": 23,
-            "bld": "lunch",
-            "title": "Cobb Salad",
-            "description": "A classic Cobb salad.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 24,
-            "bld": "dinner",
-            "title": "Honey Glazed Chicken with Green Beans and Potatoes",
-            "description": "Chicken glazed with honey served with green beans and potatoes.",
-            "photos": ["/photos/Honey-Glazed-Chicken-with-green-beans-sweet-potatoes.jpeg"],
-            "price": 16
-          }
+    },
+    {
+        "description": "Dinner (Serves 4-6)",
+        "bld": "dinner",
+        "title": "Paleo Chicken Potpie",
+        "price": 70,
+        "ingredients": [
+            "Paleo Chicken",
+            "Potpie"
         ]
-      },
-      {
-        "day": "Wednesday",
-        "date": "2024-04-17",
-        "delivered": "Sunday PM April 14th",
-        "meals": [
-          {
-            "id": 25,
-            "bld": "lunch",
-            "title": "Salami Garbanzo Lettuce Salad",
-            "description": "Salad featuring salami, garbanzo beans, and lettuce.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 26,
-            "bld": "dinner",
-            "title": "Black Pepper Chicken Stir-fry",
-            "description": "Stir-fried chicken with black pepper seasoning.",
-            "photos": ["/photos/Healthy-Black-Pepper-Chicken-Stirfry.jpeg"],
-            "price": 16
-          }
+    },
+    {
+        "description": "Dinner (Serves 4-6)",
+        "bld": "dinner",
+        "title": "Roasted Bone Broth and Ginger Porridge",
+        "price": 70,
+        "ingredients": [
+            "Roasted Bone Broth",
+            "Ginger",
+            "Porridge"
         ]
-      },
-      {
-        "day": "Thursday",
-        "date": "2024-04-18",
-        "delivered": "Wednesday PM April 17th",
-        "meals": [
-          {
-            "id": 27,
-            "bld": "lunch",
-            "title": "Collard Lettuce Wraps with Grilled Chicken",
-            "description": "Lettuce wraps featuring collard greens and grilled chicken.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 28,
-            "bld": "dinner",
-            "title": "Chicken Black Bean and Avocado Bowls",
-            "description": "Bowls featuring chicken, black beans, and avocado.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Sides and Small Supportive Meals (Serves 4-6)",
+        "bld": "snack",
+        "title": "Hearty Sausage Rolls",
+        "price": 50,
+        "ingredients": [
+            "Hearty Sausage",
+            "Rolls"
         ]
-      },
-      {
-        "day": "Friday",
-        "date": "2024-04-19",
-        "delivered": "Wednesday PM April 17th",
-        "meals": [
-          {
-            "id": 29,
-            "bld": "lunch",
-            "title": "Greek Orzo Salad",
-            "description": "A refreshing Greek salad with orzo.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 30,
-            "bld": "dinner",
-            "title": "High Protein Sausage and Veggie Stir-fry",
-            "description": "Stir-fry featuring high-protein sausage and vegetables.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Sides and Small Supportive Meals (Serves 4-6)",
+        "bld": "snack",
+        "title": "Baked Rosemary + Fenugreek Sweet Potatoes",
+        "price": 50,
+        "ingredients": [
+            "Baked Rosemary",
+            "Fenugreek",
+            "Sweet Potatoes"
         ]
-      }
-    ]
-  },
-  {
-    "week_name": "Week of April 22nd",
-    "date": "2024-04-22",
-    "days": [
-      {
-        "day": "Monday",
-        "date": "2024-04-22",
-        "delivered": "Sunday PM April 21st",
-        "meals": [
-          {
-            "id": 31,
-            "bld": "lunch",
-            "title": "Lemon Chicken Rice Bowl",
-            "description": "A rice bowl featuring lemon chicken.",
-            "photos": ["/photos/Lemon-Chicken-Rice-Bowl.jpeg"],
-            "price": 16
-          },
-          {
-            "id": 32,
-            "bld": "dinner",
-            "title": "Taco Stuffed Sweet Potatoes",
-            "description": "Sweet potatoes stuffed with taco ingredients.",
-            "photos": ["/photos/Taco-Stuffed-Sweet-Potatoes.jpeg"],
-            "price": 16
-          }
+    },
+    {
+        "description": "Sides and Small Supportive Meals (Serves 4-6)",
+        "bld": "snack",
+        "title": "Bone Broth Rice, garlic, fenugreek, minced spinach and kale",
+        "price": 60,
+        "ingredients": [
+            "Bone Broth Rice",
+            "garlic",
+            "fenugreek",
+            "minced spinach",
+            "kale"
         ]
-      },
-      {
-        "day": "Tuesday",
-        "date": "2024-04-23",
-        "delivered": "Sunday PM April 21st",
-        "meals": [
-          {
-            "id": 33,
-            "bld": "lunch",
-            "title": "Zoodle with Turkey/Veggie Meatballs",
-            "description": "Zucchini noodles with turkey and veggie meatballs.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 34,
-            "bld": "dinner",
-            "title": "Kitchari",
-            "description": "A traditional Indian dish made with rice and lentils.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lactation & Healing Support Snacks",
+        "bld": "snack",
+        "title": "High Protein Energy Balls (4 count) (nut-free available)",
+        "price": 24,
+        "ingredients": [
+            "High Protein",
+            "Energy Balls",
+            "nut-free"
         ]
-      },
-      {
-        "day": "Wednesday",
-        "date": "2024-04-24",
-        "delivered": "Sunday PM April 21st",
-        "meals": [
-          {
-            "id": 35,
-            "bld": "lunch",
-            "title": "Balsamic Chicken Avocado Caprese Salad",
-            "description": "Caprese salad with balsamic chicken and avocado.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 36,
-            "bld": "dinner",
-            "title": "Unstuffed Bell Pepper Turkey Bowls",
-            "description": "Bowls featuring unstuffed bell pepper ingredients with turkey.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lactation & Healing Support Snacks",
+        "bld": "snack",
+        "title": "Hormone-balancing Bliss Bites (8 count)",
+        "price": 40,
+        "ingredients": [
+            "Hormone-balancing",
+            "Bliss Bites"
         ]
-      },
-      {
-        "day": "Thursday",
-        "date": "2024-04-25",
-        "delivered": "Wednesday PM April 24th",
-        "meals": [
-          {
-            "id": 37,
-            "bld": "lunch",
-            "title": "Mediterranean Lunch Box",
-            "description": "A lunch box featuring Mediterranean flavors.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 38,
-            "bld": "dinner",
-            "title": "Crispy Sriracha Salmon Bowl",
-            "description": "A bowl featuring crispy sriracha salmon.",
-            "photos": ["/photos/Crispy-Sriracha-Salmon-Bowl.jpeg"],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lactation & Healing Support Snacks",
+        "bld": "snack",
+        "title": "Passionfruit and Coconut Macaroons (8 count)",
+        "price": 40,
+        "ingredients": [
+            "Passionfruit",
+            "Coconut",
+            "Macaroons"
         ]
-      },
-      {
-        "day": "Friday",
-        "date": "2024-04-26",
-        "delivered": "Wednesday PM April 24th",
-        "meals": [
-          {
-            "id": 39,
-            "bld": "lunch",
-            "title": "Sesame Noodle Salad Jar",
-            "description": "A jarred salad featuring sesame noodles.",
-            "photos": [],
-            "price": 16
-          },
-          {
-            "id": 40,
-            "bld": "dinner",
-            "title": "Cheeseburger Bowl",
-            "description": "A bowl featuring all the flavors of a cheeseburger.",
-            "photos": [],
-            "price": 16
-          }
+    },
+    {
+        "description": "Lactation & Healing Support Snacks",
+        "bld": "snack",
+        "title": "Breastfeeding Brownies (8 count)",
+        "price": 40,
+        "ingredients": [
+            "Breastfeeding",
+            "Brownies"
         ]
-      }
-    ]
-  }
+    },
+    {
+        "description": "Lactation & Healing Support Snacks",
+        "bld": "snack",
+        "title": "Lactation Energy Bites (4 count)",
+        "price": 24,
+        "ingredients": [
+            "Lactation",
+            "Energy Bites"
+        ]
+    },
+    {
+        "description": "Lactation & Healing Support Snacks",
+        "bld": "snack",
+        "title": "Sweet Potato Muffins (6 count)",
+        "price": 30,
+        "ingredients": [
+            "Sweet Potato",
+            "Muffins"
+        ]
+    }
 ]

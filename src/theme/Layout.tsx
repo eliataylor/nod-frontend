@@ -32,10 +32,10 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     const price = useContext(QuantityContext).cartPrice;
 
     const theme = useMemo(() => {
-        if (location.pathname.indexOf('/about') === 0 || location.pathname.indexOf('/checkout') > -1 || location.pathname.indexOf('/pricing') > -1 || location.pathname.indexOf('/servings') > -1) {
-            setDarkMode(false);
-        } else {
+        if (location.pathname == '/' || location.pathname == '/menus' || location.pathname.indexOf('/partners') === 0 || location.pathname.indexOf('/terms') === 0 || location.pathname.indexOf('/contact') > -1 || location.pathname.indexOf('/terms') > -1 || location.pathname.indexOf('/faq') > -1) {
             setDarkMode(true);
+        } else {
+            setDarkMode(false);
         }
     }, [location.pathname]);
 
