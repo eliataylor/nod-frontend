@@ -317,7 +317,7 @@ export const TypeFieldSchema: ObjectOfObjects = {
     },
     "delivery_address": {
       "machine": "delivery_address",
-      "singular": "Delivery Addres",
+      "singular": "Delivery Address",
       "plural": "Delivery Address",
       "field_type": "address",
       "data_type": "string",
@@ -845,7 +845,7 @@ export const TypeFieldSchema: ObjectOfObjects = {
     },
     "delivery_instructions": {
       "machine": "delivery_instructions",
-      "singular": "Delivery Instruction",
+      "singular": "Delivery Instructions",
       "plural": "Delivery Instructions",
       "field_type": "textarea",
       "data_type": "string",
@@ -857,7 +857,7 @@ export const TypeFieldSchema: ObjectOfObjects = {
     },
     "customizations": {
       "machine": "customizations",
-      "singular": "Customization",
+      "singular": "Customizations",
       "plural": "Customizations",
       "field_type": "textarea",
       "data_type": "string",

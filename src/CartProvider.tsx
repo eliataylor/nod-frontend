@@ -25,7 +25,7 @@ export interface Week {
     days: Day[]
 }
 
-export type MenuData = Week[] | null;
+export type MenuData = (Week | Meal)[];
 
 export interface Program {
     program_name: string;
@@ -52,20 +52,23 @@ interface QuantityContextProps {
     cartPrice: number;
     updateCart: (meal: Meal, quantity: number) => void;
     updateFoodMenu: (menu: MenuData) => void;
-    weeklyMenu: MenuData;
+    weeklyMenu: MenuData | null;
     cartItems: CartItems;
-    program:Program;
-    setProgram: (program:Program) => void;
+    program: Program;
+    clearCart: () => void;
+    setProgram: (program: Program) => void;
 }
 
 const QuantityContext = createContext<QuantityContextProps>({
     cartPrice: 0,
-    updateCart: (meal, quantity) => {},
+    updateCart: (meal, quantity) => {
+    },
     weeklyMenu: null,
     updateFoodMenu: (menu: MenuData) => [],
+    clearCart: () => null,
     cartItems: [],
     program: defaultProgram,
-    setProgram: (program:Program) => null
+    setProgram: (program: Program) => null
 });
 
 interface CartProviderProps {
@@ -76,7 +79,7 @@ interface CartProviderProps {
 const CartProvider: React.FC<CartProviderProps> = ({children, initialState}) => {
     const [cartPrice, setPrice] = useState<number>(0);
     const [cartItems, setCartItems] = useState<Meal[]>([]);
-    const [weeklyMenu, updateFoodMenu] = useState<MenuData>(null);
+    const [weeklyMenu, updateFoodMenu] = useState<MenuData | null>(null);
     const [program, setProgram] = useState<Program>(defaultProgram);
 
     useEffect(() => {
@@ -166,8 +169,15 @@ const CartProvider: React.FC<CartProviderProps> = ({children, initialState}) => 
         });
     };
 
+    const clearCart = async () => {
+        localStorage.removeItem("myCartData")
+        setPrice(0);
+        setCartItems([])
+    }
+
     return (
-        <QuantityContext.Provider value={{cartPrice, cartItems, updateCart, weeklyMenu, updateFoodMenu, program, setProgram}}>
+        <QuantityContext.Provider
+            value={{cartPrice, cartItems, updateCart, clearCart, weeklyMenu, updateFoodMenu, program, setProgram}}>
             {children}
         </QuantityContext.Provider>
     );

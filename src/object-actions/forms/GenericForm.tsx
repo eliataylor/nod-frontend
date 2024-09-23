@@ -276,7 +276,7 @@ const GenericForm: React.FC<GenericFormProps> = ({
                             disabled={syncing}
                             startIcon={syncing ? <CircularProgress size={'small'} color={'primary'}/> : undefined}
                             variant="contained" color="primary">
-                        Save
+                        Send
                     </Button>
                 }
 

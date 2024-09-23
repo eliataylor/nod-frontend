@@ -1,17 +1,13 @@
 import React, {useContext, useEffect} from 'react';
-import {QuantityContext} from "../CartProvider";
-import WeekMenu from "./WeekMenu";
-import {useNavDrawer} from "../NavDrawerProvider";
+import {QuantityContext, Week} from "../CartProvider";
 import MenuByMeal from "./MenuByMeal";
 
 import {useLocation} from "react-router-dom";
+import WeekMenu from "./WeekMenu";
 
 const FoodMenu: React.FC = () => {
     const {updateFoodMenu, weeklyMenu} = useContext(QuantityContext)
-    const {isMounted} = useNavDrawer();
     const location = useLocation()
-
-    const price = useContext(QuantityContext).cartPrice;
 
     const fetchData = async () => {
         const menuName = location.pathname.indexOf('postpartum') > -1 ? 'postpartum' : 'next-week';
@@ -22,11 +18,13 @@ const FoodMenu: React.FC = () => {
             }
             const data = await response.json();
             data.forEach((week: any) => {
-                week.days.forEach((day: any) => {
-                    day.meals.forEach((meal: any) => {
-                        meal.date = day.date
+                if (week.days) {
+                    week.days.forEach((day: any) => {
+                        day.meals.forEach((meal: any) => {
+                            meal.date = day.date
+                        })
                     })
-                })
+                }
             });
             updateFoodMenu(data);
         } catch (error) {
@@ -41,12 +39,13 @@ const FoodMenu: React.FC = () => {
 
     if (!weeklyMenu || weeklyMenu.length === 0) return <div>Loading menu...</div>
 
-    if (location.pathname.indexOf('/servings') > -1) return <MenuByMeal/>
+    // @ts-ignore
+    if (location.pathname.indexOf('/servings') > -1 || typeof weeklyMenu[0]['days'] === 'undefined') return <MenuByMeal/>
 
     return <React.Fragment>
-        {weeklyMenu.map((week, index) => (
-                <WeekMenu key={`week-${week.week_name}`} week={week} index={index}/>
-            ))}
+        {(weeklyMenu as Week[]).map((week, index) => {
+            return <WeekMenu key={`week-${week?.week_name}`} week={week} index={index}/>
+        })}
     </React.Fragment>
 
 }

@@ -17,7 +17,13 @@ const MenuByMeal: React.FC = () => {
                 flatList = flattenMealTypes(item, mealType, flatList);
             }
         } else if (typeof obj === 'object' && obj !== null) {
-            if ('meals' in obj) {
+            if ('price' in obj) {
+                if (obj.bld === mealType) {
+                    const inCart = cartItems.find(c => c.id === obj.id)
+                    const topass = inCart || obj;
+                    flatList.push(topass);
+                }
+            } else if ('meals' in obj) {
                 obj.meals.forEach((meal:Meal) => {
                     if (meal.bld === mealType) {
                         const inCart = cartItems.find(c => c.id === meal.id)
