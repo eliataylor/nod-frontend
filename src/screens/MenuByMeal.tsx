@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Grid, Typography} from '@mui/material';
 import Box from '@mui/material/Box';
-import {Meal, OrderItems, QuantityContext} from "../CartProvider";
+import {Meal, CartItems, QuantityContext} from "../CartProvider";
 import OrderItem from "../components/OrderItem";
 import {useNavDrawer} from "../NavDrawerProvider";
 import SearchField from "../components/SearchField";
@@ -11,7 +11,7 @@ const MenuByMeal: React.FC = () => {
     const { weeklyMenu, cartItems, program } = useContext(QuantityContext)
     const { keyword } = useNavDrawer();
 
-    function flattenMealTypes(obj: any, mealType:string, flatList: OrderItems): OrderItems {
+    function flattenMealTypes(obj: any, mealType:string, flatList: CartItems): CartItems {
         if (Array.isArray(obj)) {
             for (const item of obj) {
                 flatList = flattenMealTypes(item, mealType, flatList);

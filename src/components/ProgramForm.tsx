@@ -15,11 +15,11 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
     const setOptsMeals = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         const newState = {...program};
-        const has = newState.meals.indexOf(value);
+        const has = newState.bld.indexOf(value);
         if (has > -1) {
-            newState.meals.splice(has, 1);
+            newState.bld.splice(has, 1);
         } else {
-            newState.meals.push(value);
+            newState.bld.push(value);
         }
         setProgram(newState);
     };
@@ -34,7 +34,7 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
     const handleChangeSubscription = (event: React.ChangeEvent<HTMLInputElement>) => {
         const val = (event.target as HTMLInputElement).value;
         const newState = {...program};
-        newState.meal_count = parseInt(val);
+        newState.subscription_level = parseInt(val);
         setProgram(newState);
     };
 
@@ -99,7 +99,7 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={program.meals.includes('lunch')}
+                                checked={program.bld.includes('lunch')}
                                 value={'lunch'}
                                 onChange={(e) => setOptsMeals(e)}
                             />
@@ -111,7 +111,7 @@ const ProgramForm: React.FC<Partial<Program>> = (props) => {
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={program.meals.includes('dinner')}
+                                checked={program.bld.includes('dinner')}
                                 value={'dinner'}
                                 onChange={(e) => setOptsMeals(e)}
                             />

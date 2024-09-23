@@ -6,6 +6,17 @@ import OrderItem from "../components/OrderItem";
 import {useTheme} from "@mui/styles";
 import {Theme} from "@mui/material/styles";
 import {Link} from "react-router-dom";
+import ApiClient from "../ApiClient";
+import {
+    TypeFieldSchema,
+    FieldTypeDefinition,
+    NAVITEMS,
+    EntityTypes,
+    Orders,
+    RelEntity
+} from "../object-actions/types/types";
+import GenericForm from "../object-actions/forms/GenericForm";
+import {nearestDay} from "../Utils";
 
 const Checkout = () => {
     const theme = useTheme() as Theme;
@@ -14,7 +25,7 @@ const Checkout = () => {
     const inputRef = useRef(null);
 
 
-    const {cartPrice, cartItems} = useContext(QuantityContext)
+    const {cartPrice, cartItems, program} = useContext(QuantityContext)
     const priceString = cartPrice.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD'
@@ -47,57 +58,58 @@ const Checkout = () => {
         return href;
     }
 
+    const buildOrder = ():Orders => {
+        const order: any = {
+            start_date:program.start_date ?? nearestDay(new Date(), 7),
+            glass_containers: program.use_glass ?? false
+        }
+        const orderItems = cartItems.map(item => {
+            const test = 1
+            return {'id':item.id, 'str':item.title, '_type':'Meal', entity:item}
+        })
+        order.order_items = orderItems
+
+        return order;
+
+    }
+
+    const postMealData = (entity:EntityTypes): void => {
+        const order:any = {
+            ...buildOrder(),
+            ...entity
+        }
+
+        console.log(order)
+
+        const response = ApiClient.post(`/orders`, order)
+    }
+
+    const hasUrl = NAVITEMS.find(nav => nav.type === `Orders`);
+    if (!hasUrl) return <Typography>Unknown Type</Typography>
+
+    const fields: FieldTypeDefinition[] = []
+    const allowed = ['start_date', 'delivery_instructions', 'customizations', 'glass_containers', 'recurring']
+    allowed.forEach((field_name) => {
+        fields.push(TypeFieldSchema[hasUrl.type][field_name])
+    })
+
+
+
     return (
         <Box style={{padding:"1%"}}>
             {cartPrice > 0 ?
                 <Box >
-                    <Typography variant={'h6'}>
-                         Please copy and email your meal plan data below to  <a href={buildMailTo()}
-                                                                                             style={{color:theme.palette.secondary.main}}
-                                                                                             target={'_blank'}>info@NourishmentOnDemand.com</a>. We'll respond with confirmation and payment options.
-                    </Typography>
-                    <div style={{margin: '10px auto'}}>
-                        <TextField
-                            fullWidth={true}
-                            type="text"
-                            variant={'standard'}
-                            aria-readonly={true}
-                            style={{color:theme.palette.grey[600]}}
-                            value={JSON.stringify(mealPlan)}
-                            label="My Meal Plan"
-                            inputRef={inputRef}
-                            InputProps={{
-                                readOnly: true,
-                                onClick: handleCopy,
-                            }}
-                            helperText={hasCopied ? 'Meal Plan copied to clipboard!' : ''}
-                        />
-                    </div>
+                    <GenericForm
+                        fields={fields}
+                        original={buildOrder()}
+                        navItem={hasUrl}
+                        onSubmit={postMealData}
+                    />
 
                 </Box>
                 :
-                <Typography variant={'h6'} style={{textAlign: 'center'}} gutterBottom={true}>Accepting payments
-                    through </Typography>
+                <Typography variant={'h6'} style={{textAlign: 'center'}} gutterBottom={true}>There's nothing in your cart</Typography>
             }
-            {/*
-            <Grid container justifyContent={'space-between'} style={{textAlign: 'center'}}>
-                <Grid item xs={4} >
-                    <Typography variant={'overline'}>Venmo</Typography>
-                    <Typography variant={'body2'}>@SKT-Designs</Typography>
-                    <img src={'/venmo.jpeg'} width={100}/>
-                </Grid>
-                <Grid item xs={4} >
-                    <Typography variant={'overline'}>Zelle</Typography>
-                    <Typography variant={'body2'}>415-966-8442</Typography>
-                    <img src={'/zelle.png'} width={100}/>
-                </Grid>
-                <Grid item xs={4} >
-                    <Typography variant={'overline'}>PayPal</Typography>
-                    <Typography variant={'body2'}>samanta.amna@gmail.com</Typography>
-                    <img src={'/paypal.png'} width={100} />
-                </Grid>
-            </Grid>
-*/}
 
             {cartPrice > 0 &&
                 <Box margin={"20px auto"}>

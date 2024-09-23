@@ -1,4 +1,9 @@
-import {OrderItems} from "./CartProvider";
+import {CartItems} from "./CartProvider";
+import dayjs from 'dayjs';
+
+export const isDayJs = (val: any) => {
+    return val instanceof dayjs
+}
 
 export function nearestDay(date: Date, targetDay: number): string {
     // Get the day of the week for the reference date (0-6)
@@ -42,13 +47,13 @@ function formatDeliveryDate(date: Date): string {
 }
 
 
-export function has3PlusServings(cartItems: OrderItems) : boolean {
+export function has3PlusServings(cartItems: CartItems) : boolean {
     const has = cartItems.find(item => typeof item.servings === 'number' && item.servings > 2)
     if (has) return true;
     return false;
 }
 
-export function countConsecutiveDays(cartItems: OrderItems): number {
+export function countConsecutiveDays(cartItems: CartItems): number {
     if (cartItems.length === 0) return 0;
 
     // Make a shallow copy of cartItems and filter out items without a date

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {Meal, OrderItems, QuantityContext, Week} from "../CartProvider";
+import {Meal, CartItems, QuantityContext, Week} from "../CartProvider";
 import AddItemsCheckbox from "../components/AddItemsCheckbox";
 import OrderItem from "../components/OrderItem";
 import {makeStyles, useTheme} from '@mui/styles';
@@ -41,7 +41,7 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
         setIsOpen((prev) => !prev);
     };
 
-    function flattenMeals(obj: any, flatList: OrderItems): OrderItems {
+    function flattenMeals(obj: any, flatList: CartItems): CartItems {
         if (Array.isArray(obj)) {
             for (const item of obj) {
                 flatList = flattenMeals(item, flatList);
@@ -76,7 +76,7 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
 
                 <AddItemsCheckbox
                     key={`checkallweek-${week.week_name}`}
-                    orderItems={flattenMeals(week, [])}/>
+                    cartItems={flattenMeals(week, [])}/>
 
                 <div>
                     <Typography variant="h6" color={'secondary'} >{week.week_name}</Typography>
@@ -89,7 +89,7 @@ const WeekMenu: React.FC<Props> = ({week, index}) => {
                     <Box key={`week-${week.week_name}-day-${day.date}`}  margin={"0 0 20px 0"}>
                         <AddItemsCheckbox
                             key={`checkallday-${day.date}`}
-                            orderItems={flattenMeals(day, [])}
+                            cartItems={flattenMeals(day, [])}
                             label={<Typography variant="h6" >{day.day}</Typography>}
                         />
                         <div>

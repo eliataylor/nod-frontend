@@ -25,32 +25,25 @@ export interface Week {
     days: Day[]
 }
 
-export interface Supplier {
-    id: string;
-    name: string;
-    photo: string;
-    address: string;
-    website: string;
-}
-
-export type Suppliers = Supplier[] | null;
 export type MenuData = Week[] | null;
-export type OrderItems = Meal[];
 
 export interface Program {
     program_name: string;
-    meals: string[];
+    bld: string[];
     servings: number;
-    meal_count: number;
+    menu_html?: string;
+    subscription_level: number;
     start_date: string;
     use_glass: boolean;
 }
 
+export type CartItems = Meal[]
+
 export const defaultProgram: Program = {
     program_name: 'Meal Prep',
-    meals: ['lunch', 'dinner'],
+    bld: ['lunch', 'dinner'],
     servings: 1,
-    meal_count: 0,
+    subscription_level: 0,
     start_date: nearestDay(new Date(), 7),
     use_glass: false
 }
@@ -60,7 +53,7 @@ interface QuantityContextProps {
     updateCart: (meal: Meal, quantity: number) => void;
     updateFoodMenu: (menu: MenuData) => void;
     weeklyMenu: MenuData;
-    cartItems: OrderItems;
+    cartItems: CartItems;
     program:Program;
     setProgram: (program:Program) => void;
 }

@@ -11,7 +11,6 @@ export default function App() {
 
     return (<ThemeProvider>
             <NavDrawerProvider>
-                <TrackingConsent/>
                 <CartProvider>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <Router/>
