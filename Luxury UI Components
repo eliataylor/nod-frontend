@@ -1,0 +1,176 @@
+import React, { useState } from 'react';
+import { ChevronRight, Plus, Minus, Calendar, Clock, ArrowRight } from 'lucide-react';
+
+export default function LuxuryComponents() {
+  const [activeAccordion, setActiveAccordion] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
+
+  return (
+    <div className="w-full max-w-5xl space-y-24 p-12 bg-[#FCFBF8]">
+      {/* Premium Navigation */}
+      <section className="space-y-4">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D] mb-8">Navigation Elements</h2>
+        <nav className="flex justify-between items-center p-8 rounded-xl" style={{
+          background: 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)'
+        }}>
+          <div className="text-xl tracking-wider text-[#4B5320]">NOD</div>
+          <div className="flex gap-12 text-sm font-light">
+            <a href="#" className="text-[#4B5320] hover:text-[#A67D5D] transition-colors">The Experience</a>
+            <a href="#" className="text-[#4B5320] hover:text-[#A67D5D] transition-colors">Your Journey</a>
+            <a href="#" className="text-[#4B5320] hover:text-[#A67D5D] transition-colors">Scientific Approach</a>
+            <a href="#" className="text-[#4B5320] hover:text-[#A67D5D] transition-colors">Begin Healing</a>
+          </div>
+        </nav>
+      </section>
+
+      {/* Luxury Buttons */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D] mb-8">Premium Buttons</h2>
+        <div className="flex gap-8">
+          {/* Primary */}
+          <button className="bg-[#4B5320] text-white px-12 py-4 rounded-none hover:bg-[#3A4118] transition-all duration-300 tracking-wider text-sm">
+            Begin Your Journey
+          </button>
+          
+          {/* Secondary */}
+          <button className="bg-transparent border border-[#4B5320] text-[#4B5320] px-12 py-4 rounded-none hover:bg-[#4B5320] hover:text-white transition-all duration-300 tracking-wider text-sm">
+            Learn More
+          </button>
+          
+          {/* Minimal */}
+          <button className="text-[#4B5320] font-light flex items-center group">
+            Discover More 
+            <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
+        </div>
+      </section>
+
+      {/* Premium Cards */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D] mb-8">Experience Cards</h2>
+        <div className="grid grid-cols-2 gap-8">
+          {/* Program Card */}
+          <div className="p-12 rounded-xl space-y-6" style={{
+            background: 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)'
+          }}>
+            <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Premium Recovery</div>
+            <h3 className="text-2xl font-light text-[#4B5320]">10-Day Healing Journey</h3>
+            <p className="text-gray-600 font-light leading-relaxed">Curated nutrition designed for optimal post-surgery recovery.</p>
+            <div className="pt-4">
+              <button className="text-[#4B5320] font-light flex items-center group text-sm">
+                Explore Program 
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+            </div>
+          </div>
+
+          {/* Consultation Card */}
+          <div className="p-12 rounded-xl space-y-6" style={{
+            background: 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)'
+          }}>
+            <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Personal Consultation</div>
+            <div className="flex gap-6">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Calendar className="w-4 h-4" />
+                <span>30 Minutes</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Clock className="w-4 h-4" />
+                <span>Virtual</span>
+              </div>
+            </div>
+            <button className="bg-transparent border border-[#4B5320] text-[#4B5320] px-8 py-3 rounded-none hover:bg-[#4B5320] hover:text-white transition-all duration-300 tracking-wider text-sm">
+              Schedule Now
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Luxury Tabs */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D] mb-8">Program Tabs</h2>
+        <div className="space-y-8">
+          <div className="flex gap-8 border-b border-gray-200">
+            {['Phase One', 'Phase Two', 'Phase Three'].map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveTab(index)}
+                className={`pb-4 text-sm tracking-wide transition-all ${
+                  activeTab === index 
+                    ? 'text-[#4B5320] border-b-2 border-[#4B5320]' 
+                    : 'text-gray-400 hover:text-[#A67D5D]'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+          <div className="p-8 rounded-xl" style={{
+            background: 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)'
+          }}>
+            <p className="font-light text-gray-600 leading-relaxed">
+              {activeTab === 0 && "Initial healing support through anti-inflammatory nutrients and gentle hydration protocols."}
+              {activeTab === 1 && "Enhanced recovery with protein-rich meals and cellular repair support systems."}
+              {activeTab === 2 && "Sustained healing through balanced nutrition and adaptogenic elements."}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Accordion */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D] mb-8">Experience Details</h2>
+        <div className="space-y-4">
+          {['Nutrition Protocol', 'Recovery Timeline', 'Support System'].map((item, index) => (
+            <div 
+              key={index}
+              className="border-b border-gray-200 last:border-0"
+            >
+              <button
+                onClick={() => setActiveAccordion(activeAccordion === index ? -1 : index)}
+                className="w-full py-6 flex justify-between items-center text-left"
+              >
+                <span className="text-lg font-light text-[#4B5320]">{item}</span>
+                {activeAccordion === index ? 
+                  <Minus className="w-4 h-4 text-[#4B5320]" /> : 
+                  <Plus className="w-4 h-4 text-[#4B5320]" />
+                }
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${
+                activeAccordion === index ? 'max-h-40 mb-6' : 'max-h-0'
+              }`}>
+                <p className="text-gray-600 font-light leading-relaxed">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Form Elements */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D] mb-8">Consultation Form</h2>
+        <div className="grid grid-cols-2 gap-8">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="px-6 py-4 bg-white border border-gray-200 rounded-none focus:outline-none focus:border-[#4B5320] transition-colors"
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="px-6 py-4 bg-white border border-gray-200 rounded-none focus:outline-none focus:border-[#4B5320] transition-colors"
+          />
+        </div>
+        <textarea
+          placeholder="Your Message"
+          rows={4}
+          className="w-full px-6 py-4 bg-white border border-gray-200 rounded-none focus:outline-none focus:border-[#4B5320] transition-colors"
+        />
+      </section>
+    </div>
+  );
+}
