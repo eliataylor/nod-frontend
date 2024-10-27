@@ -1,0 +1,227 @@
+import React, { useState } from 'react';
+import { ChevronRight, Plus, ArrowRight } from 'lucide-react';
+
+export default function ColorInteractions() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [activePhase, setActivePhase] = useState(0);
+
+  return (
+    <div className="w-full max-w-5xl p-12 space-y-24" style={{background: '#FCFBF8'}}>
+      {/* Premium Color Combinations */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D]">Color System</h2>
+        
+        {/* Primary Brand Moments */}
+        <div className="grid grid-cols-3 gap-6">
+          {/* Deep Brand */}
+          <div 
+            className="p-8 rounded-xl group cursor-pointer transition-all duration-500"
+            style={{
+              background: 'linear-gradient(145deg, #4B5320 0%, #3A4118 100%)'
+            }}
+            onMouseEnter={() => setHoveredCard(0)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="space-y-4">
+              <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Primary</div>
+              <h3 className="text-xl font-light text-white">Deep Brand</h3>
+              <p className="text-sm text-white/80 font-light">Premium moments and key CTAs</p>
+            </div>
+          </div>
+
+          {/* Luxury Accent */}
+          <div 
+            className="p-8 rounded-xl group cursor-pointer transition-all duration-500"
+            style={{
+              background: 'linear-gradient(145deg, #A67D5D 0%, #8B654A 100%)'
+            }}
+            onMouseEnter={() => setHoveredCard(1)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="space-y-4">
+              <div className="text-xs tracking-widest uppercase text-white/80">Accent</div>
+              <h3 className="text-xl font-light text-white">Luxury Bronze</h3>
+              <p className="text-sm text-white/80 font-light">Sophisticated details</p>
+            </div>
+          </div>
+
+          {/* Light Brand */}
+          <div 
+            className="p-8 rounded-xl group cursor-pointer transition-all duration-500"
+            style={{
+              background: 'linear-gradient(145deg, rgba(75, 83, 32, 0.1) 0%, rgba(75, 83, 32, 0.05) 100%)'
+            }}
+            onMouseEnter={() => setHoveredCard(2)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="space-y-4">
+              <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Secondary</div>
+              <h3 className="text-xl font-light text-[#4B5320]">Light Brand</h3>
+              <p className="text-sm text-gray-600 font-light">Subtle brand presence</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Interactive Elements */}
+        <div className="grid grid-cols-2 gap-6">
+          {/* Hover States */}
+          <div 
+            className="p-8 rounded-xl transition-all duration-500 group cursor-pointer"
+            style={{
+              background: hoveredCard === 3 
+                ? 'linear-gradient(145deg, rgba(75, 83, 32, 0.08) 0%, rgba(166, 125, 93, 0.08) 100%)'
+                : 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)'
+            }}
+            onMouseEnter={() => setHoveredCard(3)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="space-y-6">
+              <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Hover Interactions</div>
+              <h3 className="text-xl font-light text-[#4B5320]">Premium Cards</h3>
+              <p className="text-sm text-gray-600 font-light leading-relaxed">
+                Subtle gradient shifts create depth and engagement
+              </p>
+              <button className="text-[#4B5320] group flex items-center text-sm">
+                Explore More
+                <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+            </div>
+          </div>
+
+          {/* Active States */}
+          <div 
+            className="p-8 rounded-xl cursor-pointer"
+            style={{
+              background: hoveredCard === 4
+                ? 'linear-gradient(145deg, rgba(166, 125, 93, 0.08) 0%, rgba(75, 83, 32, 0.08) 100%)'
+                : 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)'
+            }}
+            onMouseEnter={() => setHoveredCard(4)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="space-y-6">
+              <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Active States</div>
+              <h3 className="text-xl font-light text-[#4B5320]">Interactive Elements</h3>
+              <p className="text-sm text-gray-600 font-light leading-relaxed">
+                Color shifts indicate active and selected states
+              </p>
+              <button className="text-[#4B5320] group flex items-center text-sm">
+                View Elements
+                <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Button System */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D]">Interactive Elements</h2>
+        
+        <div className="grid grid-cols-3 gap-6">
+          {/* Primary Buttons */}
+          <div className="space-y-4">
+            <div className="text-sm font-light text-gray-600">Primary Actions</div>
+            <button className="w-full bg-[#4B5320] text-white px-8 py-4 rounded-lg hover:bg-[#3A4118] transition-all duration-300 tracking-wider text-sm">
+              Begin Journey
+            </button>
+            <button className="w-full bg-[#A67D5D] text-white px-8 py-4 rounded-lg hover:bg-[#8B654A] transition-all duration-300 tracking-wider text-sm">
+              Learn More
+            </button>
+          </div>
+
+          {/* Secondary Buttons */}
+          <div className="space-y-4">
+            <div className="text-sm font-light text-gray-600">Secondary Actions</div>
+            <button className="w-full border border-[#4B5320] text-[#4B5320] px-8 py-4 rounded-lg hover:bg-[#4B5320] hover:text-white transition-all duration-300 tracking-wider text-sm">
+              View Details
+            </button>
+            <button className="w-full border border-[#A67D5D] text-[#A67D5D] px-8 py-4 rounded-lg hover:bg-[#A67D5D] hover:text-white transition-all duration-300 tracking-wider text-sm">
+              Discover More
+            </button>
+          </div>
+
+          {/* Minimal Buttons */}
+          <div className="space-y-4">
+            <div className="text-sm font-light text-gray-600">Minimal Actions</div>
+            <button className="w-full text-[#4B5320] px-8 py-4 rounded-lg hover:bg-[#4B5320]/5 transition-all duration-300 tracking-wider text-sm flex items-center justify-center group">
+              Explore
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+            <button className="w-full text-[#A67D5D] px-8 py-4 rounded-lg hover:bg-[#A67D5D]/5 transition-all duration-300 tracking-wider text-sm flex items-center justify-center group">
+              View All
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Phase Indicators */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D]">Program Phases</h2>
+        
+        <div className="grid grid-cols-3 gap-6">
+          {['Initial Recovery', 'Enhanced Healing', 'Sustained Support'].map((phase, index) => (
+            <div
+              key={index}
+              className={`p-8 rounded-xl cursor-pointer transition-all duration-500 ${
+                activePhase === index ? 'transform -translate-y-1' : ''
+              }`}
+              style={{
+                background: activePhase === index
+                  ? 'linear-gradient(145deg, rgba(75, 83, 32, 0.1) 0%, rgba(75, 83, 32, 0.05) 100%)'
+                  : 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)'
+              }}
+              onClick={() => setActivePhase(index)}
+            >
+              <div className="space-y-4">
+                <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Phase {index + 1}</div>
+                <h3 className="text-xl font-light text-[#4B5320]">{phase}</h3>
+                <p className="text-sm text-gray-600 font-light">
+                  Specialized nutrition protocol designed for optimal recovery outcomes.
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Gradient Overlays */}
+      <section className="space-y-8">
+        <h2 className="text-xs tracking-widest uppercase text-[#A67D5D]">Gradient Applications</h2>
+        
+        <div className="grid grid-cols-2 gap-6">
+          <div 
+            className="aspect-square rounded-xl p-8 flex flex-col justify-end"
+            style={{
+              background: 'linear-gradient(165deg, rgba(75, 83, 32, 0.9) 0%, rgba(58, 65, 24, 0.95) 100%)'
+            }}
+          >
+            <div className="space-y-4">
+              <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Deep Brand</div>
+              <h3 className="text-xl font-light text-white">Premium Moments</h3>
+              <p className="text-sm text-white/80 font-light">
+                Rich gradients for key visual moments
+              </p>
+            </div>
+          </div>
+
+          <div 
+            className="aspect-square rounded-xl p-8 flex flex-col justify-end"
+            style={{
+              background: 'linear-gradient(165deg, rgba(166, 125, 93, 0.1) 0%, rgba(166, 125, 93, 0.05) 100%)'
+            }}
+          >
+            <div className="space-y-4">
+              <div className="text-xs tracking-widest uppercase text-[#A67D5D]">Light Touch</div>
+              <h3 className="text-xl font-light text-[#4B5320]">Subtle Presence</h3>
+              <p className="text-sm text-gray-600 font-light">
+                Gentle gradients for supporting content
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
