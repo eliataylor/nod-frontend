@@ -1,0 +1,120 @@
+import React from 'react';
+import { ChevronRight, Menu } from 'lucide-react';
+
+export default function LuxuryWellnessDesign() {
+  return (
+    <div className="w-full max-w-5xl space-y-20 p-8 bg-[#FCFBF8]">
+      {/* Hero Section - More editorial, luxury spa feel */}
+      <div className="mb-16">
+        <h2 className="text-sm font-light tracking-widest uppercase mb-4 text-[#A67D5D]">Website Hero</h2>
+        <div 
+          className="rounded-2xl p-16 relative overflow-hidden min-h-[80vh]"
+          style={{
+            background: 'linear-gradient(165deg, rgba(252, 251, 248, 0.98) 0%, rgba(246, 245, 243, 0.98) 100%)'
+          }}
+        >
+          {/* Navigation - More refined */}
+          <div className="flex justify-between items-center mb-32">
+            <div className="text-2xl tracking-wider text-[#4B5320]">NOD</div>
+            <Menu className="text-[#4B5320]" />
+          </div>
+          
+          {/* Hero Content - More editorial spacing */}
+          <div className="max-w-2xl">
+            <h1 className="text-6xl font-light leading-tight mb-8 text-[#4B5320]">Therapeutic Nutrition for Elevated Recovery</h1>
+            <p className="text-lg font-light leading-relaxed mb-12 text-gray-700">A curated healing experience through medical-grade nutrition, designed for your transformative journey.</p>
+            <button className="bg-transparent border border-[#4B5320] text-[#4B5320] px-12 py-4 rounded-none hover:bg-[#4B5320] hover:text-white transition-all duration-300 tracking-wider text-sm">
+              Begin Your Journey
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Feature Cards - More spa-like */}
+      <div className="space-y-6">
+        <h2 className="text-sm font-light tracking-widest uppercase mb-8 text-[#A67D5D]">The Experience</h2>
+        <div className="grid grid-cols-2 gap-8">
+          {/* Card 1 */}
+          <div 
+            className="p-12 rounded-2xl hover:-translate-y-1 transition-all duration-500"
+            style={{
+              background: 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)',
+              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)'
+            }}
+          >
+            <div className="text-xs font-light tracking-widest uppercase mb-8 text-[#A67D5D]">01. Medical Excellence</div>
+            <h3 className="text-2xl font-light mb-4 text-[#4B5320]">Scientific Healing</h3>
+            <p className="text-gray-600 font-light leading-relaxed">Precisely formulated nutrition protocols, developed through medical research for optimal recovery outcomes.</p>
+          </div>
+          
+          {/* Card 2 */}
+          <div 
+            className="p-12 rounded-2xl hover:-translate-y-1 transition-all duration-500"
+            style={{
+              background: 'linear-gradient(145deg, rgba(252, 251, 248, 0.8) 0%, rgba(246, 245, 243, 0.8) 100%)',
+              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)'
+            }}
+          >
+            <div className="text-xs font-light tracking-widest uppercase mb-8 text-[#A67D5D]">02. Curated Care</div>
+            <h3 className="text-2xl font-light mb-4 text-[#4B5320]">Personalized Journey</h3>
+            <p className="text-gray-600 font-light leading-relaxed">Each meal thoughtfully crafted to support your unique healing timeline and nutritional needs.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Editorial Content Section */}
+      <div className="grid grid-cols-2 gap-16 items-center">
+        <div>
+          <div className="text-xs font-light tracking-widest uppercase mb-8 text-[#A67D5D]">The Process</div>
+          <h2 className="text-4xl font-light leading-tight mb-8 text-[#4B5320]">A Thoughtfully Designed Recovery Experience</h2>
+          <p className="text-gray-600 font-light leading-relaxed mb-12">Each step of your healing journey is supported by precisely timed nutrition, delivered with the care and attention you deserve.</p>
+          <button className="text-[#4B5320] font-light flex items-center group">
+            Discover the Journey 
+            <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
+        </div>
+        <div 
+          className="aspect-square rounded-2xl"
+          style={{
+            background: 'linear-gradient(165deg, rgba(75, 83, 32, 0.05) 0%, rgba(166, 125, 93, 0.05) 100%)'
+          }}
+        ></div>
+      </div>
+
+      {/* Program Overview */}
+      <div className="space-y-12">
+        <h2 className="text-sm font-light tracking-widest uppercase mb-8 text-[#A67D5D]">Program Overview</h2>
+        <div className="grid grid-cols-3 gap-8">
+          {Array.from({length: 3}).map((_, i) => (
+            <div key={i} className="space-y-4">
+              <div className="text-xs font-light tracking-widest text-gray-400">Phase {i + 1}</div>
+              <div className="h-[1px] bg-[#4B5320] opacity-20"></div>
+              <div className="font-light text-gray-600 leading-relaxed">
+                {i === 0 && "Initial healing support through anti-inflammatory nutrients and gentle hydration."}
+                {i === 1 && "Enhanced recovery with protein-rich meals and cellular repair support."}
+                {i === 2 && "Sustained healing through balanced nutrition and adaptogenic elements."}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CTA Section - More spa-like */}
+      <div>
+        <div 
+          className="rounded-2xl p-24 text-center"
+          style={{
+            background: 'linear-gradient(165deg, rgba(252, 251, 248, 0.98) 0%, rgba(246, 245, 243, 0.98) 100%)'
+          }}
+        >
+          <div className="text-xs font-light tracking-widest uppercase mb-8 text-[#A67D5D]">Begin Your Journey</div>
+          <h2 className="text-4xl font-light mb-8 text-[#4B5320] max-w-2xl mx-auto leading-tight">Transform Your Recovery Through Scientific Nutrition</h2>
+          <p className="text-gray-600 mb-12 max-w-xl mx-auto font-light leading-relaxed">Experience the intersection of medical science and luxury healing.</p>
+          <button className="bg-[#4B5320] text-white px-12 py-4 rounded-none hover:bg-[#3A4118] transition-all duration-300 tracking-wider text-sm">
+            Schedule a Consultation
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
