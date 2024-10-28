@@ -1,0 +1,76 @@
+[
+  {
+    "week_name": "Week of April 1st",
+    "date": "2024-04-01",
+    "days": [
+      {
+        "day": "Monday",
+        "date": "2024-04-01",
+        "delivered": "Sunday PM March 31st",
+        "meals": [
+          {
+            "id": 1,
+            "bld": "lunch",
+            "title": "Grilled Chicken and Spinach Salad",
+            "description": "A nutritious salad with grilled chicken, spinach, apple, beets, pecan, and quinoa.",
+            "photos": [
+              "/photos/Grilled-Chicken-and-Spinach-Salad.jpeg"
+            ],
+            "price": 16
+          },
+          {
+            "id": 2,
+            "bld": "dinner",
+            "title": "Salmon with Purple Potatoes",
+            "description": "Delicious salmon served with purple potatoes and steamed carrots and broccoli.",
+            "photos": [
+              "/photos/Salmon-with-Purple-Potatoes.jpeg"
+            ],
+            "price": 16
+          }
+        ]
+      },
+      {
+        "day": "Tuesday",
+        "date": "2024-04-02",
+        "delivered": "Sunday PM March 31st",
+        "meals": [
+          {
+            "id": 3,
+            "bld": "lunch",
+            "title": "Garbanzo Bean Salad",
+            "description": "A refreshing salad with garbanzo beans and optional meat.",
+            "photos": [],
+            "price": 16
+          },
+          {
+            "id": 4,
+            "bld": "dinner",
+            "title": "Organic Grass Fed Ground Beef Zucchini Rice Bowl",
+            "description": "A flavorful bowl featuring organic grass-fed ground beef, zucchini, and rice.",
+            "photos": [
+              "/photos/Organic-grass-fed-ground-beef-zucchini-rice-bowl.jpeg"
+            ],
+            "price": 16
+          }
+        ]
+      }
+    ]
+  }
+]
+
+$60
+
+Breakfast: Quinoa “oatmeal” cooked in coconut milk and topped with Organic Apples stewed in coconut oil, ceylon cinnamon, cardamom, and vanilla bean
+ Lunch: Steamed Salmon with steamed carrots and a side of rice mixed with a cup of minced kale
+Dinner: Zucchini Noodles in a Pistachio Pesto served with gently steamed Greens tossed in olive oil and lemon with a 14 oz cup of warm bone broth
+Post-dinner drink: Digestive Support Tea
+
+
+Day Two Post-Op Meal Prep $60
+
+Pre-Breakfast Juice: Celery Apple Mint and Cucumber Juice
+Breakfast: Quinoa “oatmeal” cooked in an apple herb broth and topped with flax and hemp seeds
+Lunch: Squash and Red Lentil Soup
+Dinner: Steamed Salmon with Rice and Steamed Broccoli and Carrots
+Post-dinner drink: Digestive Support Tea

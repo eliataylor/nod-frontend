@@ -3,6 +3,8 @@ import {Button, CircularProgress, Grid, MenuItem, TextField, Typography} from '@
 import {EntityTypes, FieldTypeDefinition, NavItem, NAVITEMS, RelEntity} from "../types/types";
 import AutocompleteField from "./AutocompleteField";
 import ApiClient from "../../ApiClient";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 import AutocompleteMultipleField from "./AutocompleteMultipleField";
 import ImageUpload, {Upload} from "./ImageUpload";
 import {DatePicker} from '@mui/x-date-pickers/DatePicker';
@@ -13,16 +15,14 @@ import {useNavigate} from "react-router-dom";
 import ListItemText from "@mui/material/ListItemText";
 import {isDayJs} from "../../Utils";
 import ProviderButton from "../../allauth/socialaccount/ProviderButton";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 
 dayjs.extend(utc)
 
 interface GenericFormProps {
     fields: FieldTypeDefinition[];
-    original?: EntityTypes;
+    original: EntityTypes;
     navItem: NavItem;
-    onSubmit?: (entity: EntityTypes) => void;
+    onSubmit?: (entity: EntityTypes | FormData) => void;
     onUpdate?: (entity: EntityTypes, field_name: string) => void;
     actionButtons?: { [key: string]: boolean }
 }
@@ -36,9 +36,8 @@ const GenericForm: React.FC<GenericFormProps> = ({
                                                      actionButtons = {'submit': true, 'delete': true}
                                                  }) => {
 
-    const eid = original && typeof original['id' as keyof EntityTypes] !== 'undefined' ? original['id' as keyof EntityTypes] : 0;
-    // @ts-ignore
-    const [entity, setEntity] = useState<EntityTypes>(original ? original : {id: 0});
+    const eid = typeof original['id' as keyof EntityTypes] !== 'undefined' ? original['id' as keyof EntityTypes] : 0;
+    const [entity, setEntity] = useState<EntityTypes>(original);
     const [errors, setErrors] = useState<{ [key: string]: string[] }>({});
     const navigate = useNavigate()
     const [syncing, setSyncing] = useState<boolean>(false);
@@ -74,8 +73,12 @@ const GenericForm: React.FC<GenericFormProps> = ({
             const response = await ApiClient.delete(apiUrl);
             setSyncing(false)
             if (response.success) {
-                navigate(navItem.screen)
-                alert('Submitted deleted');
+                if (navItem.type === 'Users') {
+                    window.location.href = '/'
+                } else {
+                    alert('Deleted');
+                    navigate(navItem.screen)
+                }
             } else if (response.error) {
                 // @ts-ignore
                 setErrors(response.error)
@@ -90,7 +93,7 @@ const GenericForm: React.FC<GenericFormProps> = ({
         let hasImage = false;
         for (let key in entity) {
             let val: any = entity[key as keyof EntityTypes];
-            let was: any = original ? original[key as keyof EntityTypes] : null;
+            let was: any = original[key as keyof EntityTypes];
             if (JSON.stringify(was) === JSON.stringify(val)) {
                 continue;
             }
@@ -129,6 +132,10 @@ const GenericForm: React.FC<GenericFormProps> = ({
             headers["Content-Type"] = `multipart/form-data`
         } else {
             headers["Content-Type"] = "application/json"
+        }
+
+        if (onSubmit) {
+            return onSubmit(formData)
         }
 
         setSyncing(true)

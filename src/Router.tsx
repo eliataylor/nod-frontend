@@ -14,6 +14,7 @@ import NotReady from "./screens/NotReady";
 import ProgramForm from "./components/ProgramForm";
 import TermsOfService from "./screens/TermsOfService";
 import PreColonic from "./mealplans/PreColonic";
+import PostOp from "./mealplans/PostOp";
 
 const App = () => {
 
@@ -36,8 +37,9 @@ const App = () => {
                         <Route path="/menus/next-week/servings" element={<FoodMenu />}/>
                         <Route path="/menus/postpartum-plan/servings" element={<FoodMenu />}/>
 
-                        <Route path="/menus/postpartum" element={<FoodMenu/>}/>
-                        <Route path="/menus/pre-colonic" element={<PreColonic/>}/>
+                        <Route path="/menus/postpartum" element={<FoodMenu/>} />
+                        <Route path="/menus/pre-colonic" element={<PreColonic/>} />
+                        <Route path="/menus/postop" element={<PostOp/>} />
 
                         <Route path="/checkout" element={<Checkout/>}/>
 

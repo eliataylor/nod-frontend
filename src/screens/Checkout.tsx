@@ -1,9 +1,7 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Box, Button, TextField, Typography} from "@mui/material";
 import {QuantityContext} from "../CartProvider";
 import OrderItem from "../components/OrderItem";
-import {useTheme} from "@mui/styles";
-import {Theme} from "@mui/material/styles";
 import {Link} from "react-router-dom";
 import ApiClient from "../ApiClient";
 import {EntityTypes, FieldTypeDefinition, NAVITEMS, Orders, TypeFieldSchema} from "../object-actions/types/types";
@@ -20,17 +18,21 @@ const Checkout = () => {
             start_date: program.start_date ?? nearestDay(new Date(), 7),
             glass_containers: program.use_glass ?? false
         }
+        /*
         const orderItems = cartItems.map(item => {
             const test = 1
             return {'id': item.id, 'str': item.title, '_type': 'Meal', entity: item}
         })
-        order.order_items = orderItems
+        */
+        order.order_items = cartItems
+        order.program = program;
+        order.cartPrice = cartPrice;
 
         return order;
 
     }
 
-    const postMealData = (entity: EntityTypes): void => {
+    const postMealData = (entity: EntityTypes | FormData): void => {
         const order: any = {
             ...buildOrder(),
             ...entity

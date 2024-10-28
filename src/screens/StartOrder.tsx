@@ -29,9 +29,16 @@ const StartOrder: React.FC = () => {
                         POSTPARTUM MEAL GIFT
                     </ThemedButton>
                 </Grid>
+                {/*
                 <Grid item xs={12} component={Link} to="/menus/pre-colonic">
                     <ThemedButton sx={{width: 300, margin: 'auto'}}>
                         ALL-ORGANIC MENU for Colonic Clients
+                    </ThemedButton>
+                </Grid>
+                */}
+                <Grid item xs={12} component={Link} to="/menus/postop">
+                    <ThemedButton sx={{width: 300, margin: 'auto'}}>
+                        Post Op Meal Plan
                     </ThemedButton>
                 </Grid>
             </Grid>

@@ -43,6 +43,8 @@ class ApiClient {
         }, (error) => {
             return Promise.reject(error);
         });
+
+
     }
 
     public async post<T>(url: string, data: any, headers: any = {}): Promise<HttpResponse<T>> {
@@ -150,7 +152,12 @@ class ApiClient {
             found = error
         }
         if (found && typeof found === 'object') {
-            found = Object.values(found).join(", ");
+            found = Object.entries(found).map(([key, err]) => {
+                if (typeof err === 'string') return `${key}: ${err}`
+                // @ts-ignore
+                return `${key}: ${err.join(', ')}`
+            })
+            found = found.join("\n\r ");
         }
         return found;
     }

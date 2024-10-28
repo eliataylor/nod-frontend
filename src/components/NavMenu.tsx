@@ -21,6 +21,10 @@ const NavMenu = () => {
             <ListItem component={Link} to="/faqs" selected={location.pathname === '/faqs'}>
                 <ListItemText primary="FAQ"/>
             </ListItem>
+
+            <ListItem component={Link} to="/menus" selected={location.pathname === '/menus'}>
+                <ListItemText primary="PROGRAMS"/>
+            </ListItem>
             <ListItem component={Link} to="/contact" selected={location.pathname === '/contact'}>
                 <ListItemText primary="CONTACT"/>
             </ListItem>
