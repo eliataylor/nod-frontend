@@ -10,7 +10,6 @@ import {QuantityContext} from "../CartProvider";
 
 const NavMenu = () => {
     const location = useLocation();
-    const theme = useTheme() as Theme;
     const price = useContext(QuantityContext).cartPrice;
 
     return (

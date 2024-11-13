@@ -1,27 +1,32 @@
 #!/bin/bash
 
 # Setup gcloud CLI using Service Account Key
-gcloud auth login --cred-file="$PARENT_DIR/sa_key.json"
-
 # Define required environment variables for this script
-required_vars=("GCP_PROJECT_ID" "GCP_BUCKET_NAME")
+REQUIRED_VARS=("GCP_PROJECT_ID" "GCP_BUCKET_APP_NAME" "GCP_SA_KEY_PATH")
 
-# Set Path
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR=$(dirname "$0")
+source "${SCRIPT_DIR}/common.sh"
 
-# Validate environment variables or exit
-source "$SCRIPT_DIR/common.sh"
+REACT_APP_API_HOST="https://api.djmote.com"
 
-# Set Default GCP Project
-gcloud config set project $GCP_PROJECT_ID
+if [[ $REACT_APP_API_HOST == *":3000"* || $REACT_APP_API_HOST == *"localhost"* ]]; then
+  echo "Error: REACT_APP_API_HOST should not include ':3000' or 'localhost'."
+  exit 1
+fi
 
+login_service_account $GCP_SA_KEY_PATH $GCP_PROJECT_ID $GCP_SERVICE_NAME
+# login_owner "roles/owner" $GCP_PROJECT_ID
+set_project $GCP_PROJECT_ID
 
+show_loading "Building Project"
+
+npm run build
+
+show_section_header "Deploying front end to $GCP_BUCKET_APP_NAME..."
+show_loading "Setting Web/Cors Settings"
 gsutil web set -m index.html -e index.html gs://$GCP_BUCKET_APP_NAME
 gsutil cors set "$SCRIPT_DIR/storage-cors.json" gs://$GCP_BUCKET_APP_NAME
 
-
-# npm run build
-
-# Sync build folder files to GCS bucket
-# gcloud storage rsync build gs://$GCP_BUCKET_APP_NAME --recursive
-gsutil -m rsync -r build gs://$GCP_BUCKET_APP_NAME
+show_loading "Uploading Project"
+gcloud storage rsync build gs://$GCP_BUCKET_APP_NAME --recursive
+# gsutil -m rsync -r build gs://$GCP_BUCKET_APP_NAME

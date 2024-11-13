@@ -14,33 +14,37 @@ const StartOrder: React.FC = () => {
                 nutrition goals. Your body (and mind) will soon be feeling the difference.
             </Typography>
             <Grid item container direction={'column'} gap={4}>
+                <Grid item xs={12} component={Link} to="/menus/postop">
+                    <ThemedButton sx={{width: 300, margin: 'auto', textTransform: 'none'}}>
+                        Post-Op Meal Prep
+                    </ThemedButton>
+                </Grid>
+
+                {/*
                 <Grid item xs={12} component={Link} to="/menus/next-week/pricing">
                     <ThemedButton sx={{width: 300, margin: 'auto'}}>
                         HEALTHY MEAL PREP
                     </ThemedButton>
                 </Grid>
+                */}
                 <Grid item xs={12} component={Link} to="/menus/postpartum-plan/pricing">
-                    <ThemedButton sx={{width: 300, margin: 'auto'}}>
-                        POSTPARTUM MEAL PREP
-                    </ThemedButton>
-                </Grid>
-                <Grid item xs={12} component={Link} to="/menus/postpartum-gift">
-                    <ThemedButton sx={{width: 300, margin: 'auto'}}>
-                        POSTPARTUM MEAL GIFT
+                    <ThemedButton sx={{width: 300, margin: 'auto', textTransform: 'none'}}>
+                        PostPartum Meal Prep
                     </ThemedButton>
                 </Grid>
                 {/*
                 <Grid item xs={12} component={Link} to="/menus/pre-colonic">
-                    <ThemedButton sx={{width: 300, margin: 'auto'}}>
-                        ALL-ORGANIC MENU for Colonic Clients
+                    <ThemedButton sx={{width: 300, margin: 'auto', textTransform:'none'}}>
+                        Post Colonic Meal Prep
                     </ThemedButton>
                 </Grid>
                 */}
-                <Grid item xs={12} component={Link} to="/menus/postop">
-                    <ThemedButton sx={{width: 300, margin: 'auto'}}>
-                        Post Op Meal Plan
+                <Grid item xs={12} component={Link} to="/menus/postpartum-gift">
+                    <ThemedButton sx={{width: 300, margin: 'auto', textTransform: 'none'}}>
+                        Gift a Meal
                     </ThemedButton>
                 </Grid>
+
             </Grid>
         </Grid>
     );

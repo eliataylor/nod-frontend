@@ -41,8 +41,8 @@ const Pick1: React.FC<PlanProps> = ({title, meals}) => {
             {meals.map((meal, index) => (
                 <FormControlLabel value={meal.name} control={<Radio size={'small'}/>} label={<React.Fragment>
                     <Typography variant={'body1'} component={'span'}>{meal.name}</Typography>
-                    <Typography variant={'subtitle2'} component={'span'}
-                                sx={{color: 'primary.main', marginLeft: 1}}>${meal.price}</Typography>
+                    {/* <Typography variant={'subtitle2'} component={'span'}
+                                sx={{color: 'primary.main', marginLeft: 1}}>${meal.price}</Typography> */}
                 </React.Fragment>}/>
             ))}
         </RadioGroup>
@@ -67,8 +67,8 @@ const PickMany: React.FC<PlanProps> = ({title, meals}) => {
                     checked={state[meal.name]} onChange={handleChange} name={meal.name}
                     size={'small'}/>} label={<React.Fragment>
                     <Typography variant={'body1'} component={'span'}>{meal.name}</Typography>
-                    <Typography variant={'subtitle2'} component={'span'}
-                                sx={{color: 'primary.main', marginLeft: 1}}>${meal.price}</Typography>
+                    {/* <Typography variant={'subtitle2'} component={'span'}
+                                sx={{color: 'primary.main', marginLeft: 1}}>${meal.price}</Typography> */}
                 </React.Fragment>}
                 />
             ))}

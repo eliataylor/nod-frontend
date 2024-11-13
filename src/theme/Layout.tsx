@@ -52,7 +52,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         <Grid container justifyContent={'space-between'} alignItems={'center'} padding={1}
               spacing={2}>
             {location.pathname.length > 1 &&
-                <Grid item>
+                <Grid item style={{paddingTop:22, paddingLeft:22}} >
                     <Logo height={90}/>
                 </Grid>
             }

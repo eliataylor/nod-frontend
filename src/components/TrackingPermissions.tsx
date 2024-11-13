@@ -45,7 +45,7 @@ const TrackingPermissions: React.FC<PermissionProps> = ({permissions}) => {
         const updatedPermissions = {...permissions}
         updated.forEach(u => {
             // @ts-ignore
-            updatedPermissions[u] = u === true ? 'granted' : 'denied';
+            updatedPermissions[u] = u === false ? 'denied' : 'granted';
         })
 
         sendGTag(updatedPermissions)
